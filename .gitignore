@@ -1,0 +1,14 @@
+# build artifacts
+tools/ToonReel
+tools/ToonReel.app/
+tools/ToonReel-arm64
+tools/ToonReel-x64
+tools/main.swift
+tools/Info.plist
+# runtime data & uploads (managed via admin panel)
+uploads/*
+!uploads/.gitkeep
+data/catalog.json
+# misc
+.DS_Store
+nohup.out

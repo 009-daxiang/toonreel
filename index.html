@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ToonReel — AI Micro Dramas, Binge in Minutes</title>
+  <meta name="description" content="ToonReel streams AI-animated micro dramas: werewolf queens, contract brides, cultivation revenge and more. Vertical episodes made for your phone." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%238b5cf6'/%3E%3Cpath d='M38 28 L74 50 L38 72 Z' fill='white'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#8b5cf6" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a class="logo" href="#/" aria-label="ToonReel home">
+      <span class="mark">▶</span>
+      <span class="wordmark">Toon<span class="grad">Reel</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#/" data-view="home" data-i18n="nav_home">Home</a>
+      <a href="#/rank" data-view="rank" data-i18n="nav_rank">Ranking</a>
+      <a href="#/genres" data-view="genres" data-i18n="nav_genres">Genres</a>
+      <a href="#/mylist" data-view="mylist" data-i18n="nav_mylist">My List</a>
+    </nav>
+    <div class="nav-spacer"></div>
+    <a class="getapp-btn" href="download.html">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v10m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      <span data-i18n="getapp">Get the App</span>
+    </a>
+    <div class="search-wrap">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="searchInput" type="search" data-i18n-ph="search_ph" placeholder="Search dramas…" autocomplete="off" aria-label="Search dramas" />
+      <div class="search-drop" id="searchDrop"></div>
+    </div>
+    <div class="lang-wrap">
+      <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-label="Language">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 2.6 4 5.6 4 9s-1.2 6.4-4 9c-2.8-2.6-4-5.6-4-9s1.2-6.4 4-9z"/></svg>
+        <span id="langCode">EN</span>
+      </button>
+      <div class="lang-menu" id="langMenu"></div>
+    </div>
+    <div class="avatar" title="Guest">G</div>
+  </header>
+
+  <main>
+    <!-- ============ VIEW: HOME ============ -->
+    <section class="view" id="view-home">
+      <div class="hero" id="hero" aria-label="Featured dramas">
+        <div class="hero-slides" id="heroSlides"></div>
+        <div class="hero-dots" id="heroDots" role="tablist" aria-label="Featured slides"></div>
+      </div>
+
+      <div class="view-pad">
+        <section class="row-section" id="continueSection" hidden>
+          <div class="row-head"><h2 data-i18n="sec_continue">Continue Watching</h2></div>
+          <div class="rail" id="continueRail"></div>
+        </section>
+
+        <section class="row-section">
+          <div class="row-head"><h2 data-i18n="sec_top10">🏆 Top 10 Today</h2></div>
+          <div class="rail rank-rail" id="topRail"></div>
+        </section>
+
+        <section class="row-section">
+          <div class="row-head">
+            <h2 data-i18n="sec_trending">🔥 Trending Now</h2>
+            <a class="more" href="#/rank" data-i18n="see_all">See all</a>
+          </div>
+          <div class="rail" id="trendingRail"></div>
+        </section>
+
+        <section class="row-section">
+          <div class="row-head">
+            <h2 data-i18n="sec_new">✨ New This Week</h2>
+            <a class="more" href="#/genres" data-i18n="see_all">See all</a>
+          </div>
+          <div class="rail" id="newRail"></div>
+        </section>
+
+        <section class="row-section">
+          <div class="row-head"><h2 data-i18n="sec_done">✅ Binge Complete Series</h2></div>
+          <div class="rail" id="completedRail"></div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ============ VIEW: RANKING ============ -->
+    <section class="view" id="view-rank" hidden>
+      <div class="view-pad">
+        <h1 class="view-title" data-i18n="nav_rank">Ranking</h1>
+        <div class="chips" id="rankTabs" role="tablist" aria-label="Ranking lists"></div>
+        <div class="rank-list" id="rankList"></div>
+      </div>
+    </section>
+
+    <!-- ============ VIEW: GENRES ============ -->
+    <section class="view" id="view-genres" hidden>
+      <div class="view-pad">
+        <h1 class="view-title" data-i18n="browse_title">Browse by Genre</h1>
+        <div class="chips" id="genreChips" role="tablist" aria-label="Filter by genre"></div>
+        <div class="grid" id="showGrid"></div>
+        <div class="empty-note" id="emptyGridNote" data-i18n="empty_grid">No dramas match. Try another genre.</div>
+
+        <!-- banner ad slot (fills when an ad provider is configured) -->
+        <div id="adSlotHome" style="margin-top:44px"></div>
+      </div>
+    </section>
+
+    <!-- ============ VIEW: MY LIST ============ -->
+    <section class="view" id="view-mylist" hidden>
+      <div class="view-pad">
+        <h1 class="view-title" data-i18n="mylist_title">My List</h1>
+        <div class="grid" id="myGrid"></div>
+        <div class="empty-note" id="emptyMyNote" data-i18n="empty_mylist">Nothing here yet. Tap the ♥ on any drama to save it.</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="foot-inner">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a class="logo" href="#/">
+            <span class="mark">▶</span>
+            <span class="wordmark">Toon<span class="grad">Reel</span></span>
+          </a>
+          <p data-i18n="foot_about">AI-animated micro dramas, made for your phone. New episodes every day — binge a whole love story in your lunch break.</p>
+        </div>
+        <div class="foot-cols">
+          <div class="foot-col">
+            <h4 data-i18n="foot_explore">Explore</h4>
+            <a href="#/genres" data-i18n="f_all">All Dramas</a>
+            <a href="#/rank" data-i18n="nav_rank">Ranking</a>
+            <a href="#/genres" data-genre-link="Romance">Romance</a>
+            <a href="#/genres" data-genre-link="Fantasy">Fantasy</a>
+            <a href="#/genres" data-genre-link="Cultivation">Cultivation</a>
+          </div>
+          <div class="foot-col">
+            <h4 data-i18n="getapp">Get the App</h4>
+            <a href="download.html" data-i18n="apk_download">Download APK</a>
+            <a href="download.html">Android</a>
+            <a href="download.html">iOS</a>
+          </div>
+          <div class="foot-col">
+            <h4 data-i18n="foot_company">Company</h4>
+            <a href="#" data-i18n="f_about">About Us</a>
+            <a href="#" data-i18n="f_creator">Creator Program</a>
+            <a href="#" data-i18n="f_careers">Careers</a>
+            <a href="#" data-i18n="f_press">Press Kit</a>
+          </div>
+          <div class="foot-col">
+            <h4 data-i18n="foot_support">Support</h4>
+            <a href="#" data-i18n="f_help">Help Center</a>
+            <a href="#" data-i18n="f_terms">Terms of Service</a>
+            <a href="#" data-i18n="f_privacy">Privacy Policy</a>
+            <a href="#" data-i18n="f_contact">Contact</a>
+          </div>
+          <div class="foot-col">
+            <h4 data-i18n="foot_follow">Follow Us</h4>
+            <a href="#">TikTok</a>
+            <a href="#">YouTube</a>
+            <a href="#">Instagram</a>
+            <a href="#">X / Twitter</a>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span data-i18n="copyright">© 2026 ToonReel. All dramas are AI-generated originals.</span>
+        <div class="right"><span data-i18n="f_lang">English (US)</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ MOBILE TAB BAR ============ -->
+  <nav class="tabbar" aria-label="Mobile">
+    <a href="#/" data-view="home" class="tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></svg>
+      <span data-i18n="nav_home">Home</span>
+    </a>
+    <a href="#/rank" data-view="rank" class="tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 20h4M10 20V10M14 20h4M18 20V4M6 20v-6"/><circle cx="8" cy="11" r="0"/><path d="M8 14V20"/></svg>
+      <span data-i18n="nav_rank">Ranking</span>
+    </a>
+    <a href="#/genres" data-view="genres" class="tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2"/></svg>
+      <span data-i18n="nav_genres">Genres</span>
+    </a>
+    <a href="#/mylist" data-view="mylist" class="tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5C4.5 15 3 10.5 5.5 7.4 7.6 4.8 11 5.3 12 8c1-2.7 4.4-3.2 6.5-.6 2.5 3.1 1 7.6-6.5 13.1z"/></svg>
+      <span data-i18n="nav_mylist">My List</span>
+    </a>
+  </nav>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/ads.js"></script>
+  <script src="js/pwa.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
