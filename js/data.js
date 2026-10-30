@@ -198,7 +198,7 @@ function epTitle(show, ep) {
   const list = Array.isArray(show.epTitles) && show.epTitles.length
     ? show.epTitles
     : (DEMO_EP_TITLES[show.id] || []);
-  return list[ep - 1] || `Episode ${ep}`;
+  return list[ep - 1] || (typeof t === 'function' ? t('ep_n', { n: ep }) : `Episode ${ep}`);
 }
 
 /* ---------- Generated poster art (replace with real artwork) ---------- */

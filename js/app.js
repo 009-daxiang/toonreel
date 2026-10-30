@@ -157,6 +157,12 @@ function applyFilter() {
   document.getElementById('emptyGridNote').classList.toggle('show', visible === 0);
 }
 
+/* footer genre shortcut links: localized text + remembered filter */
+function localizeGenreLinks() {
+  document.querySelectorAll('[data-genre-link]').forEach(a => {
+    a.textContent = trGenre(a.dataset.genreLink);
+  });
+}
 document.querySelectorAll('[data-genre-link]').forEach(a =>
   a.addEventListener('click', () => {
     activeGenre = a.dataset.genreLink;
@@ -242,6 +248,7 @@ fillBanner('adSlotHome', AD_CONFIG.banners.home);
 
 /* ---------- rerender everything on language change ---------- */
 function rerenderAll() {
+  localizeGenreLinks();
   buildHero();
   buildRails();
   buildBrowse();
@@ -254,7 +261,8 @@ function rerenderAll() {
 
 /* ---------- init ---------- */
 async function boot() {
-  initLang(rerenderAll);
+  initLang(() => { rerenderAll(); });
+  localizeGenreLinks();
   buildHero();
   buildRails();
   buildBrowse();

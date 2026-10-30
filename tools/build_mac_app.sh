@@ -21,7 +21,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         window = NSWindow(contentRect: rect,
                           styleMask: [.titled, .closable, .miniaturizable, .resizable],
                           backing: .buffered, defer: false)
-        window.title = "ToonReel"
+        window.title = "YT688"
         window.appearance = NSAppearance(named: .darkAqua)
         window.minSize = NSSize(width: 340, height: 560)
         let config = WKWebViewConfiguration()
@@ -49,8 +49,8 @@ cat > Info.plist <<PLIST
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>CFBundleName</key><string>ToonReel</string>
-  <key>CFBundleDisplayName</key><string>ToonReel</string>
+  <key>CFBundleName</key><string>YT688</string>
+  <key>CFBundleDisplayName</key><string>YT688</string>
   <key>CFBundleIdentifier</key><string>app.toonreel.desktop</string>
   <key>CFBundleVersion</key><string>$VERSION</string>
   <key>CFBundleShortVersionString</key><string>$VERSION</string>

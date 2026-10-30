@@ -27,7 +27,7 @@ const PAUSE_PATH = 'M7 5h4v14H7zM13 5h4v14h-4z';
 
 /* ---------- page info ---------- */
 function renderInfo() {
-  document.title = `${show.title} — ToonReel`;
+  document.title = `${show.title} — YT688`;
   document.getElementById('badges').innerHTML = `
     <span class="pill">${t('ai_original')}</span>
     ${show.badge ? `<span class="pill ghost">${show.badge}</span>` : ''}
