@@ -99,10 +99,15 @@ function updateUrl() {
 }
 
 /* ---------- player ---------- */
+function hudText() {
+  const label = t('ep_label', { n: currentEp });
+  const name = epTitle(show, currentEp);
+  return name === t('ep_n', { n: currentEp }) ? label : `${label} · ${name}`;
+}
+
 function loadEp(autoplay) {
   updateUrl();
-  document.getElementById('hudEpNum').textContent =
-    `${t('ep_label', { n: currentEp })} · ${epTitle(show, currentEp)}`;
+  document.getElementById('hudEpNum').textContent = hudText();
   renderEpisodes();
   highlightNavBtns();
   /* ad-supported: a preroll may play before the episode starts */
@@ -218,8 +223,7 @@ async function boot() {
   initLang(() => {
     renderInfo();
     renderEpisodes();
-    document.getElementById('hudEpNum').textContent =
-      `${t('ep_label', { n: currentEp })} · ${epTitle(show, currentEp)}`;
+    document.getElementById('hudEpNum').textContent = hudText();
   });
   fillBanner('adSlotWatch', AD_CONFIG.banners.watch);
   renderInfo();

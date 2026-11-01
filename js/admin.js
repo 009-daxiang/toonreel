@@ -122,10 +122,11 @@ function uniqueId(title, excludeIdx) {
       try {
         const r = await fetch('/api/catalog', { headers: authHeaders() });
         if (r.status === 401) { handleAuthFail(); }
-        else ok = true;
+        else { ok = true; }
       } catch { handleAuthFail(); }
     } else handleAuthFail();
-    if (!ok && document.getElementById('loginBack').classList.contains('open') === false) handleAuthFail();
+    if (ok) refresh();
+    else if (!document.getElementById('loginBack').classList.contains('open')) handleAuthFail();
   } else {
     showLogin('Static mode — enter the admin password');
     if (sessionStorage.getItem('toonreel:admin_gate') === 'open') {

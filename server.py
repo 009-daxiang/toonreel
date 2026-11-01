@@ -147,6 +147,8 @@ class Handler(BaseHTTPRequestHandler):
     def api_upload(self):
         if not self._authorized():
             return self._deny()
+        if int(self.headers.get("Content-Length") or 0) > 512 * 1024 * 1024:
+            return self._send(413, {"error": "file too large (max 512MB)"})
         body = self._read_body()
         _, files = parse_multipart(body, self.headers.get("Content-Type", ""))
         file = next((f for f in files if f["name"] == "file"), files[0] if files else None)

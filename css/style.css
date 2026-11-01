@@ -786,6 +786,52 @@ body.admin-page { background: var(--bg); }
   padding: 10px 0 16px; margin-top: 2px;
 }
 
+/* ---------- business contact ---------- */
+.biz-card {
+  margin-top: 26px; padding: 24px;
+  background: linear-gradient(135deg, rgba(139,92,246,.12), rgba(34,211,238,.08));
+  border: 1px solid rgba(139, 92, 246, .35);
+  border-radius: 20px;
+}
+.biz-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.biz-head h2 { font-size: 1.15rem; font-weight: 800; }
+.biz-dot { width: 9px; height: 9px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 10px #4ade80; animation: biz-pulse 2s infinite; }
+@keyframes biz-pulse { 50% { opacity: .35; } }
+.biz-note { color: var(--text-dim); font-size: .85rem; margin-bottom: 16px; }
+.biz-rows { display: flex; flex-direction: column; gap: 10px; }
+.biz-row {
+  display: flex; align-items: center; gap: 14px;
+  padding: 13px 16px; border-radius: 14px;
+  background: var(--bg-soft); border: 1px solid var(--line);
+  color: var(--text); text-align: left; width: 100%;
+  transition: border-color .15s, transform .15s;
+}
+a.biz-row:hover { border-color: var(--brand); transform: translateX(3px); }
+.biz-app { font-size: 1.2rem; }
+.biz-appname { font-weight: 700; font-size: .9rem; min-width: 70px; }
+.biz-id { font-weight: 800; font-size: 1rem; letter-spacing: .5px; color: #c4b5fd; user-select: all; }
+.biz-copy {
+  margin-left: auto; flex: 0 0 auto;
+  padding: 7px 14px; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--text-dim);
+  font-size: .78rem; font-weight: 600;
+  transition: color .15s, border-color .15s;
+}
+.biz-copy:hover { color: var(--text); border-color: var(--brand); }
+
+.contact-bar {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin-top: 26px; padding: 13px 18px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  font-size: .85rem; color: var(--text-dim);
+}
+.contact-bar a { color: var(--text); }
+.contact-bar a:hover { color: #c4b5fd; }
+.contact-bar b { color: #c4b5fd; }
+.cb-sep { color: var(--text-faint); }
+.admin-contact { margin-top: 26px; color: var(--text-faint); font-size: .85rem; }
+.admin-contact b { color: var(--text-dim); }
+
 /* ---------- footer ---------- */
 footer {
   border-top: 1px solid var(--line);

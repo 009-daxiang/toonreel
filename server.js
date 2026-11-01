@@ -127,6 +127,9 @@ function authorized(req) {
 
 async function handleUpload(req, res) {
   if (!authorized(req)) return send(res, 401, { error: 'unauthorized — log in at /admin.html' });
+  if (parseInt(req.headers['content-length'] || 0) > 512 * 1024 * 1024) {
+    return send(res, 413, { error: 'file too large (max 512MB)' });
+  }
   const body = await readBody(req);
   const { files } = parseMultipart(body, req.headers['content-type']);
   const file = files.find(f => f.name === 'file') || files[0];
