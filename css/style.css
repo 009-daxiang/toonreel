@@ -832,6 +832,16 @@ a.biz-row:hover { border-color: var(--brand); transform: translateX(3px); }
 .admin-contact { margin-top: 26px; color: var(--text-faint); font-size: .85rem; }
 .admin-contact b { color: var(--text-dim); }
 
+/* ---------- legal pages ---------- */
+.legal-main { max-width: 780px; margin: 0 auto; padding: 40px 24px 90px; }
+.legal-main h1 { font-size: 2rem; font-weight: 850; margin-bottom: 4px; }
+.legal-updated { color: var(--text-faint); font-size: .82rem; margin-bottom: 28px; }
+.legal-main h2 { font-size: 1.1rem; font-weight: 800; margin: 28px 0 10px; }
+.legal-main p, .legal-main li { color: var(--text-dim); font-size: .93rem; line-height: 1.75; }
+.legal-main ul { padding-left: 22px; margin: 8px 0; }
+.legal-main a { color: var(--brand-2); }
+.legal-main b { color: var(--text); }
+
 /* ---------- footer ---------- */
 footer {
   border-top: 1px solid var(--line);

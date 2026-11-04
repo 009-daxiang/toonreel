@@ -134,11 +134,3 @@ function showToast(msg) {
   showToast._tm = setTimeout(() => el.classList.remove('show'), 2400);
 }
 
-/* ---------- copy business contact ids ---------- */
-document.addEventListener('click', (e) => {
-  const c = e.target.closest('[data-copy]');
-  if (!c) return;
-  navigator.clipboard.writeText(c.dataset.copy).then(() => {
-    showToast('Copied: ' + c.dataset.copy);
-  }).catch(() => {});
-});

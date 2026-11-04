@@ -40,23 +40,28 @@ python3 server.py        # 或: node server.js
 # → http://localhost:3000   admin 显示 "API connected"
 ```
 
-## 商业模式：免费观看 + 广告位（已预留）
+## 商业模式：当前全免费（海外广告位已就绪，填 ID 即产生收益）
 
-全站**所有剧集免费**，无金币/付费解锁。变现走广告，接口层在 **`js/ads.js`**：
+**当前所有剧集（含后续上传的）一律免费观看，广告全部关闭**（`AD_CONFIG.provider = 'none'`）。广告位接口层在 **`js/ads.js`**，两条海外主流变现通道已完整实现：
 
-```js
-const AD_CONFIG = {
-  provider: 'demo',   // 'none'（不显示）| 'demo'（演示广告）| 接入后填网络名
-  preroll:  { enabled: true, skipAfter: 3, slotId: 'toonreel-preroll' },
-  banners:  { enabled: true, home: 'toonreel-home-banner', watch: 'toonreel-watch-banner' }
-};
-```
+### ① 片头视频广告（VAST）——视频站收益主力
 
-- **片头广告**：每集播放前展示，可跳过（demo 为 3 秒占位广告）；接入点 `showPreroll(onDone)`
-- **Banner 位**：首页（分类网格下方）与播放页（剧集列表下方）各一个；接入点 `fillBanner()`
-- **接入真实广告网络**（Google AdSense / AdMob / AppLovin / Unity Ads）：把 `provider` 改为网络名，实现 `showPreroll()` 与 `adBannerHtml()` 里标注 TODO 的两个函数即可，站点其余部分无需改动
+1. 在广告网络开账号并拿到 **VAST tag URL**（Adsterra / Galaksion / BidMachine，或直客广告）；
+2. 填入 `AD_CONFIG.preroll.vastTagUrl`；
+3. 完成。每集开播前自动请求 VAST → 播放视频广告（5 秒后可跳过，含 Wrapper 跳转解析）→ 自动续播正片，广告失败不影响正片播放。约 $3–15 CPM（看地区）。
 
-后端 `/api/payments/*` 端点仍保留在 server.js / server.py 中（未来做混合变现时可复用）。
+### ② 页面 Banner（Google AdSense）
+
+1. 站点绑定**自定义域名**（AdSense 不接受 github.io 子路径：买域名 ~$10/年 → Cloudflare 解析 → Pages 绑定 custom domain）；
+2. AdSense 提交站点审核（需要：真实内容 + 隐私政策页——**`privacy.html` 已备好** + 域名所有权验证）；
+3. 审核通过后建两个展示位，把 `ca-pub-xxx` 和 slot id 填入 `AD_CONFIG.banners.adsense`；
+4. 完成。首页与播放页 banner 自动注入 AdSense 脚本。约 $1–4 CPM（东南亚）/ $4–10（欧美）。
+
+> 收益公式：广告收益 ≈ 展示次数 ÷ 1000 × CPM。日活 1000、人均 20 集，纯片头广告粗估 $60–600/月，随地区与网络浮动。
+
+### 预览模式
+
+`AD_CONFIG.provider = 'demo'` → 片头显示 3 秒可跳过占位广告 + 页面广告占位框（当前默认关闭，全部免费）。
 
 ## 多语言（8 种）
 

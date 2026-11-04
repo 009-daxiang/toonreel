@@ -10,7 +10,7 @@
 
 const CACHE_VERSION = 'toonreel-v7';
 const SHELL = [
-  'index.html', 'watch.html', 'download.html',
+  'index.html', 'watch.html', 'download.html', 'privacy.html',
   'css/style.css',
   'js/data.js', 'js/store.js', 'js/i18n.js', 'js/payments.js', 'js/app.js', 'js/watch.js',
   'manifest.webmanifest',
