@@ -135,7 +135,7 @@ async function handleRegister(req, res) {
   users[email] = { salt, hash: crypto.createHash('sha256').update(salt + password).digest('hex'),
     created: new Date().toISOString().slice(0, 10), visitor: data.visitor || '' };
   fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 1));
-  trackEvent(req, 'register', { email });
+  trackEvent(req, 'register', { email, ref: data.ref || '' });
   send(res, 200, { ok: true, email });
 }
 
@@ -155,7 +155,7 @@ async function handleTrack(req, res) {
   try { data = JSON.parse((await readBody(req, 4 * 1024)).toString()); } catch { return send(res, 204, ''); }
   if (!['visit', 'play', 'complete'].includes(data.e)) return send(res, 400, { error: 'bad event' });
   const extra = {};
-  for (const k of ['show', 'ep', 'page']) if (data[k] !== undefined) extra[k] = data[k];
+  for (const k of ['show', 'ep', 'page', 'ref']) if (data[k] !== undefined) extra[k] = data[k];
   trackEvent(req, data.e, extra);
   send(res, 204, '');
 }
@@ -165,7 +165,7 @@ async function handleStats(req, res) {
   const today = new Date().toISOString().slice(0, 10);
   const days = {}, plays = {};
   const visitors = new Set(), visitorsToday = new Set();
-  let pvToday = 0, registers = 0;
+  let pvToday = 0, registers = 0, referred = 0;
   try {
     for (const line of fs.readFileSync(ANALYTICS_FILE, 'utf8').split('\n')) {
       if (!line.trim()) continue;
@@ -176,7 +176,7 @@ async function handleStats(req, res) {
       if (d === today) visitorsToday.add(r.v);
       if (r.e === 'visit' && d === today) pvToday++;
       if (r.e === 'play' && r.show) plays[r.show] = (plays[r.show] || 0) + 1;
-      if (r.e === 'register') registers++;
+      if (r.e === 'register') { registers++; if (r.ref) referred++; }
     }
   } catch { /* no analytics yet */ }
   const trend = Object.keys(days).sort().slice(-7).map(d => ({ date: d, events: days[d] }));
@@ -184,7 +184,7 @@ async function handleStats(req, res) {
     .map(([show, plays]) => ({ show, plays }));
   send(res, 200, {
     today: { visitors: visitorsToday.size, pageviews: pvToday },
-    totals: { visitors: visitors.size, plays: Object.values(plays).reduce((a, b) => a + b, 0), registers },
+    totals: { visitors: visitors.size, plays: Object.values(plays).reduce((a, b) => a + b, 0), registers, referred },
     topShows: top, trend
   });
 }

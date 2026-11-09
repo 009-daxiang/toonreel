@@ -128,7 +128,7 @@ class Handler(BaseHTTPRequestHandler):
         }
         with open(USERS_FILE, "w", encoding="utf-8") as f:
             json.dump(users, f, indent=1, ensure_ascii=False)
-        self._track_event("register", {"email": email})
+        self._track_event("register", {"email": email, "ref": data.get("ref", "")})
         self._send(200, {"ok": True, "email": email})
 
     def api_user_login(self):
@@ -166,7 +166,7 @@ class Handler(BaseHTTPRequestHandler):
         allowed = {"visit", "play", "complete"}
         if event not in allowed:
             return self._send(400, {"error": "bad event"})
-        extra = {k: data[k] for k in ("show", "ep", "page") if k in data}
+        extra = {k: data[k] for k in ("show", "ep", "page", "ref") if k in data}
         self._track_event(event, extra)
         self._send(204, "")
 
@@ -180,6 +180,7 @@ class Handler(BaseHTTPRequestHandler):
         visitors_today = set()
         pv_today = 0
         registers = 0
+        referred = 0
         try:
             with open(ANALYTICS_FILE, encoding="utf-8") as f:
                 for line in f:
@@ -199,6 +200,8 @@ class Handler(BaseHTTPRequestHandler):
                         plays[key] = plays.get(key, 0) + 1
                     if r.get("e") == "register":
                         registers += 1
+                        if r.get("ref"):
+                            referred += 1
         except FileNotFoundError:
             pass
         trend = [{"date": d, "events": days[d]} for d in sorted(days)[-7:]]
@@ -206,7 +209,7 @@ class Handler(BaseHTTPRequestHandler):
         users = self._load_users()
         self._send(200, {
             "today": {"visitors": len(visitors_today), "pageviews": pv_today},
-            "totals": {"visitors": len(visitors), "plays": sum(plays.values()), "registers": registers},
+            "totals": {"visitors": len(visitors), "plays": sum(plays.values()), "registers": registers, "referred": referred},
             "topShows": [{"show": k, "plays": v} for k, v in top],
             "trend": trend,
         })

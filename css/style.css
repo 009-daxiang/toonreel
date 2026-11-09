@@ -866,6 +866,37 @@ a.biz-row:hover { border-color: var(--brand); transform: translateX(3px); }
 .st-bar i { display: block; height: 100%; background: var(--brand-grad); border-radius: 7px; }
 .st-bar-row b { min-width: 30px; text-align: right; color: var(--text); }
 
+/* ---------- share ---------- */
+.share-nav-btn {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: grid; place-items: center;
+  border: 1px solid var(--line);
+  background: var(--bg-soft); color: var(--text-dim);
+  transition: color .15s, border-color .15s;
+}
+.share-nav-btn:hover { color: var(--text); border-color: rgba(255,255,255,.25); }
+.modal.share { width: min(400px, 100%); }
+.share-link { display: flex; gap: 8px; margin-bottom: 16px; }
+.share-link input {
+  flex: 1; min-width: 0;
+  padding: 10px 12px; border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--bg-soft); color: var(--text);
+  font-size: .8rem; outline: none;
+}
+.share-link .btn { padding: 10px 16px; font-size: .82rem; white-space: nowrap; }
+.share-channels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 14px; }
+.share-ch {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 12px 4px; border-radius: 12px;
+  border: 1px solid var(--line); background: var(--bg-soft);
+  color: var(--text); font-size: .72rem; font-weight: 600;
+  transition: border-color .15s, transform .15s;
+}
+.share-ch:hover { border-color: var(--brand); transform: translateY(-2px); }
+.share-ch .sc-icon { font-size: 1.3rem; }
+.modal.share .btn { width: 100%; }
+
 /* ---------- footer ---------- */
 footer {
   border-top: 1px solid var(--line);

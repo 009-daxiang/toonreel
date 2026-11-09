@@ -28,6 +28,8 @@ const PAUSE_PATH = 'M7 5h4v14H7zM13 5h4v14h-4z';
 /* ---------- page info ---------- */
 function renderInfo() {
   document.title = `${show.title} — YT688`;
+  const sb = document.getElementById('shareBtn');
+  if (sb) { sb.dataset.shareTitle = show.title; sb.dataset.shareId = show.id; }
   document.getElementById('badges').innerHTML = `
     <span class="pill">${t('ai_original')}</span>
     ${show.badge ? `<span class="pill ghost">${show.badge}</span>` : ''}
@@ -62,13 +64,7 @@ document.getElementById('infoFav').addEventListener('click', () => {
   showToast(toggleFav(show.id) ? t('added_list') : t('removed_list'));
   updateFavBtns();
 });
-document.getElementById('shareBtn').addEventListener('click', async () => {
-  const url = location.href.split('?')[0] + `?id=${show.id}&ep=${currentEp}`;
-  try {
-    if (navigator.share) await navigator.share({ title: show.title, url });
-    else { await navigator.clipboard.writeText(url); showToast(t('link_copied')); }
-  } catch { /* user cancelled */ }
-});
+/* share button handled by js/share.js (multi-channel modal) */
 
 /* ---------- episode list ---------- */
 function renderEpisodes() {
