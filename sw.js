@@ -13,7 +13,7 @@ const SHELL = [
   'index.html', 'watch.html', 'download.html', 'privacy.html',
   'css/style.css',
   'js/data.js', 'js/store.js', 'js/i18n.js', 'js/payments.js', 'js/app.js', 'js/watch.js',
-  'manifest.webmanifest',
+  'manifest.webmanifest', 'js/geo-block.js',
   'assets/icons/icon-192.png', 'assets/icons/icon-512.png'
 ];
 
