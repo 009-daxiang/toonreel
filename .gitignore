@@ -7,8 +7,9 @@ tools/main.swift
 tools/Info.plist
 # runtime data & uploads (managed via admin panel)
 uploads/*
+!uploads/东北异事之出马诡堂
+!uploads/一身腱子肉，乱世做谋臣
 !uploads/.gitkeep
-data/catalog.json
 data/users.json
 data/analytics.jsonl
 # misc
