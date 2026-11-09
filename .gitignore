@@ -9,6 +9,8 @@ tools/Info.plist
 uploads/*
 !uploads/.gitkeep
 data/catalog.json
+data/users.json
+data/analytics.jsonl
 # misc
 .DS_Store
 nohup.out

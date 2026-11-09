@@ -842,6 +842,30 @@ a.biz-row:hover { border-color: var(--brand); transform: translateX(3px); }
 .legal-main a { color: var(--brand-2); }
 .legal-main b { color: var(--text); }
 
+/* ---------- admin stats dashboard ---------- */
+.stats-dash { margin-bottom: 26px; }
+.stats-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+.stat-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  padding: 18px 20px; display: flex; flex-direction: column; gap: 4px;
+}
+.stat-card b { font-size: 1.7rem; font-weight: 900; color: #c4b5fd; }
+.stat-card span { font-size: .78rem; color: var(--text-faint); }
+.stats-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.stats-col { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 20px; }
+.stats-col h4 { font-size: .8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 12px; }
+.st-top { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.st-top li { display: flex; align-items: center; gap: 10px; font-size: .85rem; padding: 4px 0; }
+.st-top .st-no { width: 22px; color: var(--text-faint); font-weight: 800; font-style: italic; }
+.st-top .st-no.top { color: var(--gold); }
+.st-top b { margin-left: auto; color: #c4b5fd; }
+.st-top .st-empty { color: var(--text-faint); }
+.st-trend { display: flex; flex-direction: column; gap: 8px; }
+.st-bar-row { display: flex; align-items: center; gap: 10px; font-size: .78rem; color: var(--text-dim); }
+.st-bar { flex: 1; height: 14px; border-radius: 7px; background: rgba(255,255,255,.06); overflow: hidden; }
+.st-bar i { display: block; height: 100%; background: var(--brand-grad); border-radius: 7px; }
+.st-bar-row b { min-width: 30px; text-align: right; color: var(--text); }
+
 /* ---------- footer ---------- */
 footer {
   border-top: 1px solid var(--line);
@@ -1100,6 +1124,7 @@ footer {
   .form-grid .span2 { grid-column: span 1; }
   .poster-box { flex-direction: column; }
   .admin-row .admin-row-sub { display: none; }
+  .stats-cols { grid-template-columns: 1fr; }
   .getapp-btn span { display: none; }
   .getapp-btn { padding: 8px 10px; }
   .app-banner { left: 10px; right: 10px; bottom: calc(74px + env(safe-area-inset-bottom, 0px)); }

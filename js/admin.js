@@ -69,6 +69,7 @@ function wireLogin() {
     if (ok) {
       hideLogin();
       refresh();
+      loadStats();
       showToast('Welcome back, ' + user);
     } else {
       err.textContent = 'Wrong username or password';
@@ -125,7 +126,7 @@ function uniqueId(title, excludeIdx) {
         else { ok = true; }
       } catch { handleAuthFail(); }
     } else handleAuthFail();
-    if (ok) refresh();
+    if (ok) { refresh(); loadStats(); }
     else if (!document.getElementById('loginBack').classList.contains('open')) handleAuthFail();
   } else {
     showLogin('Static mode — enter the admin password');
@@ -140,6 +141,29 @@ window.CATALOG_READY.then(() => {
   loadDraft();
   /* list renders only after the gate opens — login success calls refresh() */
 });
+
+async function loadStats() {
+  if (!API_MODE || !authToken) return;
+  try {
+    const r = await fetch('/api/stats', { headers: authHeaders() });
+    if (!r.ok) return;
+    const d = await r.json();
+    document.getElementById('statsDash').hidden = false;
+    document.getElementById('stVisitorsToday').textContent = d.today.visitors;
+    document.getElementById('stPageviewsToday').textContent = d.today.pageviews;
+    document.getElementById('stPlays').textContent = d.totals.plays;
+    document.getElementById('stRegisters').textContent = d.totals.registers;
+    document.getElementById('stTop').innerHTML = d.topShows.length
+      ? d.topShows.map((t, i) => `<li><span class="st-no ${i < 3 ? 'top' : ''}">${i + 1}</span>${t.show}<b>${t.plays}</b></li>`).join('')
+      : '<li class="st-empty">No plays recorded yet</li>';
+    const max = Math.max(...d.trend.map(t => t.events), 1);
+    document.getElementById('stTrend').innerHTML = d.trend.map(t => `
+      <div class="st-bar-row"><span>${t.date.slice(5)}</span>
+        <div class="st-bar"><i style="width:${Math.round(t.events / max * 100)}%"></i></div>
+        <b>${t.events}</b></div>`).join('');
+  } catch { /* stats optional */ }
+}
+document.addEventListener('DOMContentLoaded', () => setTimeout(loadStats, 2500));
 
 /* ---------- list ---------- */
 function refresh() {

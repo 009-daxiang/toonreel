@@ -116,6 +116,11 @@ function loadEp(autoplay) {
     video.src = videoUrlFor(show, currentEp);
     video.load();
     if (autoplay) video.play().catch(() => {});
+    YTAnalytics.track('play', { show: show.id, ep: currentEp });
+  });
+  video.addEventListener('ended', () => {
+    YTAnalytics.track('complete', { show: show.id, ep: currentEp });
+    if (currentEp < show.episodes) goNext();
   });
 }
 
@@ -190,11 +195,6 @@ progress.addEventListener('input', () => {
   if (video.duration) video.currentTime = (progress.value / 1000) * video.duration;
 });
 progress.addEventListener('change', () => { scrubbing = false; });
-
-/* auto-next when an episode ends */
-video.addEventListener('ended', () => {
-  if (currentEp < show.episodes) goNext();
-});
 
 /* fullscreen */
 fsBtn.addEventListener('click', () => {

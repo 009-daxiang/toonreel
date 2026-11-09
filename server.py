@@ -18,6 +18,7 @@
 #  (create a Checkout Session; credit coins in the webhook handler).
 # ============================================================
 
+import hashlib
 import json
 import os
 import re
@@ -28,6 +29,8 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(ROOT, "data")
 UPLOAD_DIR = os.path.join(ROOT, "uploads")
 CATALOG_FILE = os.path.join(DATA_DIR, "catalog.json")
+USERS_FILE = os.path.join(DATA_DIR, "users.json")
+ANALYTICS_FILE = os.path.join(DATA_DIR, "analytics.jsonl")
 os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
@@ -93,6 +96,120 @@ class Handler(BaseHTTPRequestHandler):
         if length > limit:
             raise ValueError("body too large")
         return self.rfile.read(length)
+
+    # ---------- user accounts ----------
+    def _load_users(self):
+        try:
+            with open(USERS_FILE, encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            return {}
+
+    def api_register(self):
+        try:
+            data = json.loads(self._read_body(16 * 1024))
+        except Exception:
+            return self._send(400, {"error": "invalid json"})
+        email = (data.get("email") or "").strip().lower()
+        password = data.get("password") or ""
+        if not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", email):
+            return self._send(400, {"error": "invalid email"})
+        if len(password) < 6:
+            return self._send(400, {"error": "password too short (min 6)"})
+        users = self._load_users()
+        if email in users:
+            return self._send(409, {"error": "email already registered"})
+        salt = os.urandom(8).hex()
+        users[email] = {
+            "salt": salt,
+            "hash": hashlib.sha256((salt + password).encode()).hexdigest(),
+            "created": time.strftime("%Y-%m-%d"),
+            "visitor": data.get("visitor", ""),
+        }
+        with open(USERS_FILE, "w", encoding="utf-8") as f:
+            json.dump(users, f, indent=1, ensure_ascii=False)
+        self._track_event("register", {"email": email})
+        self._send(200, {"ok": True, "email": email})
+
+    def api_user_login(self):
+        try:
+            data = json.loads(self._read_body(16 * 1024))
+        except Exception:
+            return self._send(400, {"error": "invalid json"})
+        email = (data.get("email") or "").strip().lower()
+        users = self._load_users()
+        u = users.get(email)
+        if not u or u["hash"] != hashlib.sha256((u["salt"] + (data.get("password") or "")).encode()).hexdigest():
+            return self._send(401, {"error": "wrong email or password"})
+        self._send(200, {"ok": True, "email": email})
+
+    # ---------- analytics ----------
+    def _visitor_id(self):
+        ip = (self.headers.get("X-Forwarded-For") or self.client_address[0]).split(",")[0]
+        day = time.strftime("%Y%m%d")
+        return hashlib.sha256((ip + "|" + day).encode()).hexdigest()[:16]
+
+    def _track_event(self, event, extra=None):
+        rec = {"t": int(time.time()), "date": time.strftime("%Y-%m-%d"),
+               "v": self._visitor_id(), "e": event, "lang": self.headers.get("X-Lang", "")}
+        if extra:
+            rec.update(extra)
+        with open(ANALYTICS_FILE, "a", encoding="utf-8") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+
+    def api_track(self):
+        try:
+            data = json.loads(self._read_body(4 * 1024))
+        except Exception:
+            return self._send(204, "")
+        event = data.get("e")
+        allowed = {"visit", "play", "complete"}
+        if event not in allowed:
+            return self._send(400, {"error": "bad event"})
+        extra = {k: data[k] for k in ("show", "ep", "page") if k in data}
+        self._track_event(event, extra)
+        self._send(204, "")
+
+    def api_stats(self):
+        if not self._authorized():
+            return self._deny()
+        today = time.strftime("%Y-%m-%d")
+        days = {}
+        plays = {}
+        visitors = set()
+        visitors_today = set()
+        pv_today = 0
+        registers = 0
+        try:
+            with open(ANALYTICS_FILE, encoding="utf-8") as f:
+                for line in f:
+                    try:
+                        r = json.loads(line)
+                    except Exception:
+                        continue
+                    d = r.get("date", "")
+                    days[d] = days.get(d, 0) + 1
+                    visitors.add(r.get("v"))
+                    if r.get("e") == "visit":
+                        pv_today += d == today
+                    if d == today:
+                        visitors_today.add(r.get("v"))
+                    if r.get("e") == "play" and r.get("show"):
+                        key = r["show"]
+                        plays[key] = plays.get(key, 0) + 1
+                    if r.get("e") == "register":
+                        registers += 1
+        except FileNotFoundError:
+            pass
+        trend = [{"date": d, "events": days[d]} for d in sorted(days)[-7:]]
+        top = sorted(plays.items(), key=lambda kv: -kv[1])[:10]
+        users = self._load_users()
+        self._send(200, {
+            "today": {"visitors": len(visitors_today), "pageviews": pv_today},
+            "totals": {"visitors": len(visitors), "plays": sum(plays.values()), "registers": registers},
+            "topShows": [{"show": k, "plays": v} for k, v in top],
+            "trend": trend,
+        })
 
     # ---------- admin auth ----------
     def api_login(self):
@@ -255,6 +372,14 @@ class Handler(BaseHTTPRequestHandler):
         try:
             if path_only == "/api/login" and method == "POST":
                 return self.api_login()
+            if path_only == "/api/track" and method == "POST":
+                return self.api_track()
+            if path_only == "/api/register" and method == "POST":
+                return self.api_register()
+            if path_only == "/api/user/login" and method == "POST":
+                return self.api_user_login()
+            if path_only == "/api/stats" and method == "GET":
+                return self.api_stats()
             if path_only == "/api/health" and method == "GET":
                 return self.api_health()
             if path_only == "/api/app/info" and method == "GET":

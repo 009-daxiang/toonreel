@@ -30,6 +30,8 @@ const ROOT = __dirname;
 const DATA_DIR = path.join(ROOT, 'data');
 const UPLOAD_DIR = path.join(ROOT, 'uploads');
 const CATALOG_FILE = path.join(DATA_DIR, 'catalog.json');
+const USERS_FILE = path.join(DATA_DIR, 'users.json');
+const ANALYTICS_FILE = path.join(DATA_DIR, 'analytics.jsonl');
 
 // Admin credentials for the management panel.
 // Override with env vars:  ADMIN_USER=xx ADMIN_PASS=yy node server.js
@@ -100,6 +102,91 @@ function parseMultipart(buf, contentType) {
     }
   }
   return { fields, files };
+}
+
+/* ---------------- viewer accounts & analytics ---------------- */
+
+function loadUsers() {
+  try { return JSON.parse(fs.readFileSync(USERS_FILE, 'utf8')); } catch { return {}; }
+}
+
+function visitorId(req) {
+  const ip = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').split(',')[0];
+  return crypto.createHash('sha256').update(ip + '|' + new Date().toISOString().slice(0, 10)).digest('hex').slice(0, 16);
+}
+
+function trackEvent(req, event, extra) {
+  const rec = { t: Date.now(), date: new Date().toISOString().slice(0, 10),
+    v: visitorId(req), e: event, lang: req.headers['x-lang'] || '' };
+  if (extra) Object.assign(rec, extra);
+  fs.appendFileSync(ANALYTICS_FILE, JSON.stringify(rec) + '\n');
+}
+
+async function handleRegister(req, res) {
+  let data = {};
+  try { data = JSON.parse((await readBody(req, 16 * 1024)).toString()); } catch { return send(res, 400, { error: 'invalid json' }); }
+  const email = (data.email || '').trim().toLowerCase();
+  const password = data.password || '';
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return send(res, 400, { error: 'invalid email' });
+  if (password.length < 6) return send(res, 400, { error: 'password too short (min 6)' });
+  const users = loadUsers();
+  if (users[email]) return send(res, 409, { error: 'email already registered' });
+  const salt = crypto.randomBytes(8).toString('hex');
+  users[email] = { salt, hash: crypto.createHash('sha256').update(salt + password).digest('hex'),
+    created: new Date().toISOString().slice(0, 10), visitor: data.visitor || '' };
+  fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 1));
+  trackEvent(req, 'register', { email });
+  send(res, 200, { ok: true, email });
+}
+
+async function handleUserLogin(req, res) {
+  let data = {};
+  try { data = JSON.parse((await readBody(req, 16 * 1024)).toString()); } catch { return send(res, 400, { error: 'invalid json' }); }
+  const email = (data.email || '').trim().toLowerCase();
+  const u = loadUsers()[email];
+  if (!u || u.hash !== crypto.createHash('sha256').update(u.salt + (data.password || '')).digest('hex')) {
+    return send(res, 401, { error: 'wrong email or password' });
+  }
+  send(res, 200, { ok: true, email });
+}
+
+async function handleTrack(req, res) {
+  let data = {};
+  try { data = JSON.parse((await readBody(req, 4 * 1024)).toString()); } catch { return send(res, 204, ''); }
+  if (!['visit', 'play', 'complete'].includes(data.e)) return send(res, 400, { error: 'bad event' });
+  const extra = {};
+  for (const k of ['show', 'ep', 'page']) if (data[k] !== undefined) extra[k] = data[k];
+  trackEvent(req, data.e, extra);
+  send(res, 204, '');
+}
+
+async function handleStats(req, res) {
+  if (!authorized(req)) return send(res, 401, { error: 'unauthorized' });
+  const today = new Date().toISOString().slice(0, 10);
+  const days = {}, plays = {};
+  const visitors = new Set(), visitorsToday = new Set();
+  let pvToday = 0, registers = 0;
+  try {
+    for (const line of fs.readFileSync(ANALYTICS_FILE, 'utf8').split('\n')) {
+      if (!line.trim()) continue;
+      let r; try { r = JSON.parse(line); } catch { continue; }
+      const d = r.date || '';
+      days[d] = (days[d] || 0) + 1;
+      visitors.add(r.v);
+      if (d === today) visitorsToday.add(r.v);
+      if (r.e === 'visit' && d === today) pvToday++;
+      if (r.e === 'play' && r.show) plays[r.show] = (plays[r.show] || 0) + 1;
+      if (r.e === 'register') registers++;
+    }
+  } catch { /* no analytics yet */ }
+  const trend = Object.keys(days).sort().slice(-7).map(d => ({ date: d, events: days[d] }));
+  const top = Object.entries(plays).sort((a, b) => b[1] - a[1]).slice(0, 10)
+    .map(([show, plays]) => ({ show, plays }));
+  send(res, 200, {
+    today: { visitors: visitorsToday.size, pageviews: pvToday },
+    totals: { visitors: visitors.size, plays: Object.values(plays).reduce((a, b) => a + b, 0), registers },
+    topShows: top, trend
+  });
 }
 
 /* ---------------- admin auth ---------------- */
@@ -259,6 +346,10 @@ const server = http.createServer(async (req, res) => {
   try {
     if (url === '/api/health') return send(res, 200, { ok: true, api: true, uploads: true, auth: true });
     if (url === '/api/login' && req.method === 'POST') return await handleLogin(req, res);
+    if (url === '/api/register' && req.method === 'POST') return await handleRegister(req, res);
+    if (url === '/api/user/login' && req.method === 'POST') return await handleUserLogin(req, res);
+    if (url === '/api/track' && req.method === 'POST') return await handleTrack(req, res);
+    if (url === '/api/stats' && req.method === 'GET') return await handleStats(req, res);
     if (url === '/api/app/info') return send(res, 200, appInfo());
     if (url === '/api/upload' && req.method === 'POST') return await handleUpload(req, res);
     if (url === '/api/catalog' && req.method === 'POST') return await handleCatalog(req, res);

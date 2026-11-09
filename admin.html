@@ -22,6 +22,25 @@
   </header>
 
   <main class="admin-main">
+    <section class="stats-dash" id="statsDash" hidden>
+      <div class="stats-cards">
+        <div class="stat-card"><b id="stVisitorsToday">–</b><span>Visitors today</span></div>
+        <div class="stat-card"><b id="stPageviewsToday">–</b><span>Pageviews today</span></div>
+        <div class="stat-card"><b id="stPlays">–</b><span>Total plays</span></div>
+        <div class="stat-card"><b id="stRegisters">–</b><span>Registered users</span></div>
+      </div>
+      <div class="stats-cols">
+        <div class="stats-col">
+          <h4>Top dramas by plays</h4>
+          <ol id="stTop" class="st-top"></ol>
+        </div>
+        <div class="stats-col">
+          <h4>Last 7 days</h4>
+          <div id="stTrend" class="st-trend"></div>
+        </div>
+      </div>
+    </section>
+
     <div class="draft-banner" id="draftBanner" hidden>
       ⚠️ You have unpublished changes. <b>Publish</b> to make them live.
       <button id="discardDraft">Discard draft</button>
