@@ -23,6 +23,7 @@ import json
 import os
 import re
 import time
+from urllib.parse import unquote
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -335,7 +336,7 @@ class Handler(BaseHTTPRequestHandler):
 
     # ---------- static ----------
     def serve_static(self, path_only: str):
-        p = path_only.split("?")[0]
+        p = unquote(path_only.split("?")[0])
         if p == "/":
             p = "/index.html"
         file = os.path.normpath(os.path.join(ROOT, p.lstrip("/")))

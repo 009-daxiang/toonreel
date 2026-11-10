@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /uploads/
+Sitemap: https://yt688.app/sitemap.xml
