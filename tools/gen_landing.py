@@ -50,6 +50,8 @@ PAGE = """<!DOCTYPE html>
     .lp-note {{ margin-top: 26px; padding: 14px 18px; border-radius: 12px;
       background: rgba(139,92,246,.1); color: #c4b5fd; font-size: .85rem; }}
   </style>
+  <script src="../js/analytics-config.js" defer></script>
+  <script src="../js/visitor-analytics.js" defer></script>
 </head>
 <body>
   <header class="nav">

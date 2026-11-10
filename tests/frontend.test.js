@@ -165,7 +165,7 @@ test('PWA installs existing assets and includes every public page script and sty
       skipWaiting: () => { skipped = true; }, clients: { claim() {} } },
     caches: { open: async () => ({ addAll: async files => {
       for (const file of files) { assert.ok(fs.statSync(path.join(root, file)).isFile(), file); cached.push(file); }
-    } }), keys: async () => ['toonreel-v8', 'toonreel-v9', 'another-app'],
+    } }), keys: async () => ['toonreel-v9', 'toonreel-v10', 'another-app'],
       delete: async key => deleted.push(key) }
   });
   vm.runInContext(source('sw.js'), context);
@@ -181,7 +181,7 @@ test('PWA installs existing assets and includes every public page script and sty
   assert.ok(cached.includes('data/catalog.json'));
   handlers.activate({ waitUntil: promise => pending = promise });
   await pending;
-  assert.deepEqual(deleted, ['toonreel-v8']);
+  assert.deepEqual(deleted, ['toonreel-v9']);
   for (const pathname of ['/api/health', '/api/stats', '/uploads/episode.mp4', '/toonreel/uploads/episode.mp4']) {
     handlers.fetch({ request: { method: 'GET', url: 'https://example.test' + pathname },
       respondWith: () => assert.fail(`Must not cache ${pathname}`) });

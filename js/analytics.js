@@ -24,6 +24,7 @@
   }
 
   function track(event, extra) {
+    window.YTVisitorAnalytics?.track(event, extra);
     if (TRACK.api === false) return;             /* no backend — skip */
     if (TRACK.api !== true) { _queue.push([event, extra]); return; } /* probe pending — queue */
     send(event, extra);

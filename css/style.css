@@ -892,6 +892,13 @@ a.biz-row:hover { border-color: var(--brand); transform: translateX(3px); }
 .legal-main b { color: var(--text); }
 
 /* ---------- admin stats dashboard ---------- */
+.visitor-panel {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 16px; margin-bottom: 20px; padding: 20px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+}
+.visitor-panel h2 { font-size: 1rem; margin: 0 0 6px; }
+.visitor-panel p { max-width: 560px; color: var(--text-dim); font-size: .85rem; line-height: 1.6; }
 .stats-dash { margin-bottom: 26px; }
 .stats-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
 .stat-card {

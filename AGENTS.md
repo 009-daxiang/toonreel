@@ -6,12 +6,22 @@
 - 修改缓存中的脚本或样式时更新 `sw.js` 的缓存版本；新增页面依赖时同步维护 `SHELL`。预缓存资源必须存在，不缓存视频或后端 API 响应。
 - 可选后端只允许提供明确列出的公开资源。用户数据、统计日志、仓库元数据和服务端源码不得通过静态路由暴露，符号链接也须遵守该限制。
 
+## 访客统计
+
+- GitHub Pages 的线上访客统计使用 Google Analytics 4，配置唯一来源为 `js/analytics-config.js`。空 `measurementId` 表示尚未配置，不代表访客为零；不得填入虚构 ID 或宣称已开始采集。
+- `js/visitor-analytics.js` 覆盖公开页面；仅在配置的 HTTPS 正式域名发送，排除后台和本地预览。新增公开页面及 `tools/gen_landing.py` 模板须保留配置脚本与统计脚本，注意子目录的相对路径。
+- GA4 默认初始页面浏览及增强型衡量处理历史导航，不额外重复发送 `page_view`；播放器通过 `YTAnalytics.track` 转发播放/完成事件。不得转发邮箱、密码等账号信息。
+- YT688 的 GA4 媒体资源为 `563473081`，网站数据流为 `16312486744`；后台链接指向该资源。可选账号数据共享及增强型衡量的表单互动已关闭。迁移账号时同步配置与报表链接。
+- 数据在站主 Google Analytics 账号中查看，`admin.html` 提供入口；不得把 GA4 API 密钥或私有报表放入静态站。脚本加载成功不等于服务端已收到，启用后用 GA4 实时报告验证。
+- 原 `server.js` / `server.py` 的日志统计仅适用于实际运行了可选后端的部署；GitHub Pages 不执行它们。原后端使用按日变化的 IP 哈希，其累计值不能解释为跨日去重人数。
+
 ## 本地验证
 
 在项目根目录执行，无需安装依赖：
 
 ```sh
 node --test tests/frontend.test.js
+node --test tests/analytics.test.js
 python3 tests/backend_static.py
 ```
 

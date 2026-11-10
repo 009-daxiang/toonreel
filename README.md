@@ -5,6 +5,21 @@
 
 > ⚠️ 当前为 **Demo 版**：视频用的是公开示例片源，海报是程序生成的 SVG 占位图，金币解锁为本地演示逻辑（localStorage）。
 
+## 访客统计（GitHub Pages）
+
+公开页面使用免费 Google Analytics 4，`https://yt688.app` 的真实衡量 ID 为 `G-PSY2J51F2K`，配置保存在 `js/analytics-config.js`。代码部署后开始记录，报表在站主的 [YT688 Google Analytics](https://analytics.google.com/analytics/web/#/a415645808p563473081/reports/intelligenthome) 中查看。若迁移统计账号，需同步更新该配置和后台报表链接；完整步骤见 [Google 官方设置说明](https://support.google.com/analytics/answer/14183469?hl=zh-Hans)。
+
+打开 `/admin.html` 的 **Visitor analytics → Open Google Analytics** 查看：
+
+- **实时报告**：检查新访问是否到达；脚本加载成功本身不能证明上报成功。
+- **Users / Total users**：所选时间范围内的访客估算值；跨设备、清除 Cookie、拦截统计等会影响结果，不等于实名人数。
+- **Views**：浏览量；同一浏览器多次访问会累计。
+- **Events**：`video_start` / `video_complete`，附带剧目 ID 和集数。
+
+统计覆盖首页、播放页、下载页、隐私页及 `drama/` 落地页。后台、本地预览和非正式域名不会发送数据。GA4 自动页面浏览及增强型衡量负责导航，避免另外手工发送 `page_view` 造成重复；未配置时后台明确提示未接通。只使用基础访问统计，不启用 Google signals 或广告个性化。已有访问无法从未启用的埋点中追溯补录。
+
+原有 `/api/track`、`/api/stats` 和 `data/analytics.jsonl` 只在自建 Node/Python 后端运行时有效，GitHub Pages 不提供这些接口。该后端的访客 ID 按 IP 和日期生成，累计值不能作为跨日去重人数。新的线上报表在站主 Google 账号查看，不公开统计日志或 API 凭据。
+
 ## APP 分发（免应用商店，四平台）
 
 **下载页 `/download.html`**（顶栏 Get the App 按钮入口，移动端另有底部安装横幅），按访问者平台自动排序卡片：

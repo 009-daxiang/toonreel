@@ -25,6 +25,13 @@
   </header>
 
   <main class="admin-main">
+    <section class="visitor-panel" aria-labelledby="visitorHeading">
+      <div>
+        <h2 id="visitorHeading">Visitor analytics</h2>
+        <p id="visitorStatus" role="status">Checking analytics configuration…</p>
+      </div>
+      <a class="btn btn-primary sm-btn" id="visitorDashboard" href="https://analytics.google.com/analytics/web/#/a415645808p563473081/reports/intelligenthome" target="_blank" rel="noopener noreferrer">Open Google Analytics ↗</a>
+    </section>
     <section class="stats-dash" id="statsDash" hidden>
       <div class="stats-cards">
         <div class="stat-card"><b id="stVisitorsToday">–</b><span>Visitors today</span></div>
@@ -82,6 +89,7 @@
   <script src="js/data.js"></script>
   <script src="js/contact.js"></script>
   <script src="js/theme.js"></script>
+  <script src="js/analytics-config.js"></script>
   <script src="js/admin.js"></script>
 </body>
 </html>

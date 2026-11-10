@@ -14,6 +14,18 @@ const GENRE_PRESETS = ['Romance', 'Fantasy', 'Cultivation', 'Action', 'Sci-Fi',
 let API_MODE = false;
 let draft = null; /* { shows: [...] } — unsaved changes */
 
+/* GA4 reports stay in the owner's Google account, never in a public JSON file. */
+const visitorConfig = window.YT_ANALYTICS_CONFIG;
+const visitorStatus = document.getElementById('visitorStatus');
+if (!visitorConfig || !visitorConfig.measurementId) {
+  visitorStatus.textContent = 'Not connected. Complete Google Analytics setup to start recording visitors.';
+} else if (!/^G-[A-Z0-9]+$/.test(visitorConfig.measurementId)) {
+  visitorStatus.textContent = 'Configuration error: the Google Analytics Measurement ID is invalid.';
+  console.error('[visitor-analytics] Invalid Measurement ID in analytics-config.js');
+} else {
+  visitorStatus.textContent = 'GA4 configured. Open reports for visitors (Users), pageviews (Views), and realtime activity.';
+}
+
 /* ---------- admin auth ---------- */
 const STATIC_ADMIN_HASH = '2e71d6b961774453434a862bb9db36005c10ad1e6a7f50b39e2f014ca56bf4c2'; /* sha256('admin:toonreel2026') */
 let authToken = sessionStorage.getItem('toonreel:admin_token') || null;
