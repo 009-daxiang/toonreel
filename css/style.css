@@ -807,6 +807,34 @@ body.admin-page { background: var(--bg); }
   padding: 10px 0 16px; margin-top: 2px;
 }
 
+/* ---------- download page FAQ / detailed steps ---------- */
+.dl-faq {
+  border-top: 1px dashed var(--line);
+  padding-top: 12px; margin-top: 2px;
+}
+.dl-faq summary {
+  cursor: pointer; list-style: none;
+  font-size: .84rem; font-weight: 700; color: var(--brand-2);
+  padding: 4px 0;
+}
+.dl-faq summary::-webkit-details-marker { display: none; }
+.dl-faq summary::before { content: '❓ '; }
+.dl-faq[open] summary { margin-bottom: 8px; }
+.dl-faq p {
+  font-size: .8rem; color: var(--text-dim); line-height: 1.6;
+  margin: 6px 0; padding-left: 4px;
+}
+.ios-detailed { counter-reset: iosd; }
+.ios-detailed li { display: flex; gap: 10px; align-items: flex-start; }
+.ios-detailed li::before {
+  counter-increment: iosd;
+  content: counter(iosd);
+  flex: 0 0 20px; height: 20px;
+  display: grid; place-items: center;
+  border-radius: 50%; background: var(--brand); color: #fff;
+  font-size: .68rem; font-weight: 800; margin-top: 1px;
+}
+
 /* ---------- business contact ---------- */
 .biz-card {
   margin-top: 26px; padding: 24px;
