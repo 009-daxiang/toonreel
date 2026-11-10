@@ -12,6 +12,10 @@
    ============================================================ */
 
 (function () {
+  /* REGION BLOCK: currently DISABLED for testing.
+     To enable mainland-China blocking later, set this to true. */
+  const REGION_BLOCK_ENABLED = false;
+  if (!REGION_BLOCK_ENABLED) return;
   if (new URLSearchParams(location.search).has('open')) {
     try { sessionStorage.setItem('yt688:region-ok', '1'); } catch (e) {}
   }
