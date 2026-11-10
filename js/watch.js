@@ -111,8 +111,17 @@ function loadEp(autoplay) {
     video.poster = posterFor(show); /* show art while the clip buffers */
     video.src = videoUrlFor(show, currentEp);
     video.load();
-    if (autoplay) video.play().catch(() => {});
-    YTAnalytics.track('play', { show: show.id, ep: currentEp });
+    if (autoplay) {
+      video.play().then(() => {
+        hideTapToPlay();
+        YTAnalytics.track('play', { show: show.id, ep: currentEp });
+      }).catch(() => {
+        /* browser blocked autoplay (iOS low-power, WeChat, etc.) — invite a tap */
+        showTapToPlay();
+      });
+    } else {
+      YTAnalytics.track('play', { show: show.id, ep: currentEp });
+    }
   });
   video.addEventListener('ended', () => {
     YTAnalytics.track('complete', { show: show.id, ep: currentEp });
@@ -230,6 +239,24 @@ player.addEventListener('touchend', (e) => {
   if (Math.abs(dy) < 90 || Math.abs(dy) < Math.abs(dx) * 1.5) return;
   if (dy < 0) goNextSwipe(); else goPrevSwipe();
 }, { passive: true });
+
+/* ---------- tap-to-play overlay (autoplay-block fallback) ---------- */
+const tapToPlayBtn = document.getElementById('tapToPlay');
+function showTapToPlay() {
+  if (!tapToPlayBtn) return;
+  tapToPlayBtn.hidden = false;
+}
+function hideTapToPlay() {
+  if (tapToPlayBtn) tapToPlayBtn.hidden = true;
+}
+if (tapToPlayBtn) {
+  tapToPlayBtn.addEventListener('click', () => {
+    hideTapToPlay();
+    video.muted = false;
+    video.play().catch(() => showToast(t('tap_play')));
+  });
+}
+video.addEventListener('play', hideTapToPlay);
 
 /* swipe transition veil for a clean switch */
 function swipeVeil(cb) {
