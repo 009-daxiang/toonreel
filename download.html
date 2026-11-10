@@ -53,6 +53,11 @@
           <p data-i18n="and_faq_1">Install blocked by phone manager? Choose “Install anyway”.</p>
           <p data-i18n="and_faq_2">Don’t want to install? Open the site in Chrome → menu → “Add to Home screen”.</p>
         </details>
+        <details class="dl-faq">
+          <summary data-i18n="and_faq_h">Installation problems?</summary>
+          <p data-i18n="and_faq_1">Install blocked by phone manager? Choose “Install anyway”.</p>
+          <p data-i18n="and_faq_2">Don’t want to install? Open the site in Chrome → menu → “Add to Home screen”.</p>
+        </details>
       </div>
 
       <!-- ============ iPhone / iPad ============ -->
@@ -62,11 +67,19 @@
           <div><h3>iPhone / iPad</h3><span class="dl-sub" data-i18n="sub_ios">Home-screen app · no App Store</span></div>
         </div>
         <button class="btn btn-primary dl-btn" id="iosInstallBtn" hidden></button>
-        <ol class="ios-steps">
-          <li><b>1</b><span data-i18n="ios_step1">Open yt688 in Safari</span></li>
-          <li><b>2</b><span><span data-i18n="ios_step2">Tap the Share button</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3m0 0L7 8m5-5 5 5"/><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/></svg></span></li>
-          <li><b>3</b><span data-i18n="ios_step3">Choose “Add to Home Screen”</span></li>
+        <ol class="ios-steps ios-detailed">
+          <li><span data-i18n="ios_d1">STEP 1 · Open yt688.app in Safari (type it in the address bar)</span></li>
+          <li><span data-i18n="ios_d2">STEP 2 · Wait for the page to fully load (you will see drama posters)</span></li>
+          <li><span><span data-i18n="ios_d3">STEP 3 · Tap the Share button at the bottom center of the screen</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3m0 0L7 8m5-5 5 5"/><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/></svg></span></li>
+          <li><span data-i18n="ios_d4">STEP 4 · Swipe down in the menu and tap “Add to Home Screen”</span></li>
+          <li><span data-i18n="ios_d5">STEP 5 · Tap “Add” in the top right — done</span></li>
         </ol>
+        <details class="dl-faq">
+          <summary data-i18n="faq_h">Common questions</summary>
+          <p data-i18n="ios_faq_1">Q: I can’t find “Add to Home Screen”? — A: This option only exists in Safari.</p>
+          <p data-i18n="ios_faq_2">Q: The app opens with English text? — A: Tap the globe icon in the top bar to switch language.</p>
+          <p data-i18n="ios_faq_3">Q: How do I delete it? — A: Long-press the icon → Remove App.</p>
+        </details>
         <a class="btn btn-ghost dl-btn small-dl" id="ipaBtn" href="downloads/toonreel.ipa" download hidden>
           <span id="ipaBtnLabel" data-i18n="dl_ipa">Download IPA</span>
         </a>
