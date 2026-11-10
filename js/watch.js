@@ -123,11 +123,13 @@ function loadEp(autoplay) {
       YTAnalytics.track('play', { show: show.id, ep: currentEp });
     }
   });
-  video.addEventListener('ended', () => {
-    YTAnalytics.track('complete', { show: show.id, ep: currentEp });
-    if (currentEp < show.episodes) goNext();
-  });
 }
+
+/* Register once: changing episodes must not accumulate completion handlers. */
+video.addEventListener('ended', () => {
+  YTAnalytics.track('complete', { show: show.id, ep: currentEp });
+  if (currentEp < show.episodes) goNext();
+});
 
 function highlightNavBtns() {
   document.getElementById('prevEp').disabled = currentEp <= 1;

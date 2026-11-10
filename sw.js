@@ -8,12 +8,14 @@
    Bump CACHE_VERSION to invalidate everything.
    ============================================================ */
 
-const CACHE_VERSION = 'toonreel-v7';
+const CACHE_VERSION = 'toonreel-v8';
 const SHELL = [
   'index.html', 'watch.html', 'download.html', 'privacy.html',
   'css/style.css',
-  'js/data.js', 'js/store.js', 'js/i18n.js', 'js/payments.js', 'js/app.js', 'js/watch.js',
-  'manifest.webmanifest', 'js/geo-block.js',
+  'js/data.js', 'js/store.js', 'js/i18n.js', 'js/app.js', 'js/watch.js',
+  'js/ads.js', 'js/pwa.js', 'js/contact.js', 'js/theme.js',
+  'js/analytics.js', 'js/share.js', 'js/download.js',
+  'manifest.webmanifest', 'js/geo-block.js', 'data/catalog.json',
   'assets/icons/icon-192.png', 'assets/icons/icon-512.png'
 ];
 
@@ -28,7 +30,7 @@ self.addEventListener('install', (e) => {
 self.addEventListener('activate', (e) => {
   e.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE_VERSION).map(k => caches.delete(k))))
+      .then(keys => Promise.all(keys.filter(k => k.startsWith('toonreel-') && k !== CACHE_VERSION).map(k => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
@@ -36,6 +38,8 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   const url = new URL(e.request.url);
   if (e.request.method !== 'GET' || url.origin !== location.origin) return;
+  /* Backend responses must never be stored in the public offline cache. */
+  if (url.pathname.startsWith('/api/')) return;
   /* stream media & posters fresh, never cache */
   if (url.pathname.startsWith('/uploads/') || /\.(mp4|webm|m3u8|ts|jpg|jpeg|png|webp)(\?|$)/.test(url.pathname)) {
     return;

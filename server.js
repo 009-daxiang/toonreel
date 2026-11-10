@@ -312,11 +312,32 @@ async function handleWebhook(req, res) {
 
 /* ---------------- static files ---------------- */
 
+const PUBLIC_FILES = new Set(['index.html', 'watch.html', 'admin.html', 'download.html',
+  'privacy.html', 'sw.js', 'manifest.webmanifest', 'robots.txt', 'sitemap.xml', 'data/catalog.json']);
+const PUBLIC_DIRS = new Set(['css', 'js', 'assets', 'drama', 'downloads', 'uploads', 'subtitles']);
+
+function isPublicPath(relative) {
+  const parts = relative.split('/');
+  return !parts.some(part => part.startsWith('.') || part.includes('\\')) &&
+    (PUBLIC_FILES.has(relative) || PUBLIC_DIRS.has(parts[0]));
+}
+
 function serveStatic(req, res, urlPath) {
   let p = decodeURIComponent(urlPath.split('?')[0]);
   if (p === '/') p = '/index.html';
-  const file = path.normalize(path.join(ROOT, p));
-  if (!file.startsWith(ROOT)) return send(res, 403, { error: 'forbidden' });
+  const parts = p.replace(/^\/+/, '').split('/');
+  const relative = parts.join('/');
+  if (!isPublicPath(relative)) {
+    return send(res, 403, { error: 'forbidden' });
+  }
+  const file = path.join(ROOT, relative);
+  // Resolve symlinks as well as path segments before reading any public file.
+  if (fs.existsSync(file)) {
+    const resolved = path.relative(fs.realpathSync(ROOT), fs.realpathSync(file));
+    if (path.isAbsolute(resolved) || !isPublicPath(resolved.split(path.sep).join('/'))) {
+      return send(res, 403, { error: 'forbidden' });
+    }
+  }
   fs.readFile(file, (err, data) => {
     if (err) return send(res, 404, '404 Not Found', 'text/plain');
     const type = MIME[path.extname(file).toLowerCase()] || 'application/octet-stream';

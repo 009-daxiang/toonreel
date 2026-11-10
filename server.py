@@ -76,6 +76,18 @@ def parse_multipart(body: bytes, content_type: str):
     return fields, files
 
 
+PUBLIC_FILES = {"index.html", "watch.html", "admin.html", "download.html",
+                "privacy.html", "sw.js", "manifest.webmanifest", "robots.txt",
+                "sitemap.xml", "data/catalog.json"}
+PUBLIC_DIRS = {"css", "js", "assets", "drama", "downloads", "uploads", "subtitles"}
+
+
+def is_public_path(relative):
+    parts = relative.split("/")
+    return (not any(part.startswith(".") or "\\" in part for part in parts)
+            and (relative in PUBLIC_FILES or parts[0] in PUBLIC_DIRS))
+
+
 class Handler(BaseHTTPRequestHandler):
     protocol_version = "HTTP/1.1"
 
@@ -339,8 +351,13 @@ class Handler(BaseHTTPRequestHandler):
         p = unquote(path_only.split("?")[0])
         if p == "/":
             p = "/index.html"
-        file = os.path.normpath(os.path.join(ROOT, p.lstrip("/")))
-        if not file.startswith(ROOT):
+        relative = p.lstrip("/")
+        if not is_public_path(relative):
+            return self._send(403, {"error": "forbidden"})
+        file = os.path.realpath(os.path.join(ROOT, relative))
+        if os.path.commonpath([os.path.realpath(ROOT), file]) != os.path.realpath(ROOT):
+            return self._send(403, {"error": "forbidden"})
+        if not is_public_path(os.path.relpath(file, os.path.realpath(ROOT)).replace(os.sep, "/")):
             return self._send(403, {"error": "forbidden"})
         if not os.path.isfile(file):
             return self._send(404, "404 Not Found", "text/plain")
