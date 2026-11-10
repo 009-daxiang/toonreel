@@ -5,6 +5,13 @@
 const params = new URLSearchParams(location.search);
 let show, currentEp; /* resolved in boot(), after the catalog loads */
 
+const player = document.getElementById('player');
+const autoNext = document.getElementById('autoNext');
+const playerError = document.getElementById('playerError');
+const inlinePlayBtn = document.getElementById('inlinePlayBtn');
+const inlinePlayIcon = document.getElementById('inlinePlayIcon');
+const prevBtn = document.getElementById('prevBtn');
+const exitFsBtn = document.getElementById('exitFsBtn');
 const video = document.getElementById('video');
 const playBtn = document.getElementById('playBtn');
 const playIcon = document.getElementById('playIcon');
@@ -17,8 +24,6 @@ const tDur = document.getElementById('tDur');
 const nextBtn = document.getElementById('nextBtn');
 const fsBtn = document.getElementById('fsBtn');
 const tapZone = document.getElementById('tapZone');
-const centerFlash = document.getElementById('centerFlash');
-const disc = document.getElementById('disc');
 const discIcon = document.getElementById('discIcon');
 const epList = document.getElementById('epList');
 
@@ -45,6 +50,7 @@ function renderInfo() {
   document.getElementById('epCount').textContent = `· ${show.episodes} ${t('eps_total')}`;
   document.getElementById('freeHint').textContent = t('free_with_ads');
   updateFavBtns();
+  updateControlLabels();
 }
 
 function updateFavBtns() {
@@ -85,7 +91,7 @@ function renderEpisodes() {
 }
 
 function selectEp(ep) {
-  if (ep === currentEp) return;
+  if (ep === currentEp || ep < 1 || ep > show.episodes) return;
   currentEp = ep;
   loadEp(true);
 }
@@ -101,79 +107,115 @@ function hudText() {
   return name === t('ep_n', { n: currentEp }) ? label : `${label} · ${name}`;
 }
 
+let loadVersion = 0;
+let trackedPlay = false;
+let playerErrorKey = null;
 function loadEp(autoplay) {
+  const version = ++loadVersion;
+  trackedPlay = false;
+  playerError.hidden = true;
+  playerErrorKey = null;
+  video.pause();
+  setPlayingUI(false);
   updateUrl();
   document.getElementById('hudEpNum').textContent = hudText();
   renderEpisodes();
   highlightNavBtns();
-  /* ad-supported: a preroll may play before the episode starts */
   showPreroll(() => {
-    video.poster = posterFor(show); /* show art while the clip buffers */
+    if (version !== loadVersion) return;
+    video.poster = posterFor(show);
     video.src = videoUrlFor(show, currentEp);
     video.load();
-    if (autoplay) {
-      video.play().then(() => {
-        hideTapToPlay();
-        YTAnalytics.track('play', { show: show.id, ep: currentEp });
-      }).catch(() => {
-        /* browser blocked autoplay (iOS low-power, WeChat, etc.) — invite a tap */
-        showTapToPlay();
-      });
-    } else {
-      YTAnalytics.track('play', { show: show.id, ep: currentEp });
+    progress.value = 0;
+    tCur.textContent = tDur.textContent = '0:00';
+    if (autoplay) playVideo();
+    else showTapToPlay();
+  });
+}
+
+function reportPlayerError(key, error) {
+  playerErrorKey = key;
+  console.error('[Player]', { show: show?.id, episode: currentEp, src: video.currentSrc || video.src, error }, error?.name, error?.message || error?.code);
+  playerError.textContent = t(key);
+  playerError.hidden = false;
+}
+
+function playVideo() {
+  const version = loadVersion;
+  return video.play().catch(error => {
+    if (version !== loadVersion || error.name === 'AbortError') {
+      console.debug('[Player] Playback interrupted', { version, currentVersion: loadVersion, error });
+      return;
     }
+    showTapToPlay();
+    reportPlayerError(error.name === 'NotAllowedError' ? 'tap_play' : 'play_failed', error);
   });
 }
 
 /* Register once: changing episodes must not accumulate completion handlers. */
 video.addEventListener('ended', () => {
   YTAnalytics.track('complete', { show: show.id, ep: currentEp });
-  if (currentEp < show.episodes) goNext();
+  if (autoNext.checked && currentEp < show.episodes) goNext();
 });
 
 function highlightNavBtns() {
   document.getElementById('prevEp').disabled = currentEp <= 1;
   document.getElementById('nextEp').disabled = currentEp >= show.episodes;
   nextBtn.disabled = currentEp >= show.episodes;
+  prevBtn.disabled = currentEp <= 1;
 }
 
-document.getElementById('prevEp').addEventListener('click', () => {
-  if (currentEp > 1) { currentEp--; loadEp(true); }
-});
+document.getElementById('prevEp').addEventListener('click', goPrev);
+prevBtn.addEventListener('click', goPrev);
 document.getElementById('nextEp').addEventListener('click', goNext);
 nextBtn.addEventListener('click', goNext);
-function goNext() {
-  if (currentEp < show.episodes) {
-    currentEp += 1;
-    loadEp(true);
-  }
-}
+function goNext() { if (show && currentEp < show.episodes) selectEp(currentEp + 1); }
+function goPrev() { if (show && currentEp > 1) selectEp(currentEp - 1); }
 
-/* play / pause */
+/* The media events are the source of truth for both sets of icons. */
+function labelControl(element, key) {
+  element.setAttribute('aria-label', t(key));
+  element.title = t(key);
+}
+function updateControlLabels() {
+  [playBtn, inlinePlayBtn].forEach(btn => labelControl(btn, video.paused ? 'player_play' : 'player_pause'));
+  [prevBtn, document.getElementById('prevEp')].forEach(btn => labelControl(btn, 'prev_ep'));
+  [nextBtn, document.getElementById('nextEp')].forEach(btn => labelControl(btn, 'next_ep'));
+  labelControl(fsBtn, isFullscreen() ? 'exit_fullscreen' : 'enter_fullscreen');
+  labelControl(exitFsBtn, 'exit_fullscreen');
+}
 function setPlayingUI(playing) {
-  playIcon.setAttribute('d', playing ? PAUSE_PATH : PLAY_PATH);
-  discIcon.setAttribute('d', playing ? PAUSE_PATH : PLAY_PATH);
+  [playIcon, inlinePlayIcon, discIcon].forEach(icon => icon.setAttribute('d', playing ? PAUSE_PATH : PLAY_PATH));
+  player.classList.toggle('playing-pause', !playing);
+  updateControlLabels();
 }
 function togglePlay() {
+  if (!show) return;
   if (video.paused) {
-    video.play().catch(() => {});
-    flash(PAUSE_PATH);
+    enterFullscreen(); // Call synchronously within the user gesture.
+    playVideo();
   } else {
     video.pause();
-    flash(PLAY_PATH);
   }
 }
-function flash(path) {
-  discIcon.setAttribute('d', path);
-  centerFlash.classList.add('show');
-  clearTimeout(flash._tm);
-  flash._tm = setTimeout(() => centerFlash.classList.remove('show'), 550);
-}
 playBtn.addEventListener('click', togglePlay);
+inlinePlayBtn.addEventListener('click', togglePlay);
 tapZone.addEventListener('click', togglePlay);
-video.addEventListener('play', () => setPlayingUI(true));
-video.addEventListener('pause', () => setPlayingUI(false));
 video.addEventListener('click', togglePlay);
+video.addEventListener('play', () => {
+  setPlayingUI(true);
+  hideTapToPlay();
+  if (playerErrorKey !== 'fullscreen_failed') playerError.hidden = true;
+  if (!trackedPlay) {
+    trackedPlay = true;
+    YTAnalytics.track('play', { show: show.id, ep: currentEp });
+  }
+});
+video.addEventListener('pause', () => setPlayingUI(false));
+video.addEventListener('error', () => {
+  showTapToPlay();
+  reportPlayerError('play_failed', video.error);
+});
 
 /* mute */
 muteBtn.addEventListener('click', () => {
@@ -203,91 +245,134 @@ progress.addEventListener('input', () => {
 });
 progress.addEventListener('change', () => { scrubbing = false; });
 
-/* fullscreen */
-fsBtn.addEventListener('click', () => {
-  const p = document.getElementById('player');
-  if (document.fullscreenElement) document.exitFullscreen();
-  else p.requestFullscreen?.().catch(() => {});
-});
+/* Fullscreen the container so custom controls and swipe gestures remain available.
+   WebViews without the element Fullscreen API use an explicit viewport mode. */
+let viewportFullscreen = false;
+let fullscreenPending = false;
+let focusBeforeFullscreen = null;
+let inertOutside = [];
+function isFullscreen() {
+  return document.fullscreenElement === player || viewportFullscreen;
+}
+function syncFullscreen() {
+  const active = isFullscreen();
+  if (active && playerErrorKey === 'fullscreen_failed') playerError.hidden = true;
+  player.classList.toggle('is-fullscreen', active);
+  document.body.classList.toggle('player-fullscreen', active);
+  exitFsBtn.hidden = !active;
+  if (active && !inertOutside.length) {
+    let child = player;
+    while (child.parentElement && child !== document.body) {
+      for (const sibling of child.parentElement.children) {
+        if (sibling !== child) { inertOutside.push([sibling, sibling.inert]); sibling.inert = true; }
+      }
+      child = child.parentElement;
+    }
+    exitFsBtn.focus({ preventScroll: true });
+  } else if (!active) {
+    inertOutside.forEach(([element, inert]) => { element.inert = inert; });
+    inertOutside = [];
+    focusBeforeFullscreen?.focus({ preventScroll: true });
+  }
+  updateControlLabels();
+}
+async function enterFullscreen() {
+  if (isFullscreen() || fullscreenPending) return;
+  focusBeforeFullscreen = document.activeElement;
+  if (!player.requestFullscreen || document.fullscreenEnabled === false) {
+    console.info('[Player] Element fullscreen unavailable; using viewport mode');
+    viewportFullscreen = true;
+    syncFullscreen();
+    return;
+  }
+  fullscreenPending = true;
+  try { await player.requestFullscreen(); }
+  catch (error) { reportPlayerError('fullscreen_failed', error); }
+  finally { fullscreenPending = false; }
+}
+async function exitFullscreen() {
+  if (viewportFullscreen) {
+    viewportFullscreen = false;
+    syncFullscreen();
+  } else if (document.fullscreenElement === player) {
+    try { await document.exitFullscreen(); }
+    catch (error) { reportPlayerError('fullscreen_failed', error); }
+  }
+}
+fsBtn.addEventListener('click', () => isFullscreen() ? exitFullscreen() : enterFullscreen());
+exitFsBtn.addEventListener('click', exitFullscreen);
+document.addEventListener('fullscreenchange', syncFullscreen);
 
-/* keyboard shortcuts */
-document.addEventListener('keydown', (e) => {
-  if (e.target.matches('input, textarea')) return;
+/* Ignore editable controls and let native button/checkbox keyboard actions work. */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && viewportFullscreen) { e.preventDefault(); exitFullscreen(); return; }
+  if (e.target.matches('input, textarea, select, button, a, [contenteditable="true"]')) return;
   if (e.key === ' ') { e.preventDefault(); togglePlay(); }
   else if (e.key === 'ArrowRight' && video.duration) video.currentTime += 5;
-  else if (e.key === 'ArrowLeft') video.currentTime -= 5;
-  else if (e.key === 'ArrowUp') { e.preventDefault(); goPrevSwipe(); }
-  else if (e.key === 'ArrowDown') { e.preventDefault(); goNextSwipe(); }
+  else if (e.key === 'ArrowLeft') video.currentTime = Math.max(0, video.currentTime - 5);
+  else if (e.key === 'ArrowUp' && isFullscreen()) { e.preventDefault(); goPrev(); }
+  else if (e.key === 'ArrowDown' && isFullscreen()) { e.preventDefault(); goNext(); }
   else if (e.key.toLowerCase() === 'n') goNext();
 });
 
-/* ---------- fullscreen swipe: swipe up = next, swipe down = prev ---------- */
-let fsActive = false;
-document.addEventListener('fullscreenchange', () => {
-  fsActive = !!document.fullscreenElement;
+/* One gesture switches at most one episode; controls never count as swipes. */
+let gesture = null;
+let suppressClickUntil = 0;
+function isGestureSurface(target) {
+  return target === video || target === tapZone || target === player || !!target.closest('#tapToPlay');
+}
+player.addEventListener('pointerdown', e => {
+  if (!e.isPrimary) { gesture = null; return; }
+  if (!isFullscreen() || !isGestureSurface(e.target) || e.button !== 0) return;
+  gesture = { id: e.pointerId, x: e.clientX, y: e.clientY, time: Date.now() };
+  e.target.setPointerCapture(e.pointerId);
 });
-let touchY = null, touchX = null, touchT = 0;
-player.addEventListener('touchstart', (e) => {
-  touchY = e.touches[0].clientY; touchX = e.touches[0].clientX; touchT = Date.now();
-}, { passive: true });
-player.addEventListener('touchend', (e) => {
-  if (touchY === null) return;
-  const dy = e.changedTouches[0].clientY - touchY;
-  const dx = e.changedTouches[0].clientX - touchX;
-  const dt = Date.now() - touchT;
-  touchY = null;
-  /* fullscreen only + deliberate vertical swipe */
-  if (!fsActive || dt > 700) return;
-  if (Math.abs(dy) < 90 || Math.abs(dy) < Math.abs(dx) * 1.5) return;
-  if (dy < 0) goNextSwipe(); else goPrevSwipe();
-}, { passive: true });
+player.addEventListener('pointerup', e => {
+  if (!gesture || gesture.id !== e.pointerId) return;
+  const { x, y, time } = gesture;
+  gesture = null;
+  const dx = e.clientX - x, dy = e.clientY - y;
+  if (Math.hypot(dx, dy) > 12) suppressClickUntil = Date.now() + 400;
+  if (!isFullscreen() || Date.now() - time > 1000 || Math.abs(dy) < 70 || Math.abs(dy) < Math.abs(dx) * 1.5) return;
+  if (dy < 0) goNext(); else goPrev();
+});
+player.addEventListener('pointercancel', () => { gesture = null; });
+player.addEventListener('click', e => {
+  if (Date.now() < suppressClickUntil && isGestureSurface(e.target)) { e.preventDefault(); e.stopPropagation(); }
+}, true);
+let wheelDelta = 0, lastWheel = 0, wheelLockedUntil = 0;
+player.addEventListener('wheel', e => {
+  if (!isFullscreen() || !isGestureSurface(e.target) || e.ctrlKey || Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+  e.preventDefault();
+  const now = Date.now();
+  if (now < wheelLockedUntil) { lastWheel = now; return; }
+  if (now - lastWheel > 180 || Math.sign(e.deltaY) !== Math.sign(wheelDelta)) wheelDelta = 0;
+  lastWheel = now;
+  wheelDelta += e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? player.clientHeight : 1);
+  if (Math.abs(wheelDelta) >= 80) {
+    if (wheelDelta > 0) goNext(); else goPrev();
+    wheelDelta = 0;
+    wheelLockedUntil = now + 650;
+  }
+}, { passive: false });
 
-/* ---------- tap-to-play overlay (autoplay-block fallback) ---------- */
 const tapToPlayBtn = document.getElementById('tapToPlay');
-function showTapToPlay() {
-  if (!tapToPlayBtn) return;
-  tapToPlayBtn.hidden = false;
-}
-function hideTapToPlay() {
-  if (tapToPlayBtn) tapToPlayBtn.hidden = true;
-}
-if (tapToPlayBtn) {
-  tapToPlayBtn.addEventListener('click', () => {
-    hideTapToPlay();
-    video.muted = false;
-    video.play().catch(() => showToast(t('tap_play')));
-  });
-}
-video.addEventListener('play', hideTapToPlay);
-
-/* swipe transition veil for a clean switch */
-function swipeVeil(cb) {
-  const veil = document.createElement('div');
-  veil.className = 'swipe-veil';
-  player.appendChild(veil);
-  requestAnimationFrame(() => veil.classList.add('show'));
-  setTimeout(() => {
-    cb();
-    setTimeout(() => { veil.classList.add('fade'); setTimeout(() => veil.remove(), 250); }, 120);
-  }, 160);
-}
-function goNextSwipe() {
-  if (currentEp >= show.episodes) return;
-  swipeVeil(() => { currentEp += 1; loadEp(true); });
-}
-function goPrevSwipe() {
-  if (currentEp <= 1) return;
-  swipeVeil(() => { currentEp -= 1; loadEp(true); });
-}
+function showTapToPlay() { tapToPlayBtn.hidden = false; }
+function hideTapToPlay() { tapToPlayBtn.hidden = true; }
+tapToPlayBtn.addEventListener('click', () => {
+  video.muted = false;
+  muteWave.style.display = '';
+  muteIcon.style.opacity = '1';
+  enterFullscreen();
+  playVideo();
+});
 
 /* ---------- init ---------- */
 async function boot() {
   show = showById(params.get('id')) || SHOWS[0];
   currentEp = Math.min(Math.max(parseInt(params.get('ep'), 10) || 1, 1), show.episodes);
-  /* muted autoplay (short-drama style); users can unmute in the HUD */
-  video.muted = true;
-  muteWave.style.display = 'none';
-  muteIcon.style.opacity = '.55';
+  /* Start on a user click so fullscreen and audible playback share activation. */
+  video.muted = false;
   initLang(() => {
     renderInfo();
     renderEpisodes();
@@ -296,7 +381,7 @@ async function boot() {
   });
   fillBanner('adSlotWatch', AD_CONFIG.banners.watch);
   renderInfo();
-  loadEp(true);
+  loadEp(false);
 }
 
 /* Wait for an admin-published catalog (if any), then render */
