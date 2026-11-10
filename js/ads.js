@@ -24,6 +24,9 @@
      → earnings = impressions / 1000 × CPM
    ============================================================ */
 
+const SMARTLINK = 'https://asiafilm.org/4/2b66f01c239b08026b02194a784ae883'; /* Adsterra Smartlink — live */
+const SMARTLINK_FREQ = 24 * 60 * 60 * 1000; /* one ad per visitor per 24h */
+
 const AD_CONFIG = {
   /* developer preview only; 'none' = ads fully off */
   provider: 'none',
@@ -43,6 +46,26 @@ const AD_CONFIG = {
     }
   }
 };
+
+/* ============================================================
+   SMARTLINK TRIGGER (live)
+   Opens the Smartlink in a new tab on the visitor's first
+   "intent" click — watch buttons, download button, episode
+   tiles — capped at once per 24h so binge-watching stays clean.
+   ============================================================ */
+(function () {
+  if (!SMARTLINK) return;
+  const KEY = 'toonreel:lastad';
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest(
+      'a[href*="watch.html"], a[href*="download.html"], .ep-item, .getapp-btn, .lp-cta a');
+    if (!target) return;
+    const last = parseInt(localStorage.getItem(KEY) || '0', 10);
+    if (Date.now() - last < SMARTLINK_FREQ) return;
+    localStorage.setItem(KEY, String(Date.now()));
+    window.open(SMARTLINK, '_blank'); /* new tab, default nav continues */
+  }, true);
+})();
 
 /* ============================================================
    PREROLL
