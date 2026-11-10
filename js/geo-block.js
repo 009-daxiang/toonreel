@@ -49,7 +49,7 @@
       'background:#0a0a14;color:#e8e8f0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}' +
       '.c{max-width:520px;text-align:center;padding:40px 28px}' +
       '.logo{font-size:26px;font-weight:900;letter-spacing:1px;margin-bottom:34px}' +
-      '.logo b{color:#a78bfa}.logo i{background:linear-gradient(135deg,#8b5cf6,#22d3ee);' +
+      '.logo b{color:#a78bfa}.logo i{background:linear-gradient(135deg,#e50914,#ff4d4d);' +
       '-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-style:normal}' +
       'h1{font-size:20px;font-weight:700;margin:0 0 14px;line-height:1.6}' +
       '.en{font-size:13px;color:#8a8aa0;line-height:1.7;margin-top:18px}' +

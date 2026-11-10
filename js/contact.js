@@ -79,5 +79,10 @@
   } else {
     mount();
   }
-  window.BizContact = { mount };
+  function remount() {
+    document.querySelectorAll('[data-mounted]').forEach(el => el.removeAttribute('data-mounted'));
+    document.querySelectorAll('.biz-reveal, .biz-mini-btn').forEach(el => el.remove());
+    mount();
+  }
+  window.BizContact = { mount, remount };
 })();

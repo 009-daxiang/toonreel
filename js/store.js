@@ -61,6 +61,12 @@ function lockIcon() {
 }
 
 /* Build a standard vertical card for a show */
+const BADGE_I18N = { TRENDING: 'badge_trending', HOT: 'badge_hot', NEW: 'badge_new', 'TOP 10': 'badge_top10' };
+function badgeLabel(b) {
+  const k = BADGE_I18N[(b || '').toUpperCase()];
+  return k ? t(k) : b;
+}
+
 function cardHtml(show, { continue: cont, rank } = {}) {
   const fav = isFav(show.id);
   if (cont) {
@@ -80,7 +86,7 @@ function cardHtml(show, { continue: cont, rank } = {}) {
       <a href="watch.html?id=${show.id}&ep=1" aria-label="Watch ${show.title}">
         <div class="poster">
           <img src="${posterFor(show)}" alt="${show.title}" loading="lazy" />
-          ${show.badge ? `<span class="card-badge">${show.badge}</span>` : ''}
+          ${show.badge ? `<span class="card-badge">${badgeLabel(show.badge)}</span>` : ''}
           <span class="ep-chip">${show.episodes} ${t('eps_short')}</span>
           <div class="play-ov"><span class="circle">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="#12121f"><path d="M8 5l12 7-12 7z"/></svg>

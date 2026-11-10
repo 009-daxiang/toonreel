@@ -32,7 +32,7 @@ function renderInfo() {
   if (sb) { sb.dataset.shareTitle = show.title; sb.dataset.shareId = show.id; }
   document.getElementById('badges').innerHTML = `
     <span class="pill">${t('ai_original')}</span>
-    ${show.badge ? `<span class="pill ghost">${show.badge}</span>` : ''}
+    ${show.badge ? `<span class="pill ghost">${badgeLabel(show.badge)}</span>` : ''}
     <span class="pill ghost">${show.status === 'Completed' ? t('status_completed') : t('status_ongoing')}</span>`;
   document.getElementById('showTitle').textContent = show.title;
   document.getElementById('showTagline').textContent = show.tagline;
@@ -205,8 +205,51 @@ document.addEventListener('keydown', (e) => {
   if (e.key === ' ') { e.preventDefault(); togglePlay(); }
   else if (e.key === 'ArrowRight' && video.duration) video.currentTime += 5;
   else if (e.key === 'ArrowLeft') video.currentTime -= 5;
+  else if (e.key === 'ArrowUp') { e.preventDefault(); goPrevSwipe(); }
+  else if (e.key === 'ArrowDown') { e.preventDefault(); goNextSwipe(); }
   else if (e.key.toLowerCase() === 'n') goNext();
 });
+
+/* ---------- fullscreen swipe: swipe up = next, swipe down = prev ---------- */
+let fsActive = false;
+document.addEventListener('fullscreenchange', () => {
+  fsActive = !!document.fullscreenElement;
+});
+let touchY = null, touchX = null, touchT = 0;
+player.addEventListener('touchstart', (e) => {
+  touchY = e.touches[0].clientY; touchX = e.touches[0].clientX; touchT = Date.now();
+}, { passive: true });
+player.addEventListener('touchend', (e) => {
+  if (touchY === null) return;
+  const dy = e.changedTouches[0].clientY - touchY;
+  const dx = e.changedTouches[0].clientX - touchX;
+  const dt = Date.now() - touchT;
+  touchY = null;
+  /* fullscreen only + deliberate vertical swipe */
+  if (!fsActive || dt > 700) return;
+  if (Math.abs(dy) < 90 || Math.abs(dy) < Math.abs(dx) * 1.5) return;
+  if (dy < 0) goNextSwipe(); else goPrevSwipe();
+}, { passive: true });
+
+/* swipe transition veil for a clean switch */
+function swipeVeil(cb) {
+  const veil = document.createElement('div');
+  veil.className = 'swipe-veil';
+  player.appendChild(veil);
+  requestAnimationFrame(() => veil.classList.add('show'));
+  setTimeout(() => {
+    cb();
+    setTimeout(() => { veil.classList.add('fade'); setTimeout(() => veil.remove(), 250); }, 120);
+  }, 160);
+}
+function goNextSwipe() {
+  if (currentEp >= show.episodes) return;
+  swipeVeil(() => { currentEp += 1; loadEp(true); });
+}
+function goPrevSwipe() {
+  if (currentEp <= 1) return;
+  swipeVeil(() => { currentEp -= 1; loadEp(true); });
+}
 
 /* ---------- init ---------- */
 async function boot() {
@@ -220,6 +263,7 @@ async function boot() {
     renderInfo();
     renderEpisodes();
     document.getElementById('hudEpNum').textContent = hudText();
+    if (window.BizContact) BizContact.remount();
   });
   fillBanner('adSlotWatch', AD_CONFIG.banners.watch);
   renderInfo();

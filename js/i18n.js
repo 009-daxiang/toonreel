@@ -191,7 +191,7 @@ const I18N = {
     f_contact: '联系我们', f_lang: '简体中文',
     copyright: '© 2026 YT688. 全部短剧均为 AI 原创内容。',
     ep_label: '第 {n} 集',
-    ai_original: 'AI ORIGINAL'
+    ai_original: 'AI 原创'
   },
   zht: {
     nav_home: '首頁', nav_rank: '排行榜', nav_genres: '分類', nav_mylist: '我的收藏',
@@ -279,7 +279,7 @@ const I18N = {
     f_contact: '聯絡我們', f_lang: '繁體中文',
     copyright: '© 2026 YT688. 全部短劇均為 AI 原創內容。',
     ep_label: '第 {n} 集',
-    ai_original: 'AI ORIGINAL'
+    ai_original: 'AI 原創'
   },
   id: {
     nav_home: 'Beranda', nav_rank: 'Peringkat', nav_genres: 'Genre', nav_mylist: 'Daftarku',
@@ -367,7 +367,7 @@ const I18N = {
     f_contact: 'Kontak', f_lang: 'Bahasa Indonesia',
     copyright: '© 2026 YT688. Semua drama adalah karya asli AI.',
     ep_label: 'EP {n}',
-    ai_original: 'AI ORIGINAL'
+    ai_original: 'AI ORISINAL'
   },
   th: {
     nav_home: 'หน้าแรก', nav_rank: 'อันดับ', nav_genres: 'หมวดหมู่', nav_mylist: 'รายการของฉัน',
@@ -455,7 +455,7 @@ const I18N = {
     f_contact: 'ติดต่อเรา', f_lang: 'ไทย',
     copyright: '© 2026 YT688 ซีรีส์ทั้งหมดสร้างโดย AI',
     ep_label: 'EP {n}',
-    ai_original: 'AI ORIGINAL'
+    ai_original: 'AI ต้นฉบับ'
   },
   vi: {
     nav_home: 'Trang chủ', nav_rank: 'Xếp hạng', nav_genres: 'Thể loại', nav_mylist: 'Danh sách của tôi',
@@ -543,7 +543,7 @@ const I18N = {
     f_contact: 'Liên hệ', f_lang: 'Tiếng Việt',
     copyright: '© 2026 YT688. Toàn bộ phim là nội dung gốc AI.',
     ep_label: 'Tập {n}',
-    ai_original: 'AI ORIGINAL'
+    ai_original: 'AI NGUYÊN BẢN'
   },
   ms: {
     nav_home: 'Laman Utama', nav_rank: 'Kedudukan', nav_genres: 'Genre', nav_mylist: 'Senarai Saya',
@@ -631,7 +631,7 @@ const I18N = {
     f_contact: 'Hubungi', f_lang: 'Bahasa Melayu',
     copyright: '© 2026 YT688. Semua drama ialah karya asli AI.',
     ep_label: 'EP {n}',
-    ai_original: 'AI ORIGINAL'
+    ai_original: 'AI ASLI'
   },
   fil: {
     nav_home: 'Home', nav_rank: 'Ranking', nav_genres: 'Genre', nav_mylist: 'Listahan Ko',
@@ -719,7 +719,7 @@ const I18N = {
     f_contact: 'Makipag-ugnayan', f_lang: 'Filipino',
     copyright: '© 2026 YT688. Lahat ng drama ay AI-generated originals.',
     ep_label: 'EP {n}',
-    ai_original: 'AI ORIGINAL'
+    ai_original: 'ORIHINAL NA AI'
   }
 };
 

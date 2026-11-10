@@ -10,9 +10,9 @@ import zlib
 
 SIZE = 512
 RADIUS = 112
-C1 = (168, 85, 247)   # #a855f7
-CM = (217, 70, 239)   # #d946ef
-C2 = (34, 211, 238)   # #22d3ee
+C1 = (229, 9, 20)     # #e50914
+CM = (255, 60, 60)    # #ff3c3c
+C2 = (255, 122, 122)  # #ff7a7a
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'assets', 'icons')
 
 

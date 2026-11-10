@@ -248,6 +248,8 @@ fillBanner('adSlotHome', AD_CONFIG.banners.home);
 
 /* ---------- rerender everything on language change ---------- */
 function rerenderAll() {
+  if (typeof posterCacheClear === 'function') posterCacheClear();
+  if (window.BizContact && window.BizContact.remount) BizContact.remount();
   localizeGenreLinks();
   buildHero();
   buildRails();
