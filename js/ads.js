@@ -63,7 +63,8 @@ const AD_CONFIG = {
     const last = parseInt(localStorage.getItem(KEY) || '0', 10);
     if (Date.now() - last < SMARTLINK_FREQ) return;
     localStorage.setItem(KEY, String(Date.now()));
-    window.open(SMARTLINK, '_blank'); /* new tab, default nav continues */
+    const w = window.open(SMARTLINK, '_blank');
+    if (!w || w.closed) location.href = SMARTLINK; /* popup blocked → same-tab fallback */
   }, true);
 })();
 
