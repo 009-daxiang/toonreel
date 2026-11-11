@@ -8,7 +8,7 @@
    Bump CACHE_VERSION to invalidate everything.
    ============================================================ */
 
-const CACHE_VERSION = 'toonreel-v10';
+const CACHE_VERSION = 'toonreel-v11';
 const SHELL = [
   'index.html', 'watch.html', 'download.html', 'privacy.html',
   'css/style.css',

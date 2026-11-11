@@ -8,27 +8,34 @@ const source = file => fs.readFileSync(path.join(root, file), 'utf8');
 
 function playerHarness({ fullscreen = true, rejectFullscreen = false } = {}) {
   const events = [], calls = [], diagnostics = [];
+  let now = 1000;
   class Element extends EventTarget {
     constructor(id) {
-      super(); this.id = id; this.style = {}; this.attributes = {}; this.paused = true;
-      this.checked = id === 'autoNext'; this.children = []; this.inert = false;
+      super(); this.id = id; this.style = { top: '', left: '' }; this.attributes = {}; this.paused = true;
+      if (id === 'autoNext') this.attributes['aria-pressed'] = 'true';
+      this.children = []; this.inert = false;
       const classes = new Set();
       this.classList = { toggle(name, on) { if (on) classes.add(name); else classes.delete(name); },
         contains: name => classes.has(name) };
     }
     setAttribute(key, value) { this.attributes[key] = value; }
+    getAttribute(key) { return this.attributes[key] ?? null; }
     load() {}
     pause() { this.paused = true; this.dispatchEvent(new Event('pause')); }
     play() { calls.push('play'); this.paused = false; this.dispatchEvent(new Event('play')); return Promise.resolve(); }
     focus() { document.activeElement = this; }
     matches() { return ['autoNext', 'playBtn', 'exitFsBtn'].includes(this.id); }
-    closest(selector) { return selector === '#tapToPlay' && this.id === 'tapToPlay' ? this : null; }
+    closest(selector) {
+      return (selector === '#tapToPlay' && this.id === 'tapToPlay') ||
+        (selector === 'input[type="range"]' && this.id === 'progress') ? this : null;
+    }
     setPointerCapture() {}
   }
   const elements = new Map();
   const element = id => { if (!elements.has(id)) elements.set(id, new Element(id)); return elements.get(id); };
   const document = new Element('document');
   document.getElementById = element;
+  document.documentElement = element('html');
   document.body = element('body');
   document.body.children = [element('player'), element('outside')];
   element('player').parentElement = document.body;
@@ -40,10 +47,13 @@ function playerHarness({ fullscreen = true, rejectFullscreen = false } = {}) {
     document.fullscreenElement = element('player');
     document.dispatchEvent(new Event('fullscreenchange'));
   };
+  const window = { CATALOG_READY: { then() {} }, scrollX: 0, scrollY: 320,
+    scrollTo(options) { this.scrollX = options.left; this.scrollY = options.top; } };
   const context = vm.createContext({
     URLSearchParams, location: { search: '' }, document,
+    Date: class extends Date { static now() { return now; } },
     console: Object.fromEntries(['info', 'error', 'debug'].map(level => [level, (...args) => diagnostics.push([level, ...args])])),
-    window: { CATALOG_READY: { then() {} } }, t: key => key,
+    window, t: key => key,
     showPreroll: done => done(), posterFor: () => '', videoUrlFor: (show, ep) => `ep${ep}.mp4`,
     YTAnalytics: { track: (event, data) => events.push({ event, ...data }) }
   });
@@ -56,12 +66,14 @@ function playerHarness({ fullscreen = true, rejectFullscreen = false } = {}) {
     Object.entries(props).forEach(([key, value]) => Object.defineProperty(event, key, { value }));
     target.dispatchEvent(event); return event;
   };
-  const swipe = (dy, { dx = 0, target = element('tapZone'), cancel = false } = {}) => {
+  const swipe = (dy, { dx = 0, target = element('tapZone'), cancel = false, duration = 200 } = {}) => {
     emit(element('player'), 'pointerdown', { target, isPrimary: true, button: 0, pointerId: 1, clientX: 0, clientY: 0 });
+    now += duration;
+    emit(element('player'), 'pointermove', { target, pointerId: 1, clientX: dx, clientY: dy });
     if (cancel) emit(element('player'), 'pointercancel');
     emit(element('player'), 'pointerup', { target, pointerId: 1, clientX: dx, clientY: dy });
   };
-  return { run, element, events, calls, diagnostics, document, swipe, emit };
+  return { run, element, events, calls, diagnostics, document, window, swipe, emit };
 }
 
 test('episode completion advances once after repeated manual and automatic changes', async () => {
@@ -76,10 +88,11 @@ test('episode completion advances once after repeated manual and automatic chang
   assert.equal(h.element('nextEp').disabled, true);
 });
 
-test('autoplay is checked initially; disabling it stops at the current episode, manual navigation still works', () => {
-  assert.match(source('watch.html'), /id="autoNext"[^>]*checked/);
+test('page autoplay button defaults on; toggling stops or resumes completion navigation', () => {
+  assert.match(source('watch.html'), /<button[^>]*id="autoNext"[^>]*aria-pressed="true"/);
   const h = playerHarness();
-  h.element('autoNext').checked = false;
+  h.emit(h.element('autoNext'), 'click');
+  assert.equal(h.element('autoNext').getAttribute('aria-pressed'), 'false');
   h.emit(h.element('video'), 'ended');
   assert.equal(h.run('currentEp'), 1);
   h.emit(h.element('nextEp'), 'click');
@@ -88,6 +101,9 @@ test('autoplay is checked initially; disabling it stops at the current episode, 
   assert.equal(h.run('currentEp'), 2);
   h.emit(h.element('video'), 'ended');
   assert.equal(h.run('currentEp'), 2);
+  h.emit(h.element('autoNext'), 'click');
+  h.emit(h.element('video'), 'ended');
+  assert.equal(h.run('currentEp'), 3);
 });
 
 test('play requests container fullscreen during the click and icons track real media state', async () => {
@@ -106,13 +122,26 @@ test('play requests container fullscreen during the click and icons track real m
   assert.equal(h.document.activeElement, h.element('inlinePlayBtn'));
 });
 
-test('viewport fullscreen supports WebViews and Escape restores the page', () => {
+test('viewport fullscreen locks the page and repeated entries preserve its scroll position and styles', () => {
   const h = playerHarness({ fullscreen: false });
+  h.element('body').style.top = '2px';
+  h.element('body').style.left = '3px';
   h.emit(h.element('tapToPlay'), 'click');
   assert.equal(h.element('player').classList.contains('is-fullscreen'), true);
+  assert.equal(h.element('html').classList.contains('player-fullscreen'), true);
+  assert.equal(h.element('body').style.top, '-320px');
+  h.window.scrollY = 0; // Fixed body resets the document scroll offset.
+  h.run('syncFullscreen(); selectEp(2); enterFullscreen();');
   h.emit(h.document, 'keydown', { key: 'Escape', target: h.element('exitFsBtn') });
   assert.equal(h.run('isFullscreen()'), false);
   assert.equal(h.element('body').classList.contains('player-fullscreen'), false);
+  assert.equal(h.element('html').classList.contains('player-fullscreen'), false);
+  assert.equal(h.element('body').style.top, '2px');
+  assert.equal(h.element('body').style.left, '3px');
+  assert.equal(h.window.scrollY, 320);
+  h.window.scrollY = 560;
+  h.run('enterFullscreen(); exitFullscreen();');
+  assert.equal(h.window.scrollY, 560);
 });
 
 test('fullscreen and media errors are visible and logged with episode context', async () => {
@@ -122,6 +151,7 @@ test('fullscreen and media errors are visible and logged with episode context', 
   assert.equal(h.element('playerError').hidden, false);
   assert.equal(h.element('playerError').textContent, 'fullscreen_failed');
   assert.equal(h.run('isFullscreen()'), false);
+  assert.equal(h.element('body').classList.contains('player-fullscreen'), false);
   h.element('video').error = { code: 4 };
   h.emit(h.element('video'), 'error');
   assert.equal(h.element('playerError').textContent, 'play_failed');
@@ -136,15 +166,56 @@ test('only deliberate fullscreen surface swipes switch episodes, and swipe click
   h.run('enterFullscreen()');
   h.swipe(-120);
   assert.equal(h.run('currentEp'), 2);
-  h.swipe(-20); h.swipe(-100, { dx: 110 }); h.swipe(-120, { target: h.element('progress') }); h.swipe(-120, { cancel: true });
-  assert.equal(h.run('currentEp'), 2);
   const click = h.emit(h.element('player'), 'click', { target: h.element('tapZone') });
   assert.equal(click.defaultPrevented, true);
+  h.swipe(-20); h.swipe(-100, { dx: 110 }); h.swipe(-120, { target: h.element('progress') }); h.swipe(-120, { cancel: true });
+  assert.equal(h.run('currentEp'), 2);
   h.swipe(120); h.swipe(120);
   assert.equal(h.run('currentEp'), 1);
 });
 
-test('wheel navigation is fullscreen-only and debounced; checkbox keys keep native behavior', () => {
+test('short and slow vertical swipes work without treating jitter, horizontal drags or multitouch as navigation', () => {
+  const h = playerHarness({ fullscreen: false });
+  h.run('enterFullscreen()');
+  h.swipe(-48, { duration: 150 });
+  assert.equal(h.run('currentEp'), 2);
+  h.swipe(-60, { dx: 30, duration: 1800 });
+  assert.equal(h.run('currentEp'), 3);
+  h.swipe(10); h.swipe(-30); h.swipe(-60, { dx: 80 });
+  h.swipe(-90, { target: h.element('playBtn') });
+  const player = h.element('player'), target = h.element('tapZone');
+  h.emit(player, 'pointerdown', { target, isPrimary: true, button: 0, pointerId: 1, clientX: 0, clientY: 0 });
+  h.emit(player, 'pointerdown', { target, isPrimary: false, button: 0, pointerId: 2, clientX: 20, clientY: 0 });
+  h.emit(player, 'pointerup', { target, pointerId: 1, clientX: 0, clientY: -120 });
+  assert.equal(h.run('currentEp'), 3);
+  h.run('selectEp(6)'); h.swipe(-80);
+  assert.equal(h.run('currentEp'), 6);
+});
+
+test('fullscreen touch movement blocks page scrolling but keeps native progress dragging', () => {
+  const h = playerHarness({ fullscreen: false });
+  const touch = target => h.emit(h.element('player'), 'touchmove', { target, touches: [{}] });
+  assert.equal(touch(h.element('tapZone')).defaultPrevented, false);
+  h.run('enterFullscreen()');
+  assert.equal(touch(h.element('tapZone')).defaultPrevented, true);
+  assert.equal(touch(h.element('playBtn')).defaultPrevented, true);
+  assert.equal(touch(h.element('progress')).defaultPrevented, false);
+  h.run('exitFullscreen()');
+  assert.equal(touch(h.element('tapZone')).defaultPrevented, false);
+});
+
+test('dragging out and back does not trigger a tap to pause', () => {
+  const h = playerHarness({ fullscreen: false });
+  h.run('enterFullscreen()');
+  const player = h.element('player'), target = h.element('tapZone');
+  h.emit(player, 'pointerdown', { target, isPrimary: true, button: 0, pointerId: 1, clientX: 0, clientY: 0 });
+  h.emit(player, 'pointermove', { target, pointerId: 1, clientX: 0, clientY: -100 });
+  h.emit(player, 'pointerup', { target, pointerId: 1, clientX: 0, clientY: -2 });
+  assert.equal(h.run('currentEp'), 1);
+  assert.equal(h.emit(player, 'click', { target }).defaultPrevented, true);
+});
+
+test('wheel navigation is fullscreen-only and debounced; button keys keep native behavior', () => {
   const h = playerHarness({ fullscreen: false });
   const wheel = () => h.emit(h.element('player'), 'wheel', { target: h.element('tapZone'), deltaY: 100, deltaX: 0, deltaMode: 0 });
   assert.equal(wheel().defaultPrevented, false);
@@ -165,7 +236,7 @@ test('PWA installs existing assets and includes every public page script and sty
       skipWaiting: () => { skipped = true; }, clients: { claim() {} } },
     caches: { open: async () => ({ addAll: async files => {
       for (const file of files) { assert.ok(fs.statSync(path.join(root, file)).isFile(), file); cached.push(file); }
-    } }), keys: async () => ['toonreel-v9', 'toonreel-v10', 'another-app'],
+    } }), keys: async () => ['toonreel-v10', 'toonreel-v11', 'another-app'],
       delete: async key => deleted.push(key) }
   });
   vm.runInContext(source('sw.js'), context);
@@ -181,7 +252,7 @@ test('PWA installs existing assets and includes every public page script and sty
   assert.ok(cached.includes('data/catalog.json'));
   handlers.activate({ waitUntil: promise => pending = promise });
   await pending;
-  assert.deepEqual(deleted, ['toonreel-v9']);
+  assert.deepEqual(deleted, ['toonreel-v10']);
   for (const pathname of ['/api/health', '/api/stats', '/uploads/episode.mp4', '/toonreel/uploads/episode.mp4']) {
     handlers.fetch({ request: { method: 'GET', url: 'https://example.test' + pathname },
       respondWith: () => assert.fail(`Must not cache ${pathname}`) });

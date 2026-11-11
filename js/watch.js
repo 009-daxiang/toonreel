@@ -155,7 +155,10 @@ function playVideo() {
 /* Register once: changing episodes must not accumulate completion handlers. */
 video.addEventListener('ended', () => {
   YTAnalytics.track('complete', { show: show.id, ep: currentEp });
-  if (autoNext.checked && currentEp < show.episodes) goNext();
+  if (autoNext.getAttribute('aria-pressed') === 'true' && currentEp < show.episodes) goNext();
+});
+autoNext.addEventListener('click', () => {
+  autoNext.setAttribute('aria-pressed', String(autoNext.getAttribute('aria-pressed') !== 'true'));
 });
 
 function highlightNavBtns() {
@@ -251,14 +254,36 @@ let viewportFullscreen = false;
 let fullscreenPending = false;
 let focusBeforeFullscreen = null;
 let inertOutside = [];
+let scrollBeforeFullscreen = null;
 function isFullscreen() {
   return document.fullscreenElement === player || viewportFullscreen;
+}
+function lockPageScroll() {
+  if (scrollBeforeFullscreen) return;
+  const { style } = document.body;
+  scrollBeforeFullscreen = { x: window.scrollX, y: window.scrollY, top: style.top, left: style.left };
+  style.top = `${-window.scrollY}px`;
+  style.left = `${-window.scrollX}px`;
+  document.documentElement.classList.toggle('player-fullscreen', true);
+  document.body.classList.toggle('player-fullscreen', true);
+}
+function unlockPageScroll() {
+  if (!scrollBeforeFullscreen) return;
+  const { x, y, top, left } = scrollBeforeFullscreen;
+  document.documentElement.classList.toggle('player-fullscreen', false);
+  document.body.classList.toggle('player-fullscreen', false);
+  document.body.style.top = top;
+  document.body.style.left = left;
+  scrollBeforeFullscreen = null;
+  // Override the site's smooth scrolling so exiting never animates from the top.
+  window.scrollTo({ left: x, top: y, behavior: 'instant' });
 }
 function syncFullscreen() {
   const active = isFullscreen();
   if (active && playerErrorKey === 'fullscreen_failed') playerError.hidden = true;
+  if (active) lockPageScroll();
   player.classList.toggle('is-fullscreen', active);
-  document.body.classList.toggle('player-fullscreen', active);
+  if (!active) unlockPageScroll();
   exitFsBtn.hidden = !active;
   if (active && !inertOutside.length) {
     let child = player;
@@ -303,7 +328,7 @@ fsBtn.addEventListener('click', () => isFullscreen() ? exitFullscreen() : enterF
 exitFsBtn.addEventListener('click', exitFullscreen);
 document.addEventListener('fullscreenchange', syncFullscreen);
 
-/* Ignore editable controls and let native button/checkbox keyboard actions work. */
+/* Ignore editable controls and let native button keyboard actions work. */
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && viewportFullscreen) { e.preventDefault(); exitFullscreen(); return; }
   if (e.target.matches('input, textarea, select, button, a, [contenteditable="true"]')) return;
@@ -324,19 +349,31 @@ function isGestureSurface(target) {
 player.addEventListener('pointerdown', e => {
   if (!e.isPrimary) { gesture = null; return; }
   if (!isFullscreen() || !isGestureSurface(e.target) || e.button !== 0) return;
-  gesture = { id: e.pointerId, x: e.clientX, y: e.clientY, time: Date.now() };
+  gesture = { id: e.pointerId, x: e.clientX, y: e.clientY, moved: false };
   e.target.setPointerCapture(e.pointerId);
+});
+player.addEventListener('pointermove', e => {
+  if (!gesture || gesture.id !== e.pointerId) return;
+  if (Math.hypot(e.clientX - gesture.x, e.clientY - gesture.y) > 12) gesture.moved = true;
 });
 player.addEventListener('pointerup', e => {
   if (!gesture || gesture.id !== e.pointerId) return;
-  const { x, y, time } = gesture;
+  const { x, y, moved } = gesture;
   gesture = null;
   const dx = e.clientX - x, dy = e.clientY - y;
-  if (Math.hypot(dx, dy) > 12) suppressClickUntil = Date.now() + 400;
-  if (!isFullscreen() || Date.now() - time > 1000 || Math.abs(dy) < 70 || Math.abs(dy) < Math.abs(dx) * 1.5) return;
+  if (moved || Math.hypot(dx, dy) > 12) suppressClickUntil = Date.now() + 400;
+  if (!isFullscreen() || Math.abs(dy) < 44 || Math.abs(dy) < Math.abs(dx) * 1.2) return;
+  console.debug('[Player] Episode swipe', { show: show?.id, episode: currentEp, direction: dy < 0 ? 'next' : 'previous', dx, dy, pointerType: e.pointerType });
   if (dy < 0) goNext(); else goPrev();
 });
 player.addEventListener('pointercancel', () => { gesture = null; });
+// iOS WebViews may still rubber-band the page despite overflow:hidden.
+// Keep range input's native dragging; other fullscreen touches belong to the player.
+player.addEventListener('touchmove', e => {
+  if (!isFullscreen()) return;
+  if (e.touches.length > 1) gesture = null;
+  if (!e.target.closest('input[type="range"]') && e.cancelable) e.preventDefault();
+}, { passive: false });
 player.addEventListener('click', e => {
   if (Date.now() < suppressClickUntil && isGestureSurface(e.target)) { e.preventDefault(); e.stopPropagation(); }
 }, true);

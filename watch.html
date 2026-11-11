@@ -10,7 +10,7 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#8b5cf6" />
   <script src="js/geo-block.js"></script>
-  <link rel="stylesheet" href="css/style.css?v=20261111a" />
+  <link rel="stylesheet" href="css/style.css?v=20261111b" />
   <script src="js/analytics-config.js" defer></script>
   <script src="js/visitor-analytics.js" defer></script>
   <link rel="alternate" hreflang="en" href="https://yt688.app/watch.html?lang=en" />
@@ -76,7 +76,6 @@
           </div>
           <p class="player-error" id="playerError" role="status" hidden></p>
           <div class="bottom">
-            <label class="autoplay-option"><input id="autoNext" type="checkbox" checked /><span data-i18n="auto_next">Autoplay next episode</span></label>
             <input class="progress" id="progress" type="range" min="0" max="1000" value="0" aria-label="Seek" />
             <div class="hud-row">
               <button class="icon-btn" id="playBtn" aria-label="Play or pause">
@@ -104,6 +103,10 @@
         <button class="btn btn-primary" id="inlinePlayBtn" aria-label="Play"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path id="inlinePlayIcon" d="M8 5l12 7-12 7z"/></svg></button>
         <button class="btn btn-ghost" id="nextEp" aria-label="Next episode"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5l9 7-9 7V5zm11 0h2.5v14H17z"/></svg></button>
       </div>
+      <button class="autoplay-option" id="autoNext" type="button" aria-pressed="true">
+        <span data-i18n="auto_next">Autoplay next episode</span>
+        <span class="autoplay-switch" aria-hidden="true"></span>
+      </button>
     </div>
 
     <!-- ============ INFO COLUMN ============ -->
@@ -151,6 +154,6 @@
   <script src="js/theme.js?v=20261111a"></script>
   <script src="js/analytics.js?v=20261111a"></script>
   <script src="js/share.js?v=20261111a"></script>
-  <script src="js/watch.js?v=20261111a"></script>
+  <script src="js/watch.js?v=20261111b"></script>
 </body>
 </html>
