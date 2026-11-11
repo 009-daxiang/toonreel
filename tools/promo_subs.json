@@ -1,0 +1,54 @@
+{
+ "东北异事之出马诡堂": [
+  {
+   "ep": 2,
+   "hooks": {
+    "zh": "东北老家的规矩：半夜敲门不能应…",
+    "en": "The rule back home: never answer a midnight knock...",
+    "id": "Aturan di kampung: jangan jawab ketukan tengah malam…",
+    "th": "กฎที่บ้านเกิด: ห้ามเปิดประตูตอนเที่ยงคืน…",
+    "vi": "Luật ở quê: đừng bao giờ mở cửa lúc nửa đêm…",
+    "ms": "Peraturan di kampung: jangan jawab ketukan tengah malam…",
+    "fil": "Ang tuntunin sa probinsya: huwag sagutin ang katok ng hatinggabi…"
+   }
+  },
+  {
+   "ep": 19,
+   "hooks": {
+    "zh": "出马仙开坛的那一刻，全家都安静了…",
+    "en": "The moment the shaman began the ritual, the whole family went silent...",
+    "id": "Saat dukun membuka ritual, seluruh keluarga terdiam…",
+    "th": "ชั่วขณะที่หมอผีเริ่มพิธี ทั้งบ้านเงียบสนิท…",
+    "vi": "Khoảnh khắc thầy mở đàn, cả nhà im bặt…",
+    "ms": "Detik bomoh memulakan ritual, seluruh keluarga terdiam…",
+    "fil": "Nang simulan ng manghuhula ang ritual, tahimik ang buong pamilya…"
+   }
+  }
+ ],
+ "重生！丑小鸭逆袭成了万人迷": [
+  {
+   "ep": 5,
+   "hooks": {
+    "zh": "重生回到高中，这一次一切重来…",
+    "en": "Reborn back in high school... this time everything changes.",
+    "id": "Terlahir kembali di SMA… kali ini semuanya berubah.",
+    "th": "เกิดใหม่กลับมาไฮสคูล… คราวนี้ทุกอย่างเปลี่ยน",
+    "vi": "Trọng sinh trở về thời trung học… lần này mọi thứ thay đổi.",
+    "ms": "Dilahirkan semula di sekolah menengah… kali ini semuanya berbeza.",
+    "fil": "Ipinanganak mulang high school… ngay this time, magbabago ang lahat."
+   }
+  },
+  {
+   "ep": 45,
+   "hooks": {
+    "zh": "曾经嘲笑她的人，排队道歉…",
+    "en": "Everyone who mocked her lined up to apologize...",
+    "id": "Semua yang menertawakannya mengantre minta maaf…",
+    "th": "คนที่เคยหมั่นไส้ เข้าแถวขอโทษ…",
+    "vi": "Những kẻ từng chế giễu xếp hàng xin lỗi…",
+    "ms": "Yang pernah mengejek kini beratur meminta maaf…",
+    "fil": "Ang mga nanakit sa kanya pumila para mag-apologize…"
+   }
+  }
+ ]
+}

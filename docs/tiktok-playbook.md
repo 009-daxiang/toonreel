@@ -135,6 +135,35 @@
 4. 违规红线：不要直接贴链接在视频里（用主页 bio + 评论区），避免限流
 5. 数据复盘：播放 >1 万的视频追加同款剪辑；低于 2000 的换剪辑点重发
 
+
+## 8. 永冬之下，冻土之上（67 集 · 末世冰封/房车求生）
+
+- **剪辑点**：第 3/18/40/55 集的“冰封绝境”与“房车反击”瞬间（末世求生类：环境险境镜头开场）
+- **钩子策略**：末世题材前 3 秒直接展示冰封绝境，“全世界都冻住了，只有他的房车还在跑”
+
+| 语言 | 发布文案 |
+|---|---|
+| 中文 | 世界一夜冰封，他的房车是最后的移动堡垒🚐 完整版 YT688 |
+| English | The world froze overnight. His RV is the last moving fortress 🚐 Full on YT688 |
+| Bahasa Indonesia | Dunia membeku semalaman, RV-nya benteng bergerak terakhir 🚐 Full di YT688 |
+| ไทย | โลกแข็งตายในคืนเดียว RV ของเขาคือป้อมปราการเคลื่อนที่สุดท้าย 🚐 ดูเต็มที่ YT688 |
+| Tiếng Việt | Thế giới đóng băng trong một đêm, xe nhà của anh là pháo đài di động cuối cùng 🚐 Full trên YT688 |
+
+---
+
+## 9. 重生！丑小鸭逆袭成了万人迷（102 集 · 校园重生逆袭）
+
+- **剪辑点**：第 5/28/45/70 集的“重生觉醒”与“打脸反转”名场面（重生类：前后对比+打脸）
+- **钩子策略**：重生类开场——“重活一世，她/他要夺回属于自己的一切”
+
+| 语言 | 发布文案 |
+|---|---|
+| 中文 | 重生回到高中，这一次一切重来——曾经嘲笑她的人排队道歉🔥 完整版 YT688 |
+| English | Reborn back in high school — this time everyone who mocked her will pay 🔥 Full on YT688 |
+| Bahasa Indonesia | Terlahir kembali di SMA — semua yang menertawakannya akan membayar 🔥 Full di YT688 |
+| ไทย | เกิดใหม่กลับมาไฮสคูล คนที่เคยหยำต้องจ่ายราคา 🔥 เต็มที่ YT688 |
+| Tiếng Việt | Trọng sinh về thời trung học — kẻ từng chế giễu sẽ phải trả giá 🔥 Full trên YT688 |
+
 ---
 
 ## 广告位接入提醒（收益开关）
