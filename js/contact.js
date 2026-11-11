@@ -84,5 +84,6 @@
     document.querySelectorAll('.biz-reveal, .biz-mini-btn').forEach(el => el.remove());
     mount();
   }
+  document.addEventListener('yt688:langchange', () => remount());
   window.BizContact = { mount, remount };
 })();

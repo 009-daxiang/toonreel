@@ -6,10 +6,10 @@ import json
 import os
 import urllib.parse
 
-ROOT = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://yt688.app"
-catalog_path = os.path.join(os.path.dirname(ROOT), "data", "catalog.json")
-drama_dir = os.path.join(os.path.dirname(ROOT), "drama")
+catalog_path = os.path.join(ROOT, "data", "catalog.json")
+drama_dir = os.path.join(ROOT, "drama")
 os.makedirs(drama_dir, exist_ok=True)
 
 catalog = json.load(open(catalog_path, encoding="utf-8"))
@@ -28,6 +28,13 @@ PAGE = """<!DOCTYPE html>
   <meta property="og:image" content="{poster}" />
   <meta property="og:url" content="{page_url}" />
   <link rel="canonical" href="{page_url}" />
+  <script type="application/ld+json">
+  {{ "@context": "https://schema.org", "@type": "TVSeries", "name": "{title}",
+     "description": "{desc}", "numberOfEpisodes": {episodes}, "genre": [{genres_json}],
+     "image": "{poster}", "url": "{page_url}",
+     "aggregateRating": {{ "@type": "AggregateRating", "ratingValue": "{rating}", "bestRating": "10" }},
+     "author": {{ "@type": "Organization", "name": "YT688" }} }}
+  </script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%238b5cf6'/%3E%3Cpath d='M38 28 L74 50 L38 72 Z' fill='white'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
@@ -95,10 +102,12 @@ for s in shows:
     if poster.startswith("/"):
         poster = SITE + poster
     desc = (s.get("desc") or f"{s['title']}——{s['episodes']} 集免费短剧，YT688 每日更新。")[:300]
+    genres_json = ", ".join(json.dumps(g, ensure_ascii=False) for g in s.get("genres", ["短剧"]))
     html_out = PAGE.format(
         title=s["title"], desc=desc, poster=poster, page_url=page_url,
         genres=" · ".join(s.get("genres", ["短剧"])), episodes=s["episodes"],
         status=s.get("status", "Completed"), rating=s.get("rating", 9.0),
+        genres_json=", ".join(json.dumps(g, ensure_ascii=False) for g in s.get("genres", ["短剧"])),
         watch_url=f"watch.html?id={s['id']}&ep=1", ep_links=links)
     out = os.path.join(drama_dir, f"{s['id']}.html")
     changed = (not os.path.exists(out)) or open(out, encoding="utf-8").read() != html_out
@@ -112,8 +121,8 @@ sitemap = ('<?xml version="1.0" encoding="UTF-8"?>\n'
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
            + "\n".join(f"  <url><loc>{u}</loc></url>" for u in pages)
            + "\n</urlset>\n")
-open(os.path.join(os.path.dirname(ROOT), "sitemap.xml"), "w", encoding="utf-8").write(sitemap)
-open(os.path.join(os.path.dirname(ROOT), "robots.txt"), "w").write(
+open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write(sitemap)
+open(os.path.join(ROOT, "robots.txt"), "w").write(
     "User-agent: *\nAllow: /\nDisallow: /admin.html\nDisallow: /uploads/\n"
     f"Sitemap: {SITE}/sitemap.xml\n")
 print(f"sitemap.xml: {len(pages)} urls | robots.txt written")

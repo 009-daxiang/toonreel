@@ -904,6 +904,11 @@ function trGenres(show) {
 }
 
 function detectLang() {
+  /* URL parameter wins (SEO landing + shareable language links) */
+  try {
+    const urlLang = new URLSearchParams(location.search).get('lang');
+    if (urlLang && I18N[urlLang]) return urlLang;
+  } catch (e) {}
   const saved = store.get('lang', null);
   if (saved && I18N[saved]) return saved;
   const nav = (navigator.language || 'en').toLowerCase();
@@ -921,6 +926,14 @@ function detectLang() {
 /* Replace text of all [data-i18n] / [data-i18n-ph] nodes */
 function applyI18n() {
   document.documentElement.lang = currentLang;
+  document.dispatchEvent(new CustomEvent('yt688:langchange'));
+  /* reflect language in the URL for shareable/crawlable links */
+  try {
+    const u = new URL(location.href);
+    u.searchParams.set('lang', currentLang);
+    history.replaceState(null, '', u.toString());
+  } catch (e) {}
+  const meta = document.querySelector('meta[name="theme-color"]');
   document.querySelectorAll('[data-i18n]').forEach(el => {
     el.textContent = t(el.dataset.i18n);
   });
