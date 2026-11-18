@@ -125,6 +125,7 @@ function loadEp(autoplay) {
     if (version !== loadVersion) return;
     video.poster = posterFor(show);
     video.src = videoUrlFor(show, currentEp);
+    applySubtitles();
     video.load();
     progress.value = 0;
     tCur.textContent = tDur.textContent = '0:00';
@@ -174,6 +175,83 @@ document.getElementById('nextEp').addEventListener('click', goNext);
 nextBtn.addEventListener('click', goNext);
 function goNext() { if (show && currentEp < show.episodes) selectEp(currentEp + 1); }
 function goPrev() { if (show && currentEp > 1) selectEp(currentEp - 1); }
+
+/* ---------- subtitles (translated VTT per episode) ---------- */
+const SUB_LANGS = ['en', 'th', 'vi', 'id', 'ms', 'fil'];
+const SUB_LABEL = { en: 'English', th: 'ไทย', vi: 'Tiếng Việt', id: 'Indonesia', ms: 'Melayu', fil: 'Filipino' };
+const ccBtn = document.getElementById('ccBtn');
+const subToast = document.getElementById('subToast');
+let availSubs = [];   /* subtitle languages that exist for the current show */
+let subChoice = 'off';
+try { subChoice = localStorage.getItem('yt_sub_lang') || 'off'; } catch (e) { /* private mode */ }
+
+function subUrl(lang) { return `subtitles/${show.id}/ep${currentEp}.${lang}.vtt`; }
+
+/* Probe once per show: which subtitle languages exist (check episode 1). */
+async function probeSubs() {
+  const found = await Promise.all(SUB_LANGS.map(async (lang) => {
+    try {
+      const r = await fetch(`subtitles/${show.id}/ep1.${lang}.vtt`, { method: 'HEAD' });
+      return r.ok ? lang : null;
+    } catch (e) { return null; }
+  }));
+  availSubs = SUB_LANGS.filter(l => found.includes(l));
+  if (subChoice !== 'off' && !availSubs.includes(subChoice)) {
+    subChoice = availSubs.length ? 'en' : 'off';
+  }
+  updateCcBtn();
+}
+
+function applySubtitles() {
+  if (!show) return;
+  video.querySelectorAll('track').forEach(t => t.remove());
+  if (subChoice !== 'off' && availSubs.includes(subChoice)) {
+    const tr = document.createElement('track');
+    tr.kind = 'subtitles';
+    tr.label = SUB_LABEL[subChoice] || subChoice;
+    tr.srclang = subChoice;
+    tr.src = subUrl(subChoice);
+    video.appendChild(tr);
+  }
+  applySubModes();
+}
+
+function applySubModes() {
+  [...video.textTracks].forEach(t => {
+    t.mode = (subChoice !== 'off' && t.language === subChoice) ? 'showing' : 'disabled';
+  });
+}
+video.addEventListener('loadedmetadata', applySubModes);
+
+function updateCcBtn() {
+  ccBtn.classList.toggle('on', subChoice !== 'off' && availSubs.length > 0);
+  ccBtn.title = subChoice === 'off' ? 'Subtitles off' : `Subtitles: ${SUB_LABEL[subChoice] || subChoice}`;
+}
+
+let subToastTimer = null;
+function toastSub() {
+  subToast.textContent = subChoice === 'off' ? 'CC OFF' : `CC · ${SUB_LABEL[subChoice] || subChoice}`;
+  subToast.hidden = false;
+  clearTimeout(subToastTimer);
+  subToastTimer = setTimeout(() => { subToast.hidden = true; }, 1600);
+}
+
+function cycleSubs() {
+  const opts = ['off', ...availSubs];
+  const i = opts.indexOf(subChoice);
+  subChoice = opts[(i + 1) % opts.length];
+  try { localStorage.setItem('yt_sub_lang', subChoice); } catch (e) { /* private mode */ }
+  let built = false;
+  [...video.textTracks].forEach(t => {
+    const on = subChoice !== 'off' && t.language === subChoice;
+    t.mode = on ? 'showing' : 'disabled';
+    built = built || on;
+  });
+  if (subChoice !== 'off' && !built) applySubtitles(); /* track not appended yet */
+  updateCcBtn();
+  toastSub();
+}
+ccBtn.addEventListener('click', cycleSubs);
 
 /* The media events are the source of truth for both sets of icons. */
 function labelControl(element, key) {
@@ -418,6 +496,7 @@ async function boot() {
   });
   fillBanner('adSlotWatch', AD_CONFIG.banners.watch);
   renderInfo();
+  probeSubs().then(applySubtitles); /* async: tracks attach once availability is known */
   loadEp(false);
 }
 

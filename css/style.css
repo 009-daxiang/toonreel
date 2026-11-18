@@ -1298,3 +1298,9 @@ body.player-fullscreen .app-banner { display: none; }
   .player .hud-row { gap: 1px; }
   .player .time { font-size: .65rem; white-space: nowrap; }
 }
+
+/* ---------- subtitles (CC) ---------- */
+#ccBtn { font-size: 12px; font-weight: 700; letter-spacing: .5px; }
+#ccBtn.on { color: #ffd700; }
+.player .sub-toast { position: absolute; left: 50%; bottom: 96px; transform: translateX(-50%); background: rgba(0,0,0,.78); color: #fff; font-size: 12px; padding: 5px 12px; border-radius: 6px; z-index: 6; pointer-events: none; }
+video::cue { font-size: .92em; background: rgba(0,0,0,.55); color: #fff; }
