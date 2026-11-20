@@ -79,7 +79,10 @@ def margin_for(src, dur):
     for t in (20, 40, 60, 80, 100):
         if t >= dur - 2:
             break
-        band = detect_band(src, t)
+        try:
+            band = detect_band(src, t)
+        except Exception:
+            continue  # frame extraction can fail near EOF; treat as no band
         if band is None:
             continue
         bot = band[1]
