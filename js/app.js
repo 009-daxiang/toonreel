@@ -24,7 +24,8 @@ function route() {
 window.addEventListener('hashchange', route);
 
 /* ---------- hero carousel ---------- */
-const HERO_IDS = ['lycan-queen', 'sword-immortal', 'contract-bride', 'villainess'];
+/* u06 pinned first: the YouTube funnel drama must be the first thing visitors see */
+const HERO_IDS = ['u06'];
 let heroIdx = 0;
 let heroTimer;
 let heroList = [];
