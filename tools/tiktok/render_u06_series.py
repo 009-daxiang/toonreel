@@ -43,7 +43,7 @@ def render_ep(ep):
     if est > 178:
         ends = [e for _, e, _ in cues if e <= CUE_LIMIT]
         cut = max(ends) if ends else CUE_LIMIT
-    use = cut if cut else est
+    use = cut if cut else R.real_duration(src)
     margin = R.margin_for(src, min(use, 170))
     ass = R.ASS_HEAD % margin
     kept = 0
@@ -58,7 +58,7 @@ def render_ep(ep):
     ass_path = f'/tmp/u06_ep{ep}.ass'
     open(ass_path, 'w').write(ass)
     vf = (f'scale={R.W}:{R.H}:force_original_aspect_ratio=increase,crop={R.W}:{R.H},'
-          f"setsar=1,ass='{ass_path}'")
+          f"setsar=1,ass='{ass_path}'," + R.endcard_filter(use))
     cmd = [FF, '-hide_banner', '-loglevel', 'error', '-i', src, '-vf', vf]
     if cut:
         cmd += ['-t', str(cut)]

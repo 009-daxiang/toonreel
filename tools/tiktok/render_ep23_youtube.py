@@ -7,7 +7,39 @@ Output: ~/Desktop/YT688_YouTube_EP1英文版/{NN}-{EnName}-EP{N}-FULL.mp4
 """
 import os
 import re
+import shutil
 import subprocess
+
+FONT_DIR = '/tmp/yt688fonts'
+
+def ensure_fonts():
+    os.makedirs(FONT_DIR, exist_ok=True)
+    for src, name in (('/System/Library/Fonts/Supplemental/Arial Bold.ttf', 'arial-bold.ttf'),
+                      ('/System/Library/Fonts/Supplemental/Arial Black.ttf', 'arial-black.ttf')):
+        dst = os.path.join(FONT_DIR, name)
+        if not os.path.exists(dst):
+            shutil.copy(src, dst)
+    return os.path.join(FONT_DIR, 'arial-bold.ttf'), os.path.join(FONT_DIR, 'arial-black.ttf')
+
+def endcard_filter(dur, brand='yt688.app', tagline='WATCH THE FULL SERIES FREE', seconds=3):
+    """Two-line CTA card centered on screen for the last `seconds` seconds."""
+    bold, black = ensure_fonts()
+    t0 = max(dur - seconds, 0)
+    line1 = (f"drawtext=fontfile={bold}:text='{tagline}':fontsize=30:fontcolor=white:"
+             f"box=1:boxcolor=0x000000@0.62:boxborderw=14:x=(w-text_w)/2:y=556:"
+             f"enable='between(t,{t0:.2f},{dur + 1:.2f})'")
+    line2 = (f"drawtext=fontfile={black}:text='{brand}':fontsize=62:fontcolor=white:"
+             f"box=1:boxcolor=0xC8101A@0.88:boxborderw=20:x=(w-text_w)/2:y=618:"
+             f"enable='between(t,{t0:.2f},{dur + 1:.2f})'")
+    return line1 + ',' + line2
+
+def real_duration(path):
+    """Measured container duration (cue-end+5 overestimates and pushes the
+    end-card window past the last frame)."""
+    r = subprocess.run([FF, '-hide_banner', '-i', path], capture_output=True, text=True)
+    m = re.search(r'Duration: (\d+):(\d+):([\d.]+)', r.stderr)
+    h, mi, s = m.groups()
+    return int(h) * 3600 + int(mi) * 60 + float(s)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = '/Users/daxiang/.zcode/workspace/default/toonreel'
