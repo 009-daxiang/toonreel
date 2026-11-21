@@ -140,6 +140,9 @@ def split_long_cues(cues, max_dur=8.0):
 def main():
     cat = json.load(open(f'{ROOT}/data/catalog.json'))
     id_by_title = {s['title']: s['id'] for s in cat['shows']}
+    # local transcript folders keep original Chinese names even after a show
+    # is rebranded for the international site (e.g. u06 -> I Have a SYSTEM)
+    id_by_title.update({'摊牌了我真的有系统': 'u06'})
     force = '--force' in sys.argv
     only_lang = None
     for a in sys.argv[1:]:
