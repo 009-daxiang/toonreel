@@ -1,0 +1,39 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_vi,Arial Unicode MS,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_vi,Arial Unicode MS,32,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_vi,Arial Unicode MS,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:30.80,H_vi,,0,0,0,,Chuyện cô ấy sống hay chết liên quan gì tới cậu?
+Dialogue: 1,0:00:00.00,0:00:30.80,C_vi,,0,0,0,,Xem toàn bộ MIỄN PHÍ ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:00.94,S_vi,,0,0,0,,Cô ta chỉ là Jian Tong thôi.
+Dialogue: 0,0:00:00.98,0:00:01.88,S_vi,,0,0,0,,Shen Xiujin.
+Dialogue: 0,0:00:01.92,0:00:02.82,S_vi,,0,0,0,,Đừng có mà chối.
+Dialogue: 0,0:00:03.22,0:00:04.12,S_vi,,0,0,0,,Nếu cô ta không phải bạn gái cậu,
+Dialogue: 0,0:00:04.16,0:00:05.06,S_vi,,0,0,0,,chuyện cô sống cô chết liên quan gì cậu?
+Dialogue: 0,0:00:05.10,0:00:06.46,S_vi,,0,0,0,,Cô ấy sốt, can gì đến cậu?
+Dialogue: 0,0:00:06.62,0:00:07.78,S_vi,,0,0,0,,Đừng nói là cậu thương hại cô ấy.
+Dialogue: 0,0:00:08.62,0:00:09.70,S_vi,,0,0,0,,Tổng tài Shen,
+Dialogue: 0,0:00:09.74,0:00:11.30,S_vi,,0,0,0,,từ bao giờ lại có lòng thương người vậy?
+Dialogue: 0,0:00:11.50,0:00:12.66,S_vi,,0,0,0,,Nếu không phải người yêu cậu,
+Dialogue: 0,0:00:12.78,0:00:13.94,S_vi,,0,0,0,,có phải 2h sáng cậu tự lái xe
+Dialogue: 0,0:00:13.98,0:00:14.88,S_vi,,0,0,0,,đến bệnh viện không?
+Dialogue: 0,0:00:15.74,0:00:16.70,S_vi,,0,0,0,,Ừ, chắc rồi.
+Dialogue: 0,0:00:18.66,0:00:19.56,S_vi,,0,0,0,,Ông Shen,
+Dialogue: 0,0:00:20.02,0:00:20.92,S_vi,,0,0,0,,Nếu không có việc gì,
+Dialogue: 0,0:00:20.96,0:00:21.86,S_vi,,0,0,0,,tôi ra ngoài trước.
+Dialogue: 0,0:00:21.98,0:00:22.88,S_vi,,0,0,0,,Tôi để cô ấy ở đây.
+Dialogue: 0,0:00:23.62,0:00:24.74,S_vi,,0,0,0,,Trông cô ấy cho tốt.
+Dialogue: 0,0:00:25.84,0:00:26.74,S_vi,,0,0,0,,Nếu cô ấy tỉnh,
+Dialogue: 0,0:00:26.80,0:00:27.76,S_vi,,0,0,0,,nói với cô ấy rằng
+Dialogue: 0,0:00:28.12,0:00:29.08,S_vi,,0,0,0,,rằng lúc cô ấy ngất đi,
+Dialogue: 0,0:00:29.44,0:00:30.80,S_vi,,0,0,0,,cậu đã gọi người quen đến chữa cho cô ấy.

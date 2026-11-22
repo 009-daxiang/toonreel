@@ -1,0 +1,43 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_id,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_id,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_id,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:37.10,H_id,,0,0,0,,Musuhnya bersekongkol... sayangnya dia ingat semuanya
+Dialogue: 1,0:00:00.00,0:00:37.10,C_id,,0,0,0,,Tonton semua episode GRATIS ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:00.94,S_id,,0,0,0,,Banyak orang
+Dialogue: 0,0:00:00.98,0:00:02.41,S_id,,0,0,0,,menghajar Song Jingyi di forum karena tak tahu batas.
+Dialogue: 0,0:00:02.69,0:00:04.30,S_id,,0,0,0,,Bukan seperti itu!
+Dialogue: 0,0:00:04.34,0:00:05.98,S_id,,0,0,0,,Tidak ada yang salah?
+Dialogue: 0,0:00:06.02,0:00:07.82,S_id,,0,0,0,,Bercanda saja boleh dekat pacar orang?
+Dialogue: 0,0:00:07.86,0:00:09.02,S_id,,0,0,0,,Mi Ke menganggapnya sahabat.
+Dialogue: 0,0:00:09.06,0:00:09.96,S_id,,0,0,0,,Tapi dia,
+Dialogue: 0,0:00:10.00,0:00:10.98,S_id,,0,0,0,,membicarakannya di belakang.
+Dialogue: 0,0:00:11.02,0:00:11.98,S_id,,0,0,0,,Orang tak tahu batas,
+Dialogue: 0,0:00:12.02,0:00:13.06,S_id,,0,0,0,,sepercaya itu kah?
+Dialogue: 0,0:00:13.10,0:00:14.38,S_id,,0,0,0,,pacar orang berani di-flirt,
+Dialogue: 0,0:00:14.42,0:00:15.32,S_id,,0,0,0,,masih pura-pura tak bersalah?
+Dialogue: 0,0:00:15.86,0:00:18.06,S_id,,0,0,0,,Song Jingyi kelihatannya polos,
+Dialogue: 0,0:00:18.10,0:00:20.06,S_id,,0,0,0,,ternyata di balik layar mainnya kotor.
+Dialogue: 0,0:00:20.10,0:00:22.02,S_id,,0,0,0,,Dan Jiang Muyi yang ditolak Song Jingyi,
+Dialogue: 0,0:00:22.06,0:00:23.42,S_id,,0,0,0,,jadi tampil saat ini
+Dialogue: 0,0:00:23.46,0:00:24.78,S_id,,0,0,0,,dan menanggung semua.
+Dialogue: 0,0:00:24.82,0:00:26.58,S_id,,0,0,0,,Mi Ke dan Jingyi sama-sama gadis baik.
+Dialogue: 0,0:00:26.62,0:00:28.23,S_id,,0,0,0,,Semua ini salahku.
+Dialogue: 0,0:00:28.27,0:00:29.31,S_id,,0,0,0,,Dan aku—
+Dialogue: 0,0:00:29.35,0:00:30.87,S_id,,0,0,0,,aku bukan hanya memijak Jiang Muyi,
+Dialogue: 0,0:00:30.91,0:00:32.39,S_id,,0,0,0,,keluar dari level bawah,
+Dialogue: 0,0:00:32.43,0:00:33.47,S_id,,0,0,0,,dan menghajar dengan sah
+Dialogue: 0,0:00:33.51,0:00:34.67,S_id,,0,0,0,,reputasi Song Jingyi.
+Dialogue: 0,0:00:34.71,0:00:35.63,S_id,,0,0,0,,bukannya itu
+Dialogue: 0,0:00:35.67,0:00:37.10,S_id,,0,0,0,,kemenangan kecil?

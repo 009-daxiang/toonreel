@@ -1,0 +1,41 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_fil,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_fil,Helvetica Neue,33,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_fil,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:28.90,H_fil,,0,0,0,,Nagbigay ang system ng BATTERY TECH. "Bukas, BILYONES na."
+Dialogue: 1,0:00:00.00,0:00:28.90,C_fil,,0,0,0,,Panuorin LAHAT — LIBRE ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:00.94,S_fil,,0,0,0,,Gumawa ng bagay mula sa wala —
+Dialogue: 0,0:00:00.98,0:00:01.88,S_fil,,0,0,0,,Ito ang reward mula sa system.
+Dialogue: 0,0:00:01.92,0:00:02.82,S_fil,,0,0,0,,Ano ang laman?
+Dialogue: 0,0:00:02.86,0:00:04.10,S_fil,,0,0,0,,Kumpletong tech ng lithium-air battery.
+Dialogue: 0,0:00:04.14,0:00:05.94,S_fil,,0,0,0,,Yan ang sabi ng system note.
+Dialogue: 0,0:00:05.98,0:00:06.88,S_fil,,0,0,0,,Young man,
+Dialogue: 0,0:00:06.92,0:00:08.02,S_fil,,0,0,0,,napatunayan mo nang
+Dialogue: 0,0:00:08.06,0:00:08.96,S_fil,,0,0,0,,totoo ang system mo.
+Dialogue: 0,0:00:09.00,0:00:10.14,S_fil,,0,0,0,,Alam mo ba ang ibig sabihin?
+Dialogue: 0,0:00:10.18,0:00:11.08,S_fil,,0,0,0,,Ako—
+Dialogue: 0,0:00:11.12,0:00:12.02,S_fil,,0,0,0,,Ibig sabihin
+Dialogue: 0,0:00:12.06,0:00:12.96,S_fil,,0,0,0,,mapopromote ka!
+Dialogue: 0,0:00:13.00,0:00:15.06,S_fil,,0,0,0,,Seryoso nga.
+Dialogue: 0,0:00:15.10,0:00:16.02,S_fil,,0,0,0,,Tuloy po, Uncle Chen.
+Dialogue: 0,0:00:16.06,0:00:17.10,S_fil,,0,0,0,,Ang pag-iral ng system
+Dialogue: 0,0:00:17.14,0:00:18.04,S_fil,,0,0,0,,nangangahulugang hawak mo na
+Dialogue: 0,0:00:18.08,0:00:19.66,S_fil,,0,0,0,,artefaktong magpapalit ng takdô mo.
+Dialogue: 0,0:00:19.70,0:00:21.34,S_fil,,0,0,0,,Ngayon, tech ang binibigay.
+Dialogue: 0,0:00:21.38,0:00:22.28,S_fil,,0,0,0,,Bukas
+Dialogue: 0,0:00:22.32,0:00:23.58,S_fil,,0,0,0,,bilyones na cash na ang maaari,
+Dialogue: 0,0:00:23.62,0:00:24.82,S_fil,,0,0,0,,kahit superpowers.
+Dialogue: 0,0:00:24.86,0:00:26.30,S_fil,,0,0,0,,Basta magpapakababa ka,
+Dialogue: 0,0:00:26.34,0:00:27.38,S_fil,,0,0,0,,maging ikaw ang
+Dialogue: 0,0:00:27.42,0:00:28.86,S_fil,,0,0,0,,bida ng mundong ito.

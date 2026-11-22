@@ -1,0 +1,49 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_en,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_en,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_en,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:44.20,H_en,,0,0,0,,First warm bed in the frozen world... and the whole village starts FIGHTING over it
+Dialogue: 1,0:00:00.00,0:00:44.20,C_en,,0,0,0,,Watch ALL episodes FREE ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:01.16,S_en,,0,0,0,,Oh my goodness!
+Dialogue: 0,0:00:01.20,0:00:02.10,S_en,,0,0,0,,Master Lin,
+Dialogue: 0,0:00:02.14,0:00:03.24,S_en,,0,0,0,,you're a god walking among us!
+Dialogue: 0,0:00:03.28,0:00:04.36,S_en,,0,0,0,,I never dreamed
+Dialogue: 0,0:00:04.40,0:00:05.84,S_en,,0,0,0,,sleeping on this clay bed
+Dialogue: 0,0:00:05.88,0:00:07.08,S_en,,0,0,0,,could be so warm.
+Dialogue: 0,0:00:07.12,0:00:09.00,S_en,,0,0,0,,A whole night warm — my old bones feel loose.
+Dialogue: 0,0:00:09.04,0:00:10.56,S_en,,0,0,0,,We'll never fear the cold again.
+Dialogue: 0,0:00:10.60,0:00:11.52,S_en,,0,0,0,,With this black coal
+Dialogue: 0,0:00:11.56,0:00:12.76,S_en,,0,0,0,,and this heated bed,
+Dialogue: 0,0:00:12.80,0:00:13.70,S_en,,0,0,0,,our winter
+Dialogue: 0,0:00:13.74,0:00:14.64,S_en,,0,0,0,,is secured.
+Dialogue: 0,0:00:14.68,0:00:16.04,S_en,,0,0,0,,I saw it first!
+Dialogue: 0,0:00:16.08,0:00:17.80,S_en,,0,0,0,,I dug it out of the snow bit by bit!
+Dialogue: 0,0:00:17.84,0:00:18.84,S_en,,0,0,0,,Why should it be yours?
+Dialogue: 0,0:00:18.88,0:00:20.20,S_en,,0,0,0,,Bullshit.
+Dialogue: 0,0:00:20.24,0:00:22.50,S_en,,0,0,0,,Respect your elders!
+Dialogue: 0,0:00:22.54,0:00:24.02,S_en,,0,0,0,,Goods this precious
+Dialogue: 0,0:00:24.06,0:00:26.22,S_en,,0,0,0,,belong to us old folks
+Dialogue: 0,0:00:26.26,0:00:27.90,S_en,,0,0,0,,to survive the winter.
+Dialogue: 0,0:00:27.94,0:00:29.34,S_en,,0,0,0,,That's the proper way.
+Dialogue: 0,0:00:29.38,0:00:30.42,S_en,,0,0,0,,You old wretch!
+Dialogue: 0,0:00:30.46,0:00:31.38,S_en,,0,0,0,,You're stealing my LIFE!
+Dialogue: 0,0:00:31.42,0:00:32.32,S_en,,0,0,0,,Give it back!
+Dialogue: 0,0:00:32.36,0:00:33.38,S_en,,0,0,0,,You dare hit me?
+Dialogue: 0,0:00:35.03,0:00:36.03,S_en,,0,0,0,,It's all treasure!
+Dialogue: 0,0:00:36.07,0:00:36.97,S_en,,0,0,0,,ALL treasure!
+Dialogue: 0,0:00:37.01,0:00:38.31,S_en,,0,0,0,,Why should one man keep it?
+Dialogue: 0,0:00:38.35,0:00:39.25,S_en,,0,0,0,,Share it!
+Dialogue: 0,0:00:39.29,0:00:40.19,S_en,,0,0,0,,Split it up!
+Dialogue: 0,0:00:40.23,0:00:43.32,S_en,,0,0,0,,Let go!
+Dialogue: 0,0:00:43.36,0:00:44.20,S_en,,0,0,0,,Give it to me!

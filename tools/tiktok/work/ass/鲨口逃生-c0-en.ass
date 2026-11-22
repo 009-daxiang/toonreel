@@ -1,0 +1,31 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_en,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_en,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,249,1
+Style: C_en,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:51.20,H_en,,0,0,0,,They threw her to the SHARKS on her wedding day...
+Dialogue: 1,0:00:00.00,0:00:51.20,C_en,,0,0,0,,Watch ALL episodes FREE ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:02.36,S_en,,0,0,0,,I'd just become the true heiress of the Shen Group.
+Dialogue: 0,0:00:02.40,0:00:09.57,S_en,,0,0,0,,But just two hours earlier,
+Dialogue: 0,0:00:09.61,0:00:12.93,S_en,,0,0,0,,the fake daughter the Shens raised for twenty years
+Dialogue: 0,0:00:12.97,0:00:15.85,S_en,,0,0,0,,deliberately dumped me into these
+Dialogue: 0,0:00:15.89,0:00:24.60,S_en,,0,0,0,,shark-infested waters.
+Dialogue: 0,0:00:24.64,0:00:27.08,S_en,,0,0,0,,Why?
+Dialogue: 0,0:00:27.12,0:00:30.29,S_en,,0,0,0,,WHY?!
+Dialogue: 0,0:00:30.33,0:00:34.67,S_en,,0,0,0,,This wedding gift? I prepared it just for you.
+Dialogue: 0,0:00:34.71,0:00:36.63,S_en,,0,0,0,,Until you 'come back',
+Dialogue: 0,0:00:36.67,0:00:38.80,S_en,,0,0,0,,I'm the Shen family's only daughter.
+Dialogue: 0,0:00:38.84,0:00:40.00,S_en,,0,0,0,,Mom and Dad adore me.
+Dialogue: 0,0:00:40.04,0:00:41.64,S_en,,0,0,0,,My brothers protect me.
+Dialogue: 0,0:00:41.68,0:00:43.53,S_en,,0,0,0,,Even Brother Mo...
+Dialogue: 0,0:00:43.57,0:00:51.18,S_en,,0,0,0,,was always meant to be mine.

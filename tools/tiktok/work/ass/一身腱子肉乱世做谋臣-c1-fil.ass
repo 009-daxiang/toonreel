@@ -1,0 +1,46 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_fil,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_fil,Helvetica Neue,33,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,228,1
+Style: C_fil,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:42.00,H_fil,,0,0,0,,"Pagtapon ng BUNDOK = strategy?!"
+Dialogue: 1,0:00:00.00,0:00:42.00,C_fil,,0,0,0,,Panuorin LAHAT — LIBRE ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:01.70,S_fil,,0,0,0,,Gumana ang plano ko!
+Dialogue: 0,0:00:01.74,0:00:03.50,S_fil,,0,0,0,,Totoong kahanga-hangang plano.
+Dialogue: 0,0:00:04.38,0:00:05.28,S_fil,,0,0,0,,Gumamit ka lang ng lakas,
+Dialogue: 0,0:00:05.32,0:00:06.90,S_fil,,0,0,0,,bumuhat ng bundok tapos plano na 'yun?
+Dialogue: 0,0:00:06.94,0:00:08.50,S_fil,,0,0,0,,Ano'ng kinalaman nito sa plano?!
+Dialogue: 0,0:00:08.54,0:00:10.76,S_fil,,0,0,0,,Atras!
+Dialogue: 0,0:00:10.80,0:00:11.76,S_fil,,0,0,0,,Reward naipadala:
+Dialogue: 0,0:00:11.80,0:00:13.44,S_fil,,0,0,0,,Strength +1, host!
+Dialogue: 0,0:00:13.48,0:00:15.54,S_fil,,0,0,0,,Leche na system, di ka pa ba tapos?!
+Dialogue: 0,0:00:15.58,0:00:16.58,S_fil,,0,0,0,,System ba talaga ng strategist 'to
+Dialogue: 0,0:00:16.62,0:00:17.58,S_fil,,0,0,0,,o system ng muscles?!
+Dialogue: 0,0:00:17.62,0:00:19.92,S_fil,,0,0,0,,Bigyan mo ako ng INT!
+Dialogue: 0,0:00:19.96,0:00:21.36,S_fil,,0,0,0,,Kumusta, Mr. Li?
+Dialogue: 0,0:00:21.40,0:00:22.30,S_fil,,0,0,0,,Report, Your Highness:
+Dialogue: 0,0:00:22.34,0:00:23.24,S_fil,,0,0,0,,accomplished na ang misyon.
+Dialogue: 0,0:00:23.28,0:00:24.64,S_fil,,0,0,0,,Gumana na naman ang plano ko.
+Dialogue: 0,0:00:24.68,0:00:25.58,S_fil,,0,0,0,,Mabuti.
+Dialogue: 0,0:00:25.62,0:00:26.56,S_fil,,0,0,0,,Congrats sa malaking gawa, Mr. Li!
+Dialogue: 0,0:00:26.60,0:00:27.50,S_fil,,0,0,0,,Kunin mo na ang parangal.
+Dialogue: 0,0:00:27.54,0:00:28.76,S_fil,,0,0,0,,Salamat, Your Highness.
+Dialogue: 0,0:00:28.80,0:00:30.12,S_fil,,0,0,0,,Anong nangyari?
+Dialogue: 0,0:00:30.16,0:00:31.28,S_fil,,0,0,0,,Umakyat si Mr. Li nang walang gamit,
+Dialogue: 0,0:00:31.32,0:00:32.28,S_fil,,0,0,0,,bumasag ng ridge nang kamay lang,
+Dialogue: 0,0:00:32.32,0:00:33.56,S_fil,,0,0,0,,binunot ang buong bundok,
+Dialogue: 0,0:00:33.60,0:00:36.78,S_fil,,0,0,0,,at dinurog ang kalaban kasama ang armor.
+Dialogue: 0,0:00:36.82,0:00:38.50,S_fil,,0,0,0,,Sa kanya 'yun strategy na?!
+Dialogue: 0,0:00:38.54,0:00:39.46,S_fil,,0,0,0,,Kumpareng Li,
+Dialogue: 0,0:00:39.50,0:00:40.66,S_fil,,0,0,0,,Grabe, galing!
+Dialogue: 0,0:00:40.70,0:00:41.98,S_fil,,0,0,0,,Wala nang katulad!

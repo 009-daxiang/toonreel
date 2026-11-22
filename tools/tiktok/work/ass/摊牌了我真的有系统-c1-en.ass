@@ -1,0 +1,41 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_en,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_en,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_en,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:28.90,H_en,,0,0,0,,The system gave him BATTERY TECH. "Tomorrow it'll give you BILLIONS."
+Dialogue: 1,0:00:00.00,0:00:28.90,C_en,,0,0,0,,Watch ALL episodes FREE ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:00.94,S_en,,0,0,0,,Creating things from nothing —
+Dialogue: 0,0:00:00.98,0:00:01.88,S_en,,0,0,0,,This is the reward the system gave.
+Dialogue: 0,0:00:01.92,0:00:02.82,S_en,,0,0,0,,What's inside?
+Dialogue: 0,0:00:02.86,0:00:04.10,S_en,,0,0,0,,Complete tech for lithium-air batteries.
+Dialogue: 0,0:00:04.14,0:00:05.94,S_en,,0,0,0,,That's what the system note said.
+Dialogue: 0,0:00:05.98,0:00:06.88,S_en,,0,0,0,,Young man,
+Dialogue: 0,0:00:06.92,0:00:08.02,S_en,,0,0,0,,you've now proven your system
+Dialogue: 0,0:00:08.06,0:00:08.96,S_en,,0,0,0,,is most likely real.
+Dialogue: 0,0:00:09.00,0:00:10.14,S_en,,0,0,0,,Do you know what that means?
+Dialogue: 0,0:00:10.18,0:00:11.08,S_en,,0,0,0,,I—
+Dialogue: 0,0:00:11.12,0:00:12.02,S_en,,0,0,0,,It means
+Dialogue: 0,0:00:12.06,0:00:12.96,S_en,,0,0,0,,you'll get promoted!
+Dialogue: 0,0:00:13.00,0:00:15.06,S_en,,0,0,0,,Be serious.
+Dialogue: 0,0:00:15.10,0:00:16.02,S_en,,0,0,0,,Go on, Uncle Chen.
+Dialogue: 0,0:00:16.06,0:00:17.10,S_en,,0,0,0,,The system's existence
+Dialogue: 0,0:00:17.14,0:00:18.04,S_en,,0,0,0,,means you possess
+Dialogue: 0,0:00:18.08,0:00:19.66,S_en,,0,0,0,,a destiny-changing artifact.
+Dialogue: 0,0:00:19.70,0:00:21.34,S_en,,0,0,0,,Today it sends you technology.
+Dialogue: 0,0:00:21.38,0:00:22.28,S_en,,0,0,0,,Tomorrow
+Dialogue: 0,0:00:22.32,0:00:23.58,S_en,,0,0,0,,it could send tens of billions in cash,
+Dialogue: 0,0:00:23.62,0:00:24.82,S_en,,0,0,0,,even superpowers.
+Dialogue: 0,0:00:24.86,0:00:26.30,S_en,,0,0,0,,As long as you lie low,
+Dialogue: 0,0:00:26.34,0:00:27.38,S_en,,0,0,0,,you can absolutely become
+Dialogue: 0,0:00:27.42,0:00:28.86,S_en,,0,0,0,,the protagonist of this world.

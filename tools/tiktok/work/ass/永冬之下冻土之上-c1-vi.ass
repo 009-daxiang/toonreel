@@ -1,0 +1,49 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_vi,Arial Unicode MS,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_vi,Arial Unicode MS,32,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_vi,Arial Unicode MS,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:44.20,H_vi,,0,0,0,,Chiếc giường ấm đầu tiên của thế giới băng giá... cả làng bắt đầu CHIẾM GIÀNH
+Dialogue: 1,0:00:00.00,0:00:44.20,C_vi,,0,0,0,,Xem toàn bộ MIỄN PHÍ ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:01.16,S_vi,,0,0,0,,Trời ơi!
+Dialogue: 0,0:00:01.20,0:00:02.10,S_vi,,0,0,0,,Quý ông Lâm,
+Dialogue: 0,0:00:02.14,0:00:03.24,S_vi,,0,0,0,,Anh đúng là thần tiên giáng trần!
+Dialogue: 0,0:00:03.28,0:00:04.36,S_vi,,0,0,0,,Tôi chưa từng mơ
+Dialogue: 0,0:00:04.40,0:00:05.84,S_vi,,0,0,0,,rằng nằm trên chiếc giường đất này
+Dialogue: 0,0:00:05.88,0:00:07.08,S_vi,,0,0,0,,lại ấm đến thế.
+Dialogue: 0,0:00:07.12,0:00:09.00,S_vi,,0,0,0,,Ấm cả đêm — xương già tôi phải thưãn.
+Dialogue: 0,0:00:09.04,0:00:10.56,S_vi,,0,0,0,,Từ nay chúng ta không còn sợ lạnh nữa.
+Dialogue: 0,0:00:10.60,0:00:11.52,S_vi,,0,0,0,,Có than đen này,
+Dialogue: 0,0:00:11.56,0:00:12.76,S_vi,,0,0,0,,và giường sưởi này,
+Dialogue: 0,0:00:12.80,0:00:13.70,S_vi,,0,0,0,,mùa đông của chúng ta
+Dialogue: 0,0:00:13.74,0:00:14.64,S_vi,,0,0,0,,ổn rồi.
+Dialogue: 0,0:00:14.68,0:00:16.04,S_vi,,0,0,0,,Tôi thấy trước ấy!
+Dialogue: 0,0:00:16.08,0:00:17.80,S_vi,,0,0,0,,Tôi đào nó từ tuyết từng chút một!
+Dialogue: 0,0:00:17.84,0:00:18.84,S_vi,,0,0,0,,Sao phải là của anh?
+Dialogue: 0,0:00:18.88,0:00:20.20,S_vi,,0,0,0,,Nói nhảm!
+Dialogue: 0,0:00:20.24,0:00:22.50,S_vi,,0,0,0,,Phải kính già yêu nhỏ chứ!
+Dialogue: 0,0:00:22.54,0:00:24.02,S_vi,,0,0,0,,Đồ quý giá như này
+Dialogue: 0,0:00:24.06,0:00:26.22,S_vi,,0,0,0,,thuộc về bọn già chúng tôi
+Dialogue: 0,0:00:26.26,0:00:27.90,S_vi,,0,0,0,,để sống qua mùa đông.
+Dialogue: 0,0:00:27.94,0:00:29.34,S_vi,,0,0,0,,Đó mới là lẽ phải.
+Dialogue: 0,0:00:29.38,0:00:30.42,S_vi,,0,0,0,,Đồ lão bất tử!
+Dialogue: 0,0:00:30.46,0:00:31.38,S_vi,,0,0,0,,Ông đang cướp MẠNG tôi!
+Dialogue: 0,0:00:31.42,0:00:32.32,S_vi,,0,0,0,,Trả lại đây!
+Dialogue: 0,0:00:32.36,0:00:33.38,S_vi,,0,0,0,,Ông dám đánh tôi à?
+Dialogue: 0,0:00:35.03,0:00:36.03,S_vi,,0,0,0,,Cả là tài sản đấy!
+Dialogue: 0,0:00:36.07,0:00:36.97,S_vi,,0,0,0,,TÀI SẢN hết đấy!
+Dialogue: 0,0:00:37.01,0:00:38.31,S_vi,,0,0,0,,Sao để một người ôm hết?
+Dialogue: 0,0:00:38.35,0:00:39.25,S_vi,,0,0,0,,Chia nhau đi!
+Dialogue: 0,0:00:39.29,0:00:40.19,S_vi,,0,0,0,,Chia ngay đi!
+Dialogue: 0,0:00:40.23,0:00:43.32,S_vi,,0,0,0,,Buông ra!
+Dialogue: 0,0:00:43.36,0:00:44.20,S_vi,,0,0,0,,Trả cho tôi!

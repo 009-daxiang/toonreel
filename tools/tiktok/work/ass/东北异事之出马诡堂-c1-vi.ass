@@ -1,0 +1,44 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_vi,Arial Unicode MS,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_vi,Arial Unicode MS,32,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,252,1
+Style: C_vi,Arial Unicode MS,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:42.70,H_vi,,0,0,0,,"Nếu bạn giết con chồn... nó đòi lại mạng không?" Luật folklore kinh dị
+Dialogue: 1,0:00:00.00,0:00:42.70,C_vi,,0,0,0,,Xem toàn bộ MIỄN PHÍ ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:00.94,S_vi,,0,0,0,,Họ hàng con chồn đòi mạng đổi mạng.
+Dialogue: 0,0:00:00.98,0:00:02.12,S_vi,,0,0,0,,Vậy nếu tông phải con chồn,
+Dialogue: 0,0:00:02.16,0:00:04.33,S_vi,,0,0,0,,nó sẽ đòi mạng mình à?
+Dialogue: 0,0:00:04.37,0:00:07.94,S_vi,,0,0,0,,Tuỳ xem cố ý hay vô ý.
+Dialogue: 0,0:00:07.98,0:00:08.88,S_vi,,0,0,0,,Khác nhau chỗ nào?
+Dialogue: 0,0:00:08.92,0:00:10.10,S_vi,,0,0,0,,Nếu vô ý,
+Dialogue: 0,0:00:10.14,0:00:11.46,S_vi,,0,0,0,,đốt đồ lễ xin lỗi là xong.
+Dialogue: 0,0:00:11.50,0:00:12.74,S_vi,,0,0,0,,Nhưng phải thật lòng hối cải.
+Dialogue: 0,0:00:12.78,0:00:13.98,S_vi,,0,0,0,,Nhưng nếu cố ý,
+Dialogue: 0,0:00:14.02,0:00:16.04,S_vi,,0,0,0,,thì mạng đổi mạng.
+Dialogue: 0,0:00:16.12,0:00:18.68,S_vi,,0,0,0,,Sao trong đầu tôi có giọng nói lạ vậy?
+Dialogue: 0,0:00:18.72,0:00:20.40,S_vi,,0,0,0,,Cơ thể ta mở đủ mọi khiếu.
+Dialogue: 0,0:00:20.44,0:00:21.56,S_vi,,0,0,0,,Khi tiên linh chiếm một khiếu,
+Dialogue: 0,0:00:21.60,0:00:22.88,S_vi,,0,0,0,,và muốn trò chuyện thì sẽ như vậy.
+Dialogue: 0,0:00:22.92,0:00:25.04,S_vi,,0,0,0,,Đó là tâm thông. Còn có nhãn thông, nhĩ thông.
+Dialogue: 0,0:00:25.08,0:00:26.04,S_vi,,0,0,0,,Muốn nói chuyện với họ,
+Dialogue: 0,0:00:26.08,0:00:27.40,S_vi,,0,0,0,,chỉ cần lặng lẽ nhẩm trong lòng.
+Dialogue: 0,0:00:27.44,0:00:28.68,S_vi,,0,0,0,,Đừng trộn suy nghĩ của mình vào,
+Dialogue: 0,0:00:28.72,0:00:29.84,S_vi,,0,0,0,,không thì sau này bói sẽ không chuẩn.
+Dialogue: 0,0:00:29.88,0:00:31.64,S_vi,,0,0,0,,Nhãn thông chính là âm dương nhãn.
+Dialogue: 0,0:00:31.68,0:00:33.00,S_vi,,0,0,0,,Nhĩ thông nghe được tiên linh nói.
+Dialogue: 0,0:00:33.04,0:00:34.12,S_vi,,0,0,0,,Cho cậu thấy và nghe được họ.
+Dialogue: 0,0:00:34.16,0:00:36.08,S_vi,,0,0,0,,Cả đều phụ thuộc sư phụ của cậu.
+Dialogue: 0,0:00:36.12,0:00:38.00,S_vi,,0,0,0,,Sao tôi biết tiên linh nào đang nói?
+Dialogue: 0,0:00:38.04,0:00:39.16,S_vi,,0,0,0,,Tiên hồ, tiên chồn, tiên quỷ —
+Dialogue: 0,0:00:39.20,0:00:40.40,S_vi,,0,0,0,,cảm giác khi nhập thể mỗi loại một kiểu.
+Dialogue: 0,0:00:40.44,0:00:42.70,S_vi,,0,0,0,,Lâu dần cậu sẽ phân biệt được.

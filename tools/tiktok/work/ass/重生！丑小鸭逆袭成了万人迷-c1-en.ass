@@ -1,0 +1,43 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_en,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_en,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_en,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:37.10,H_en,,0,0,0,,Her enemies schemed... too bad she remembers everything
+Dialogue: 1,0:00:00.00,0:00:37.10,C_en,,0,0,0,,Watch ALL episodes FREE ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:00.94,S_en,,0,0,0,,Plenty of people
+Dialogue: 0,0:00:00.98,0:00:02.41,S_en,,0,0,0,,slammed Song Jingyi on the forum for having no boundaries.
+Dialogue: 0,0:00:02.69,0:00:04.30,S_en,,0,0,0,,It's not like that!
+Dialogue: 0,0:00:04.34,0:00:05.98,S_en,,0,0,0,,So it's all fine?
+Dialogue: 0,0:00:06.02,0:00:07.82,S_en,,0,0,0,,Joking around lets you flirt with someone's boyfriend?
+Dialogue: 0,0:00:07.86,0:00:09.02,S_en,,0,0,0,,Mi Ke treated her as a bestie.
+Dialogue: 0,0:00:09.06,0:00:09.96,S_en,,0,0,0,,Yet she—
+Dialogue: 0,0:00:10.00,0:00:10.98,S_en,,0,0,0,,whispered behind her back.
+Dialogue: 0,0:00:11.02,0:00:11.98,S_en,,0,0,0,,People with no boundaries —
+Dialogue: 0,0:00:12.02,0:00:13.06,S_en,,0,0,0,,are they always this righteous?
+Dialogue: 0,0:00:13.10,0:00:14.38,S_en,,0,0,0,,Flirting with someone's boyfriend,
+Dialogue: 0,0:00:14.42,0:00:15.32,S_en,,0,0,0,,and still plays innocent?
+Dialogue: 0,0:00:15.86,0:00:18.06,S_en,,0,0,0,,Song Jingyi looks so innocent,
+Dialogue: 0,0:00:18.10,0:00:20.06,S_en,,0,0,0,,who knew she played this dirty.
+Dialogue: 0,0:00:20.10,0:00:22.02,S_en,,0,0,0,,And Jiang Muyi, rejected by Song Jingyi,
+Dialogue: 0,0:00:22.06,0:00:23.42,S_en,,0,0,0,,chose this moment to step up
+Dialogue: 0,0:00:23.46,0:00:24.78,S_en,,0,0,0,,and took all the blame.
+Dialogue: 0,0:00:24.82,0:00:26.58,S_en,,0,0,0,,Mi Ke and Jingyi are both good girls.
+Dialogue: 0,0:00:26.62,0:00:28.23,S_en,,0,0,0,,It's all my fault.
+Dialogue: 0,0:00:28.27,0:00:29.31,S_en,,0,0,0,,As for me—
+Dialogue: 0,0:00:29.35,0:00:30.87,S_en,,0,0,0,,I used Jiang Muyi as my stepping stone,
+Dialogue: 0,0:00:30.91,0:00:32.39,S_en,,0,0,0,,escaped the bottom tier,
+Dialogue: 0,0:00:32.43,0:00:33.47,S_en,,0,0,0,,and legitimately took down
+Dialogue: 0,0:00:33.51,0:00:34.67,S_en,,0,0,0,,Song Jingyi's reputation.
+Dialogue: 0,0:00:34.71,0:00:35.63,S_en,,0,0,0,,How is that not
+Dialogue: 0,0:00:35.67,0:00:37.10,S_en,,0,0,0,,a small victory?

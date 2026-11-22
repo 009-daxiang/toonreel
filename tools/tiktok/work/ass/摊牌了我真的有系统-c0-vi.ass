@@ -1,0 +1,47 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_vi,Arial Unicode MS,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_vi,Arial Unicode MS,32,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_vi,Arial Unicode MS,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:41.30,H_vi,,0,0,0,,"Tôi có HỆ THỐNG." Chưa ai tin anh ta... đâu.
+Dialogue: 1,0:00:00.00,0:00:41.30,C_vi,,0,0,0,,Xem toàn bộ MIỄN PHÍ ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:00.99,S_vi,,0,0,0,,Tôi có HỆ THỐNG.
+Dialogue: 0,0:00:02.10,0:00:03.00,S_vi,,0,0,0,,Hệ thống á?
+Dialogue: 0,0:00:03.04,0:00:04.62,S_vi,,0,0,0,,Hệ thống quân sự bí mật nước ngoài,
+Dialogue: 0,0:00:04.66,0:00:05.74,S_vi,,0,0,0,,hay hệ thống anh tự làm,
+Dialogue: 0,0:00:05.78,0:00:06.68,S_vi,,0,0,0,,mà các nước ngoại đang nhắm tới?
+Dialogue: 0,0:00:06.72,0:00:07.62,S_vi,,0,0,0,,Không.
+Dialogue: 0,0:00:07.66,0:00:08.56,S_vi,,0,0,0,,HỆ THỐNG hẳn hoi.
+Dialogue: 0,0:00:08.60,0:00:09.50,S_vi,,0,0,0,,Kiểu trong tiểu thuyết mạng á —
+Dialogue: 0,0:00:09.54,0:00:10.86,S_vi,,0,0,0,,điểm danh là tặng siêu xe biệt phủ,
+Dialogue: 0,0:00:10.90,0:00:11.80,S_vi,,0,0,0,,điểm kỹ năng,
+Dialogue: 0,0:00:11.84,0:00:13.46,S_vi,,0,0,0,,kiểu biến anh thành siêu nhân đấy.
+Dialogue: 0,0:00:13.50,0:00:17.08,S_vi,,0,0,0,,Sao các anh lại cười?
+Dialogue: 0,0:00:18.76,0:00:19.92,S_vi,,0,0,0,,Tôi được huấn luyện chuyên nghiệp.
+Dialogue: 0,0:00:19.96,0:00:21.36,S_vi,,0,0,0,,Dù có buồn cười đến đâu tôi cũng không cười.
+Dialogue: 0,0:00:21.96,0:00:22.86,S_vi,,0,0,0,,Nói vậy là
+Dialogue: 0,0:00:22.90,0:00:23.84,S_vi,,0,0,0,,anh có một hệ thống như thế.
+Dialogue: 0,0:00:23.88,0:00:24.78,S_vi,,0,0,0,,Đúng.
+Dialogue: 0,0:00:24.82,0:00:25.72,S_vi,,0,0,0,,Nó xuất hiện đột ngột tháng trước.
+Dialogue: 0,0:00:25.76,0:00:26.72,S_vi,,0,0,0,,Nhưng nó hình như bị bug.
+Dialogue: 0,0:00:26.76,0:00:27.84,S_vi,,0,0,0,,Toàn chữ lỗi hiện ra.
+Dialogue: 0,0:00:27.88,0:00:29.28,S_vi,,0,0,0,,Nhiệm vụ nó giao thì kỳ quái hết.
+Dialogue: 0,0:00:29.32,0:00:31.00,S_vi,,0,0,0,,Hoàn thành nhiệm vụ được đủ loại thưởng.
+Dialogue: 0,0:00:31.08,0:00:32.20,S_vi,,0,0,0,,Vài lần đầu tăng cường thể chất.
+Dialogue: 0,0:00:32.24,0:00:33.28,S_vi,,0,0,0,,Nhưng tôi chẳng chứng minh được.
+Dialogue: 0,0:00:33.32,0:00:34.24,S_vi,,0,0,0,,Còn nếu trượt nhiệm vụ thì sao?
+Dialogue: 0,0:00:34.28,0:00:35.18,S_vi,,0,0,0,,Nếu trượt...
+Dialogue: 0,0:00:35.22,0:00:36.56,S_vi,,0,0,0,,nó giết tôi và cả nhà tôi.
+Dialogue: 0,0:00:38.01,0:00:39.49,S_vi,,0,0,0,,Hoang tưởng bị hại.
+Dialogue: 0,0:00:39.53,0:00:40.43,S_vi,,0,0,0,,Thôi vậy.
+Dialogue: 0,0:00:40.47,0:00:41.30,S_vi,,0,0,0,,Để anh ta bình tĩnh đã.

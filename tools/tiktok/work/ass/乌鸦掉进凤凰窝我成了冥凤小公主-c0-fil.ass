@@ -1,0 +1,32 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_fil,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_fil,Helvetica Neue,33,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_fil,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:28.00,H_fil,,0,0,0,,"GAGAK lang siya, walang divine fire" ... "Kung phoenix siya o hindi, WALA kang pakialam."
+Dialogue: 1,0:00:00.00,0:00:28.00,C_fil,,0,0,0,,Panuorin LAHAT — LIBRE ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:01.50,S_fil,,0,0,0,,Sino bang nagpaalam na galawin mo siya?
+Dialogue: 0,0:00:01.54,0:00:02.44,S_fil,,0,0,0,,Feng Qiwu.
+Dialogue: 0,0:00:02.48,0:00:03.50,S_fil,,0,0,0,,Dahil lang sa outsider,
+Dialogue: 0,0:00:03.54,0:00:08.26,S_fil,,0,0,0,,sasampalin mo ang Golden Phoenix?
+Dialogue: 0,0:00:08.30,0:00:09.74,S_fil,,0,0,0,,Masakit ba?
+Dialogue: 0,0:00:09.78,0:00:11.14,S_fil,,0,0,0,,Konti lang...
+Dialogue: 0,0:00:11.18,0:00:14.28,S_fil,,0,0,0,,Malinaw na malinaw, uwak lang siya
+Dialogue: 0,0:00:14.32,0:00:16.08,S_fil,,0,0,0,,walang phoenix blood, walang divine fire.
+Dialogue: 0,0:00:16.12,0:00:17.88,S_fil,,0,0,0,,Hangin pa lang niya, iba na sa phoenix clan.
+Dialogue: 0,0:00:17.92,0:00:20.08,S_fil,,0,0,0,,Hanggang kailan mo ilolokohin ang sarili mo?
+Dialogue: 0,0:00:20.12,0:00:21.02,S_fil,,0,0,0,,Oo nga, oo!
+Dialogue: 0,0:00:21.06,0:00:21.96,S_fil,,0,0,0,,Bilisan mo, kumbinsihin mo siya!
+Dialogue: 0,0:00:22.00,0:00:23.18,S_fil,,0,0,0,,Sa'yo nakasalalay ang lahat ngayon!
+Dialogue: 0,0:00:23.22,0:00:24.58,S_fil,,0,0,0,,Kung phoenix ba siya
+Dialogue: 0,0:00:24.62,0:00:28.00,S_fil,,0,0,0,,wala kang pakialam.

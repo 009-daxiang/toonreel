@@ -1,0 +1,47 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_ms,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_ms,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,251,1
+Style: C_ms,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:46.40,H_ms,,0,0,0,,"Saya tak takut. Saya dah ada altar. Saya pembasmi hantu."
+Dialogue: 1,0:00:00.00,0:00:46.40,C_ms,,0,0,0,,Tonton semua episod PERCUMA ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:02.81,S_ms,,0,0,0,,Saya takut apa?
+Dialogue: 0,0:00:02.85,0:00:03.81,S_ms,,0,0,0,,Altar saya dah berdiri.
+Dialogue: 0,0:00:03.85,0:00:05.81,S_ms,,0,0,0,,Saya pembasmi hantu jahat.
+Dialogue: 0,0:00:05.85,0:00:06.88,S_ms,,0,0,0,,Awak ni siapa?
+Dialogue: 0,0:00:06.92,0:00:09.00,S_ms,,0,0,0,,Berani pulak masuk macam tu?
+Dialogue: 0,0:00:09.04,0:00:14.14,S_ms,,0,0,0,,Itu makhluk halus yang altar baru ambil.
+Dialogue: 0,0:00:14.18,0:00:15.14,S_ms,,0,0,0,,Dia dah lulus penilaian.
+Dialogue: 0,0:00:15.18,0:00:16.17,S_ms,,0,0,0,,Awak ni,
+Dialogue: 0,0:00:16.21,0:00:18.17,S_ms,,0,0,0,,tengok betul-betul sebelum cakap.
+Dialogue: 0,0:00:18.21,0:00:19.17,S_ms,,0,0,0,,Jadi rasa tak selesa saya
+Dialogue: 0,0:00:19.21,0:00:21.59,S_ms,,0,0,0,,sebab dia ke?
+Dialogue: 0,0:00:21.63,0:00:23.59,S_ms,,0,0,0,,Dia menumpang pada badan awak.
+Dialogue: 0,0:00:23.63,0:00:24.59,S_ms,,0,0,0,,Awak tak sedar dia
+Dialogue: 0,0:00:24.63,0:00:26.59,S_ms,,0,0,0,,atau hantar dia ke balai belakang berlatih,
+Dialogue: 0,0:00:26.63,0:00:27.59,S_ms,,0,0,0,,patutlah tak selesa sampai sekarang.
+Dialogue: 0,0:00:27.63,0:00:28.59,S_ms,,0,0,0,,Kenapa tak cakap awal tadi?
+Dialogue: 0,0:00:28.63,0:00:29.59,S_ms,,0,0,0,,Korang yang ambil dia.
+Dialogue: 0,0:00:29.63,0:00:30.59,S_ms,,0,0,0,,Lepas siasat dia,
+Dialogue: 0,0:00:30.63,0:00:31.59,S_ms,,0,0,0,,hantar saja dia terus ke balai belakang —
+Dialogue: 0,0:00:31.63,0:00:32.59,S_ms,,0,0,0,,tak habis cerita ke?
+Dialogue: 0,0:00:32.63,0:00:33.59,S_ms,,0,0,0,,Tak masuk akal.
+Dialogue: 0,0:00:33.63,0:00:35.59,S_ms,,0,0,0,,Altar ada peraturan.
+Dialogue: 0,0:00:35.63,0:00:36.59,S_ms,,0,0,0,,Bila makhluk halus masuk,
+Dialogue: 0,0:00:36.63,0:00:37.59,S_ms,,0,0,0,,medium mesti tahu.
+Dialogue: 0,0:00:37.63,0:00:38.59,S_ms,,0,0,0,,dan mesti soal dengan jelas.
+Dialogue: 0,0:00:38.63,0:00:39.59,S_ms,,0,0,0,,Kalau tidak, kucing atau anjing mana-mana
+Dialogue: 0,0:00:39.63,0:00:41.59,S_ms,,0,0,0,,boleh berlatih sini?
+Dialogue: 0,0:00:41.63,0:00:44.42,S_ms,,0,0,0,,Boleh tahu nama makhluk ini?
+Dialogue: 0,0:00:44.46,0:00:45.42,S_ms,,0,0,0,,Datang dari mana?
+Dialogue: 0,0:00:45.46,0:00:46.40,S_ms,,0,0,0,,Apa kebolehan awak?

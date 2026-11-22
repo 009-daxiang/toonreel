@@ -1,0 +1,31 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_id,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_id,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,249,1
+Style: C_id,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:51.20,H_id,,0,0,0,,Dibuang ke laut HIU di hari pernikahannya...
+Dialogue: 1,0:00:00.00,0:00:51.20,C_id,,0,0,0,,Tonton semua episode GRATIS ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:02.36,S_id,,0,0,0,,Aku baru saja menjadi pewaris sejati Grup Shen.
+Dialogue: 0,0:00:02.40,0:00:09.57,S_id,,0,0,0,,Tapi hanya dua jam sebelumnya,
+Dialogue: 0,0:00:09.61,0:00:12.93,S_id,,0,0,0,,anak palsu yang dibesarkan keluarga Shen 20 tahun
+Dialogue: 0,0:00:12.97,0:00:15.85,S_id,,0,0,0,,sengaja membuangku ke
+Dialogue: 0,0:00:15.89,0:00:24.60,S_id,,0,0,0,,perairan penuh hiu.
+Dialogue: 0,0:00:24.64,0:00:27.08,S_id,,0,0,0,,Kenapa?
+Dialogue: 0,0:00:27.12,0:00:30.29,S_id,,0,0,0,,KENAPA?!
+Dialogue: 0,0:00:30.33,0:00:34.67,S_id,,0,0,0,,Hadiah pernikahan ini kusiapkan khusus untukmu.
+Dialogue: 0,0:00:34.71,0:00:36.63,S_id,,0,0,0,,Sebelum kamu bisa kembali,
+Dialogue: 0,0:00:36.67,0:00:38.80,S_id,,0,0,0,,Aku satu-satunya putri keluarga Shen.
+Dialogue: 0,0:00:38.84,0:00:40.00,S_id,,0,0,0,,Ayah dan Bunda menyayangiku.
+Dialogue: 0,0:00:40.04,0:00:41.64,S_id,,0,0,0,,Kakak-kakakku melindungiku.
+Dialogue: 0,0:00:41.68,0:00:43.53,S_id,,0,0,0,,Bahkan Kakak Mo...
+Dialogue: 0,0:00:43.57,0:00:51.18,S_id,,0,0,0,,seharusnya menjadi milikku.

@@ -9,6 +9,11 @@ from faster_whisper import WhisperModel
 # 临时加班用环境变量覆盖：TRANSCRIBE_START=20 TRANSCRIBE_END=23
 START_HOUR = int(os.environ.get('TRANSCRIBE_START', '9'))
 END_HOUR = int(os.environ.get('TRANSCRIBE_END', '17'))
+# END=24 表示连续模式（无时段限制）；单实例锁防止与 launchd 定时任务撞车
+import subprocess as _sp
+if _sp.run(['pgrep', '-f', 'transcribe_all_eps.py'], capture_output=True).returncode == 0:
+    print('已有转写实例在运行，本实例退出', flush=True)
+    raise SystemExit(0)
 
 ROOT = '/Users/daxiang/.zcode/workspace/default/toonreel'
 BASE = f'{ROOT}/uploads'

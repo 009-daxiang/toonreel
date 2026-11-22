@@ -1,0 +1,46 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_en,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_en,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,228,1
+Style: C_en,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:42.00,H_en,,0,0,0,,"You call throwing a MOUNTAIN a strategy?!"
+Dialogue: 1,0:00:00.00,0:00:42.00,C_en,,0,0,0,,Watch ALL episodes FREE ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:01.70,S_en,,0,0,0,,My strategy worked!
+Dialogue: 0,0:00:01.74,0:00:03.50,S_en,,0,0,0,,Truly a heaven-shaking scheme.
+Dialogue: 0,0:00:04.38,0:00:05.28,S_en,,0,0,0,,You call brute force
+Dialogue: 0,0:00:05.32,0:00:06.90,S_en,,0,0,0,,lifting a mountain to crush men a 'strategy'?
+Dialogue: 0,0:00:06.94,0:00:08.50,S_en,,0,0,0,,How is that a strategy?!
+Dialogue: 0,0:00:08.54,0:00:10.76,S_en,,0,0,0,,Withdraw the troops!
+Dialogue: 0,0:00:10.80,0:00:11.76,S_en,,0,0,0,,Reward issued:
+Dialogue: 0,0:00:11.80,0:00:13.44,S_en,,0,0,0,,Strength +1, host!
+Dialogue: 0,0:00:13.48,0:00:15.54,S_en,,0,0,0,,Damn system, are you serious?!
+Dialogue: 0,0:00:15.58,0:00:16.58,S_en,,0,0,0,,Are you a strategist system
+Dialogue: 0,0:00:16.62,0:00:17.58,S_en,,0,0,0,,or a muscle system?
+Dialogue: 0,0:00:17.62,0:00:19.92,S_en,,0,0,0,,Give me INTELLIGENCE!
+Dialogue: 0,0:00:19.96,0:00:21.36,S_en,,0,0,0,,How did it go, Mr. Li?
+Dialogue: 0,0:00:21.40,0:00:22.30,S_en,,0,0,0,,Reporting, Your Highness:
+Dialogue: 0,0:00:22.34,0:00:23.24,S_en,,0,0,0,,mission accomplished.
+Dialogue: 0,0:00:23.28,0:00:24.64,S_en,,0,0,0,,My strategy succeeded again.
+Dialogue: 0,0:00:24.68,0:00:25.58,S_en,,0,0,0,,Good.
+Dialogue: 0,0:00:25.62,0:00:26.56,S_en,,0,0,0,,Congratulations on your great deed, Mr. Li.
+Dialogue: 0,0:00:26.60,0:00:27.50,S_en,,0,0,0,,Go claim your reward.
+Dialogue: 0,0:00:27.54,0:00:28.76,S_en,,0,0,0,,Thank you, Highness.
+Dialogue: 0,0:00:28.80,0:00:30.12,S_en,,0,0,0,,What happened?
+Dialogue: 0,0:00:30.16,0:00:31.28,S_en,,0,0,0,,Mr. Li climbed bare-handed,
+Dialogue: 0,0:00:31.32,0:00:32.28,S_en,,0,0,0,,broke the mountain ridge with bare hands,
+Dialogue: 0,0:00:32.32,0:00:33.56,S_en,,0,0,0,,ripped up a thirty-meter mountain,
+Dialogue: 0,0:00:33.60,0:00:36.78,S_en,,0,0,0,,and flattened the enemy with their armor.
+Dialogue: 0,0:00:36.82,0:00:38.50,S_en,,0,0,0,,And THAT counts as a strategy?!
+Dialogue: 0,0:00:38.54,0:00:39.46,S_en,,0,0,0,,Brother Li,
+Dialogue: 0,0:00:39.50,0:00:40.66,S_en,,0,0,0,,Truly brilliant.
+Dialogue: 0,0:00:40.70,0:00:41.98,S_en,,0,0,0,,Beyond words!

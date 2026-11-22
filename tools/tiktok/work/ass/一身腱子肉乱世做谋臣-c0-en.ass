@@ -1,0 +1,50 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_en,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_en,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,228,1
+Style: C_en,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:45.90,H_en,,0,0,0,,The system sent a gym bro back in time... to be a STRATEGIST?
+Dialogue: 1,0:00:00.00,0:00:45.90,C_en,,0,0,0,,Watch ALL episodes FREE ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:00.94,S_en,,0,0,0,,I earn my living with my brain.
+Dialogue: 0,0:00:00.98,0:00:01.88,S_en,,0,0,0,,You just lifted a thousand-pound boulder barehanded,
+Dialogue: 0,0:00:01.92,0:00:03.28,S_en,,0,0,0,,and you call that
+Dialogue: 0,0:00:03.32,0:00:05.28,S_en,,0,0,0,,Have you ever trained in martial arts?
+Dialogue: 0,0:00:05.32,0:00:06.28,S_en,,0,0,0,,Never trained.
+Dialogue: 0,0:00:06.32,0:00:07.28,S_en,,0,0,0,,I just pump iron to earn my meals —
+Dialogue: 0,0:00:07.32,0:00:09.28,S_en,,0,0,0,,my gains aren't martial arts.
+Dialogue: 0,0:00:09.32,0:00:10.28,S_en,,0,0,0,,But within me hides an army of a million,
+Dialogue: 0,0:00:10.32,0:00:12.28,S_en,,0,0,0,,a hidden dragon of this era.
+Dialogue: 0,0:00:12.34,0:00:14.34,S_en,,0,0,0,,Blame this damn system:
+Dialogue: 0,0:00:14.38,0:00:16.34,S_en,,0,0,0,,hire a strategist in three days —
+Dialogue: 0,0:00:16.38,0:00:17.34,S_en,,0,0,0,,or else
+Dialogue: 0,0:00:17.38,0:00:18.34,S_en,,0,0,0,,I become a eunuch!
+Dialogue: 0,0:00:18.38,0:00:19.34,S_en,,0,0,0,,A man's honor is at stake!
+Dialogue: 0,0:00:19.38,0:00:21.34,S_en,,0,0,0,,I'd rather die than be anything but a strategist!
+Dialogue: 0,0:00:21.38,0:00:22.34,S_en,,0,0,0,,Brave Li,
+Dialogue: 0,0:00:22.38,0:00:24.34,S_en,,0,0,0,,join my palace as a general.
+Dialogue: 0,0:00:24.38,0:00:25.34,S_en,,0,0,0,,I'll guarantee you glory.
+Dialogue: 0,0:00:25.38,0:00:26.34,S_en,,0,0,0,,Farewell.
+Dialogue: 0,0:00:26.38,0:00:28.34,S_en,,0,0,0,,If you insist on making me a brute,
+Dialogue: 0,0:00:28.38,0:00:29.34,S_en,,0,0,0,,I'll serve a wiser lord.
+Dialogue: 0,0:00:29.38,0:00:31.30,S_en,,0,0,0,,Brave sir,
+Dialogue: 0,0:00:31.34,0:00:32.30,S_en,,0,0,0,,if you defect to the enemy camp,
+Dialogue: 0,0:00:32.34,0:00:33.30,S_en,,0,0,0,,what will our kingdom block them with?
+Dialogue: 0,0:00:33.34,0:00:36.19,S_en,,0,0,0,,I,
+Dialogue: 0,0:00:36.23,0:00:37.89,S_en,,0,0,0,,approve.
+Dialogue: 0,0:00:37.93,0:00:38.89,S_en,,0,0,0,,Thank you, Your Highness.
+Dialogue: 0,0:00:38.93,0:00:39.89,S_en,,0,0,0,,I shall serve with my life.
+Dialogue: 0,0:00:39.93,0:00:40.89,S_en,,0,0,0,,and plot strategies for my lord.
+Dialogue: 0,0:00:40.93,0:00:41.89,S_en,,0,0,0,,[Ding!]
+Dialogue: 0,0:00:41.93,0:00:42.89,S_en,,0,0,0,,Congratulations, host: strategist hired!
+Dialogue: 0,0:00:42.93,0:00:44.89,S_en,,0,0,0,,System mission complete.
+Dialogue: 0,0:00:44.93,0:00:45.89,S_en,,0,0,0,,Reward incoming...

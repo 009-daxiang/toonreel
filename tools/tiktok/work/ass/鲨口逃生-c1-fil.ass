@@ -1,0 +1,32 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_fil,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_fil,Helvetica Neue,33,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,246,1
+Style: C_fil,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:34.50,H_fil,,0,0,0,,"Takot ka bang buhay pa siya?"
+Dialogue: 1,0:00:00.00,0:00:34.50,C_fil,,0,0,0,,Panuorin LAHAT — LIBRE ▶ YT688.app
+Dialogue: 0,0:00:00.32,0:00:01.22,S_fil,,0,0,0,,Shen Zhenzhu.
+Dialogue: 0,0:00:02.17,0:00:03.61,S_fil,,0,0,0,,Mula nang may mangyari kay Shen Nian,
+Dialogue: 0,0:00:03.65,0:00:05.33,S_fil,,0,0,0,,ginagawa mo ang lahat
+Dialogue: 0,0:00:05.37,0:00:06.93,S_fil,,0,0,0,,para walang makahanap sa kanya.
+Dialogue: 0,0:00:07.60,0:00:08.50,S_fil,,0,0,0,,Bakit?
+Dialogue: 0,0:00:09.04,0:00:09.94,S_fil,,0,0,0,,Hindi ko 'yon ginawa.
+Dialogue: 0,0:00:09.98,0:00:14.08,S_fil,,0,0,0,,Ano ba talaga ang kinatatakot mo?
+Dialogue: 0,0:00:14.44,0:00:16.08,S_fil,,0,0,0,,Takot kang buhay pa siya.
+Dialogue: 0,0:00:19.68,0:00:21.12,S_fil,,0,0,0,,Tinatanggap ko lang ang katotohanan.
+Dialogue: 0,0:00:21.64,0:00:22.76,S_fil,,0,0,0,,Patay na ang kapatid ko.
+Dialogue: 0,0:00:22.96,0:00:24.36,S_fil,,0,0,0,,Kinain na siya ng pating noon pa.
+Dialogue: 0,0:00:26.67,0:00:27.57,S_fil,,0,0,0,,Ganoon ba?
+Dialogue: 0,0:00:28.56,0:00:30.36,S_fil,,0,0,0,,Kung gaya, magsadiyos ka na.
+Dialogue: 0,0:00:31.03,0:00:32.27,S_fil,,0,0,0,,Dasalin mong patay na talaga siya.
+Dialogue: 0,0:00:32.31,0:00:34.50,S_fil,,0,0,0,,Kasi baka buhay pa siya.

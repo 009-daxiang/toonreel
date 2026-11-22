@@ -1,0 +1,31 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_en,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_en,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_en,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:30.80,H_en,,0,0,0,,The heiress lost everything... now she begs on her knees
+Dialogue: 1,0:00:00.00,0:00:30.80,C_en,,0,0,0,,Watch ALL episodes FREE ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:00.94,S_en,,0,0,0,,Stop pushing it.
+Dialogue: 0,0:00:01.54,0:00:03.50,S_en,,0,0,0,,The whole 28th floor is Shen Xiujin's.
+Dialogue: 0,0:00:04.02,0:00:05.38,S_en,,0,0,0,,Without a key card you can't get up.
+Dialogue: 0,0:00:09.78,0:00:10.68,S_en,,0,0,0,,Jian Tong.
+Dialogue: 0,0:00:10.72,0:00:12.12,S_en,,0,0,0,,Miss Jian.
+Dialogue: 0,0:00:12.85,0:00:15.85,S_en,,0,0,0,,You've truly opened my eyes today.
+Dialogue: 0,0:00:15.89,0:00:17.13,S_en,,0,0,0,,The once proud Miss Jian,
+Dialogue: 0,0:00:17.69,0:00:18.81,S_en,,0,0,0,,now to beg for mercy,
+Dialogue: 0,0:00:19.29,0:00:21.25,S_en,,0,0,0,,humbles herself in front of everyone
+Dialogue: 0,0:00:21.29,0:00:22.33,S_en,,0,0,0,,hugging a servant.
+Dialogue: 0,0:00:22.69,0:00:24.19,S_en,,0,0,0,,Tell me,
+Dialogue: 0,0:00:24.89,0:00:26.93,S_en,,0,0,0,,if old Jian Zhendong found out,
+Dialogue: 0,0:00:27.87,0:00:29.23,S_en,,0,0,0,,wouldn't he die of shame?
+Dialogue: 0,0:00:29.58,0:00:30.78,S_en,,0,0,0,,The Jian family has no Jian Tong.

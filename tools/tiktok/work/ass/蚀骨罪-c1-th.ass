@@ -1,0 +1,31 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_th,Thonburi UI,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_th,Thonburi UI,36,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_th,Thonburi UI,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:30.80,H_th,,0,0,0,,อดีตทายาทสาวสูญสิ้นทุกอย่าง... ต้องคุกเข่าขอร้อง
+Dialogue: 1,0:00:00.00,0:00:30.80,C_th,,0,0,0,,ดูทุกตอนฟรี ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:00.94,S_th,,0,0,0,,อย่ากดแล้ว
+Dialogue: 0,0:00:01.54,0:00:03.50,S_th,,0,0,0,,ชั้น 28 ทั้งชั้นเป็นของเชิ่นซิ่วจิ้น
+Dialogue: 0,0:00:04.02,0:00:05.38,S_th,,0,0,0,,ไม่มีบัตรก็ขึ้นไม่ได้
+Dialogue: 0,0:00:09.78,0:00:10.68,S_th,,0,0,0,,เจี๋ยนถง
+Dialogue: 0,0:00:10.72,0:00:12.12,S_th,,0,0,0,,คุณหนูเจี๋ยน
+Dialogue: 0,0:00:12.85,0:00:15.85,S_th,,0,0,0,,วันนี้เธอทำให้ฉันตาเปิดกว้างจริงๆ
+Dialogue: 0,0:00:15.89,0:00:17.13,S_th,,0,0,0,,อดีตคุณหนูเจี๋ยนผู้สูงส่ง
+Dialogue: 0,0:00:17.69,0:00:18.81,S_th,,0,0,0,,วันนี้เพื่อขอชีวิต
+Dialogue: 0,0:00:19.29,0:00:21.25,S_th,,0,0,0,,ต่ำต้อยกลางสายตาคนทั้งโลก
+Dialogue: 0,0:00:21.29,0:00:22.33,S_th,,0,0,0,,และกอดคนรับใช้
+Dialogue: 0,0:00:22.69,0:00:24.19,S_th,,0,0,0,,บอกฉันหน่อย
+Dialogue: 0,0:00:24.89,0:00:26.93,S_th,,0,0,0,,ถ้าเจี๋ยนเจิ้นตงคนเก่ารู้เข้า
+Dialogue: 0,0:00:27.87,0:00:29.23,S_th,,0,0,0,,เขาจะอายจนตายไหม?
+Dialogue: 0,0:00:29.58,0:00:30.78,S_th,,0,0,0,,ตระกูลเจี๋ยนไม่มีเจี๋ยนถง

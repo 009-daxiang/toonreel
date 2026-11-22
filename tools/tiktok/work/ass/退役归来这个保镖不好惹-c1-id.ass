@@ -1,0 +1,37 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_id,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_id,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_id,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:44.80,H_id,,0,0,0,,Kamu pikir bisa lari dariku?
+Dialogue: 1,0:00:00.00,0:00:44.80,C_id,,0,0,0,,Tonton semua episode GRATIS ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:01.40,S_id,,0,0,0,,Kamu pikir bisa kabur dariku?
+Dialogue: 0,0:00:02.57,0:00:04.17,S_id,,0,0,0,,Saranku: jangan coba-coba.
+Dialogue: 0,0:00:04.37,0:00:11.22,S_id,,0,0,0,,Bos, ampuni aku!
+Dialogue: 0,0:00:11.26,0:00:13.02,S_id,,0,0,0,,soal pukul-memukul aku cuma anak buah kecil,
+Dialogue: 0,0:00:13.06,0:00:14.42,S_id,,0,0,0,,Bondol yang menyuruh semuanya.
+Dialogue: 0,0:00:15.43,0:00:16.83,S_id,,0,0,0,,semalam kami bahkan pergi ke pemakaman,
+Dialogue: 0,0:00:16.87,0:00:17.77,S_id,,0,0,0,,dan menginap semalam.
+Dialogue: 0,0:00:17.81,0:00:18.83,S_id,,0,0,0,,Semua perintahmu kulakukan!
+Dialogue: 0,0:00:21.06,0:00:21.96,S_id,,0,0,0,,Lihat,
+Dialogue: 0,0:00:22.32,0:00:23.92,S_id,,0,0,0,,luka-lukaku belum sembuh.
+Dialogue: 0,0:00:23.96,0:00:25.92,S_id,,0,0,0,,Aku mohon, ampuni aku!
+Dialogue: 0,0:00:25.96,0:00:27.72,S_id,,0,0,0,,Bangun. Ada yang mau kutanyakan.
+Dialogue: 0,0:00:29.43,0:00:30.63,S_id,,0,0,0,,Suruh dia menunggu di sana.
+Dialogue: 0,0:00:31.42,0:00:32.82,S_id,,0,0,0,,Tunggu aku di depan ya, sayang.
+Dialogue: 0,0:00:33.93,0:00:36.13,S_id,,0,0,0,,Bos, aku cuma menjalankan perintah.
+Dialogue: 0,0:00:36.17,0:00:37.07,S_id,,0,0,0,,Aku—
+Dialogue: 0,0:00:37.25,0:00:39.45,S_id,,0,0,0,,Tenang, cuma beberapa pertanyaan.
+Dialogue: 0,0:00:40.88,0:00:41.78,S_id,,0,0,0,,Terima kasih, bos.
+Dialogue: 0,0:00:42.62,0:00:43.62,S_id,,0,0,0,,Bondol sudah mati, kan?
+Dialogue: 0,0:00:43.66,0:00:44.80,S_id,,0,0,0,,Ka-kamu tahu?!

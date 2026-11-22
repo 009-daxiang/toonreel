@@ -1,0 +1,50 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_vi,Arial Unicode MS,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_vi,Arial Unicode MS,32,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_vi,Arial Unicode MS,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:47.90,H_vi,,0,0,0,,"Lùi lại. Cậu đang đứng trên HỐ MÁU của tôi." Cô ta đến huỷ hôn.
+Dialogue: 1,0:00:00.00,0:00:47.90,C_vi,,0,0,0,,Xem toàn bộ MIỄN PHÍ ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:01.84,S_vi,,0,0,0,,Hôm nay, ANH ta dám chủ động huỷ hôn.
+Dialogue: 0,0:00:02.00,0:00:02.90,S_vi,,0,0,0,,Lùi lại.
+Dialogue: 0,0:00:02.94,0:00:03.88,S_vi,,0,0,0,,Cậu đang đứng trên hố máu của tôi.
+Dialogue: 0,0:00:03.92,0:00:04.82,S_vi,,0,0,0,,Cậu—
+Dialogue: 0,0:00:07.03,0:00:07.93,S_vi,,0,0,0,,Được.
+Dialogue: 0,0:00:08.54,0:00:09.98,S_vi,,0,0,0,,Hôm nay tôi đến để huỷ hôn ước này.
+Dialogue: 0,0:00:10.41,0:00:12.37,S_vi,,0,0,0,,Nhà họ Yun chọn cậu vì cậu là thư sinh,
+Dialogue: 0,0:00:12.41,0:00:13.77,S_vi,,0,0,0,,và ngại ngùng nhận hôn ước này.
+Dialogue: 0,0:00:13.81,0:00:14.71,S_vi,,0,0,0,,Còn bây giờ?
+Dialogue: 0,0:00:14.75,0:00:15.81,S_vi,,0,0,0,,Nghèo đến mức luộc đá để ăn,
+Dialogue: 0,0:00:15.85,0:00:16.97,S_vi,,0,0,0,,mà còn tự đào hố chôn mình ở đây.
+Dialogue: 0,0:00:17.01,0:00:17.91,S_vi,,0,0,0,,Để người ngoài biết,
+Dialogue: 0,0:00:17.95,0:00:19.09,S_vi,,0,0,0,,mặt nhà họ Yun mất hết cả.
+Dialogue: 0,0:00:19.13,0:00:20.03,S_vi,,0,0,0,,Đúng đó.
+Dialogue: 0,0:00:20.07,0:00:21.01,S_vi,,0,0,0,,Cóc mà mơ ăn thịt thiên nga.
+Dialogue: 0,0:00:21.05,0:00:22.33,S_vi,,0,0,0,,Một kẻ nghèo kiếp như cậu
+Dialogue: 0,0:00:22.37,0:00:24.41,S_vi,,0,0,0,,đâu xứng với bảo ngọc như Vân Thư.
+Dialogue: 0,0:00:25.41,0:00:26.72,S_vi,,0,0,0,,Chú ơi,
+Dialogue: 0,0:00:26.76,0:00:28.20,S_vi,,0,0,0,,Phải giận gì con rác này.
+Dialogue: 0,0:00:28.24,0:00:29.24,S_vi,,0,0,0,,Chỉ làm bẩn tay chú thôi.
+Dialogue: 0,0:00:29.28,0:00:30.28,S_vi,,0,0,0,,Trời lạnh thế này,
+Dialogue: 0,0:00:30.32,0:00:31.80,S_vi,,0,0,0,,chỉ có phủ của ta trong thành
+Dialogue: 0,0:00:31.84,0:00:33.00,S_vi,,0,0,0,,mới cho em sự ấm áp thật sự.
+Dialogue: 0,0:00:33.04,0:00:34.16,S_vi,,0,0,0,,Hầm của nhà họ Ho ta
+Dialogue: 0,0:00:34.20,0:00:36.40,S_vi,,0,0,0,,chứa than đủ đốt cả mùa đông.
+Dialogue: 0,0:00:36.44,0:00:37.40,S_vi,,0,0,0,,Dọn vào đi,
+Dialogue: 0,0:00:37.44,0:00:38.44,S_vi,,0,0,0,,dù trời có sập,
+Dialogue: 0,0:00:38.48,0:00:40.04,S_vi,,0,0,0,,một ngón tay em cũng chẳng cóng.
+Dialogue: 0,0:00:41.62,0:00:42.70,S_vi,,0,0,0,,Ném giấy kết hôn qua đây.
+Dialogue: 0,0:00:42.74,0:00:43.86,S_vi,,0,0,0,,Rồi các người biến khỏi đây.
+Dialogue: 0,0:00:44.66,0:00:45.78,S_vi,,0,0,0,,Cậu nói gì?
+Dialogue: 0,0:00:45.82,0:00:46.72,S_vi,,0,0,0,,Tôi nói
+Dialogue: 0,0:00:46.76,0:00:47.90,S_vi,,0,0,0,,ném giấy kết hôn qua đây.

@@ -1,0 +1,32 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_th,Thonburi UI,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_th,Thonburi UI,36,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_th,Thonburi UI,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:28.00,H_th,,0,0,0,,"เธอก็แค่กาธรรมดา ไม่มีเพลิงศักดิ์สิทธิ์" ... "เธอเป็นฟีนิกซ์หรือไม่ ไม่ใช่เรื่องของเธอ"
+Dialogue: 1,0:00:00.00,0:00:28.00,C_th,,0,0,0,,ดูทุกตอนฟรี ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:01.50,S_th,,0,0,0,,ใครอนุญาตให้เธอแตะเขา?
+Dialogue: 0,0:00:01.54,0:00:02.44,S_th,,0,0,0,,เฟิ่งชีอู่
+Dialogue: 0,0:00:02.48,0:00:03.50,S_th,,0,0,0,,เพราะคนต่างเผ่าแบบนั้น
+Dialogue: 0,0:00:03.54,0:00:08.26,S_th,,0,0,0,,เธอกล้าใช้มือกับฟีนิกซ์ทองคำ?
+Dialogue: 0,0:00:08.30,0:00:09.74,S_th,,0,0,0,,เจ็บหรือเปล่า?
+Dialogue: 0,0:00:09.78,0:00:11.14,S_th,,0,0,0,,ก็แค่นิดหน่อย...
+Dialogue: 0,0:00:11.18,0:00:14.28,S_th,,0,0,0,,เธอก็ชัดๆ ว่าเป็นแค่กา
+Dialogue: 0,0:00:14.32,0:00:16.08,S_th,,0,0,0,,ไม่มีสายเลือดฟีนิกซ์ ไม่มีเพลิงศักดิ์สิทธิ์
+Dialogue: 0,0:00:16.12,0:00:17.88,S_th,,0,0,0,,แม้สัมผัสของเธอก็ต่างจากสายฟีนิกซ์
+Dialogue: 0,0:00:17.92,0:00:20.08,S_th,,0,0,0,,จะหลอกตัวเองไปถึงเมื่อไหร่
+Dialogue: 0,0:00:20.12,0:00:21.02,S_th,,0,0,0,,ใช่ ใช่!
+Dialogue: 0,0:00:21.06,0:00:21.96,S_th,,0,0,0,,เร็ว พูดจูงใจเขาเลย!
+Dialogue: 0,0:00:22.00,0:00:23.18,S_th,,0,0,0,,ทุกอย่างช่วงนี้ก็เสี่ยงทายกับเธอแล้ว!
+Dialogue: 0,0:00:23.22,0:00:24.58,S_th,,0,0,0,,ว่าเธอจะเป็นฟีนิกซ์หรือไม่
+Dialogue: 0,0:00:24.62,0:00:28.00,S_th,,0,0,0,,ไม่ใช่เรื่องของเธอ

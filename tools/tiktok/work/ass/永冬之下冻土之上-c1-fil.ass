@@ -1,0 +1,49 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_fil,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_fil,Helvetica Neue,33,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_fil,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:44.20,H_fil,,0,0,0,,Unang mainit na higaan sa frozen world... nag-giyera ang buong barangay
+Dialogue: 1,0:00:00.00,0:00:44.20,C_fil,,0,0,0,,Panuorin LAHAT — LIBRE ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:01.16,S_fil,,0,0,0,,Susmaryosep!
+Dialogue: 0,0:00:01.20,0:00:02.10,S_fil,,0,0,0,,Master Lin,
+Dialogue: 0,0:00:02.14,0:00:03.24,S_fil,,0,0,0,,Para kang diyos na nagbabadya sa lupa!
+Dialogue: 0,0:00:03.28,0:00:04.36,S_fil,,0,0,0,,Hindi ko inimagine
+Dialogue: 0,0:00:04.40,0:00:05.84,S_fil,,0,0,0,,na matutulog ka sa dipan ng putik
+Dialogue: 0,0:00:05.88,0:00:07.08,S_fil,,0,0,0,,ay ganito ka init.
+Dialogue: 0,0:00:07.12,0:00:09.00,S_fil,,0,0,0,,Isang gabi ng init — ang buto-buto ko, gumaan.
+Dialogue: 0,0:00:09.04,0:00:10.56,S_fil,,0,0,0,,Hindi na tayo takot sa lamig, ever.
+Dialogue: 0,0:00:10.60,0:00:11.52,S_fil,,0,0,0,,Sa itim na uling na 'to
+Dialogue: 0,0:00:11.56,0:00:12.76,S_fil,,0,0,0,,at sa heated bed na 'to,
+Dialogue: 0,0:00:12.80,0:00:13.70,S_fil,,0,0,0,,ang taglamig natin
+Dialogue: 0,0:00:13.74,0:00:14.64,S_fil,,0,0,0,,sigurado na.
+Dialogue: 0,0:00:14.68,0:00:16.04,S_fil,,0,0,0,,Ako ang unang nakakita!
+Dialogue: 0,0:00:16.08,0:00:17.80,S_fil,,0,0,0,,Winasak ko 'yan sa yelo nang isa-isa!
+Dialogue: 0,0:00:17.84,0:00:18.84,S_fil,,0,0,0,,Bakit sa'yo pa?
+Dialogue: 0,0:00:18.88,0:00:20.20,S_fil,,0,0,0,,Kalokohan!
+Dialogue: 0,0:00:20.24,0:00:22.50,S_fil,,0,0,0,,Magalang ka sa matatanda!
+Dialogue: 0,0:00:22.54,0:00:24.02,S_fil,,0,0,0,,Gamit na ganito kaganda
+Dialogue: 0,0:00:24.06,0:00:26.22,S_fil,,0,0,0,,dapat sa mga matatanda
+Dialogue: 0,0:00:26.26,0:00:27.90,S_fil,,0,0,0,,para makaligtas sa taglamig.
+Dialogue: 0,0:00:27.94,0:00:29.34,S_fil,,0,0,0,,'Yan ang tama.
+Dialogue: 0,0:00:29.38,0:00:30.42,S_fil,,0,0,0,,Gurang ka na!
+Dialogue: 0,0:00:30.46,0:00:31.38,S_fil,,0,0,0,,Binubuwag mo ang BUHAY ko!
+Dialogue: 0,0:00:31.42,0:00:32.32,S_fil,,0,0,0,,Isauli mo!
+Dialogue: 0,0:00:32.36,0:00:33.38,S_fil,,0,0,0,,Kapal mo akong sampalin?!
+Dialogue: 0,0:00:35.03,0:00:36.03,S_fil,,0,0,0,,Kayamanan lahat 'yan!
+Dialogue: 0,0:00:36.07,0:00:36.97,S_fil,,0,0,0,,KAYAMANAN lahat 'yan!
+Dialogue: 0,0:00:37.01,0:00:38.31,S_fil,,0,0,0,,Bakit sa isang tao lang?
+Dialogue: 0,0:00:38.35,0:00:39.25,S_fil,,0,0,0,,Maghati-hati tayo!
+Dialogue: 0,0:00:39.29,0:00:40.19,S_fil,,0,0,0,,Ihati na 'yan!
+Dialogue: 0,0:00:40.23,0:00:43.32,S_fil,,0,0,0,,Bitaw!
+Dialogue: 0,0:00:43.36,0:00:44.20,S_fil,,0,0,0,,Sa akin 'yan!

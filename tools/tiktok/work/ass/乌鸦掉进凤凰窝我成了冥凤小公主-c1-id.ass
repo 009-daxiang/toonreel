@@ -1,0 +1,24 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_id,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_id,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_id,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:25.10,H_id,,0,0,0,,"Yang tua berani sakiti IBUku." ... "Mau merebut takhta? BILANG. Jangan pakai anak sebagai alasan."
+Dialogue: 1,0:00:00.00,0:00:25.10,C_id,,0,0,0,,Tonton semua episode GRATIS ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:01.98,S_id,,0,0,0,,Yang tua berani sakiti IBUku.
+Dialogue: 0,0:00:02.02,0:00:03.98,S_id,,0,0,0,,Bocah ini kelewatan.
+Dialogue: 0,0:00:04.02,0:00:15.20,S_id,,0,0,0,,Kau biarkan Dark Phoenix menghancurkan tanah leluhur,
+Dialogue: 0,0:00:15.24,0:00:17.20,S_id,,0,0,0,,hingga pohon leluhur layu.
+Dialogue: 0,0:00:17.24,0:00:19.20,S_id,,0,0,0,,Kau tak layak lagi menjadi ratu.
+Dialogue: 0,0:00:19.24,0:00:23.09,S_id,,0,0,0,,Kalau mau merebut takhta, bilang saja.
+Dialogue: 0,0:00:23.13,0:00:25.09,S_id,,0,0,0,,Jangan pakai anak sebagai alasan.

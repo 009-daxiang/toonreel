@@ -1,0 +1,31 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_vi,Arial Unicode MS,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_vi,Arial Unicode MS,32,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,249,1
+Style: C_vi,Arial Unicode MS,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:51.20,H_vi,,0,0,0,,Họ ném cô xuống biển cá mập ngay trước đám cưới...
+Dialogue: 1,0:00:00.00,0:00:51.20,C_vi,,0,0,0,,Xem toàn bộ MIỄN PHÍ ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:02.36,S_vi,,0,0,0,,Tôi vừa trở thành người thừa kế thật sự của tập đoàn Shen.
+Dialogue: 0,0:00:02.40,0:00:09.57,S_vi,,0,0,0,,Nhưng chỉ hai tiếng trước đó,
+Dialogue: 0,0:00:09.61,0:00:12.93,S_vi,,0,0,0,,con gái giả được nhà họ Shen nuôi hai mươi năm
+Dialogue: 0,0:00:12.97,0:00:15.85,S_vi,,0,0,0,,đã cố tình ném tôi xuống
+Dialogue: 0,0:00:15.89,0:00:24.60,S_vi,,0,0,0,,vùng biển đầy cá mập.
+Dialogue: 0,0:00:24.64,0:00:27.08,S_vi,,0,0,0,,Tại sao?
+Dialogue: 0,0:00:27.12,0:00:30.29,S_vi,,0,0,0,,TẠI SAO?!
+Dialogue: 0,0:00:30.33,0:00:34.67,S_vi,,0,0,0,,Món quà cưới này, tôi chuẩn bị riêng cho cậu đấy.
+Dialogue: 0,0:00:34.71,0:00:36.63,S_vi,,0,0,0,,Trước khi cậu quay về được,
+Dialogue: 0,0:00:36.67,0:00:38.80,S_vi,,0,0,0,,Tôi là con gái duy nhất của nhà họ Shen.
+Dialogue: 0,0:00:38.84,0:00:40.00,S_vi,,0,0,0,,Bố mẹ chiều tôi.
+Dialogue: 0,0:00:40.04,0:00:41.64,S_vi,,0,0,0,,Các anh trai bảo vệ tôi.
+Dialogue: 0,0:00:41.68,0:00:43.53,S_vi,,0,0,0,,Thậm chí cả anh Mo...
+Dialogue: 0,0:00:43.57,0:00:51.18,S_vi,,0,0,0,,vốn dĩ cũng phải là của tôi.

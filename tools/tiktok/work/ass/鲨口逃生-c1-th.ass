@@ -1,0 +1,32 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_th,Thonburi UI,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_th,Thonburi UI,36,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,246,1
+Style: C_th,Thonburi UI,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:34.50,H_th,,0,0,0,,"คุณกลัวที่เธอจะยังมีชีวิตกลับมา"
+Dialogue: 1,0:00:00.00,0:00:34.50,C_th,,0,0,0,,ดูทุกตอนฟรี ▶ YT688.app
+Dialogue: 0,0:00:00.32,0:00:01.22,S_th,,0,0,0,,เชินเจินจู่
+Dialogue: 0,0:00:02.17,0:00:03.61,S_th,,0,0,0,,ตั้งแต่เชินเนียนเกิดเรื่องขึ้น
+Dialogue: 0,0:00:03.65,0:00:05.33,S_th,,0,0,0,,เธอก็วางแผนทุกวิธี
+Dialogue: 0,0:00:05.37,0:00:06.93,S_th,,0,0,0,,เพื่อขัดขวางทุกคนไม่ให้ตามหาเธอ
+Dialogue: 0,0:00:07.60,0:00:08.50,S_th,,0,0,0,,ทำไม?
+Dialogue: 0,0:00:09.04,0:00:09.94,S_th,,0,0,0,,ฉันไม่ได้ทำ
+Dialogue: 0,0:00:09.98,0:00:14.08,S_th,,0,0,0,,เธอกลัวอะไรกันแน่?
+Dialogue: 0,0:00:14.44,0:00:16.08,S_th,,0,0,0,,เธอกลัวเขายังมีชีวิตกลับมา
+Dialogue: 0,0:00:19.68,0:00:21.12,S_th,,0,0,0,,ฉันแค่ยอมรับความจริง
+Dialogue: 0,0:00:21.64,0:00:22.76,S_th,,0,0,0,,พี่สาวเขาตายแล้ว
+Dialogue: 0,0:00:22.96,0:00:24.36,S_th,,0,0,0,,เธอถูกฉลามกินไปนานแล้ว
+Dialogue: 0,0:00:26.67,0:00:27.57,S_th,,0,0,0,,หรือเปล่านะ?
+Dialogue: 0,0:00:28.56,0:00:30.36,S_th,,0,0,0,,งั้นเธอก็ควรขอพรไว้
+Dialogue: 0,0:00:31.03,0:00:32.27,S_th,,0,0,0,,ขอให้เธอตายจริงๆ
+Dialogue: 0,0:00:32.31,0:00:34.50,S_th,,0,0,0,,เพราะเธออาจยังมีชีวิตกลับมา

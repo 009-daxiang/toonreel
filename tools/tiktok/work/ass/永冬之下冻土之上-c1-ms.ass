@@ -1,0 +1,49 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_ms,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_ms,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_ms,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:44.20,H_ms,,0,0,0,,Katil hangat pertama dunia beku... seluruh kampung mula BERGADUH
+Dialogue: 1,0:00:00.00,0:00:44.20,C_ms,,0,0,0,,Tonton semua episod PERCUMA ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:01.16,S_ms,,0,0,0,,Fuh, astaga!
+Dialogue: 0,0:00:01.20,0:00:02.10,S_ms,,0,0,0,,Tuan Lin,
+Dialogue: 0,0:00:02.14,0:00:03.24,S_ms,,0,0,0,,Awak macam dewa turun ke bumi!
+Dialogue: 0,0:00:03.28,0:00:04.36,S_ms,,0,0,0,,Saya tak pernah sangka
+Dialogue: 0,0:00:04.40,0:00:05.84,S_ms,,0,0,0,,tidur atas dipan tanah ni
+Dialogue: 0,0:00:05.88,0:00:07.08,S_ms,,0,0,0,,boleh sehangat ini.
+Dialogue: 0,0:00:07.12,0:00:09.00,S_ms,,0,0,0,,Semalaman hangat — tulang tua saya dah longgar.
+Dialogue: 0,0:00:09.04,0:00:10.56,S_ms,,0,0,0,,Mulai ni kita tak takut sejuk lagi.
+Dialogue: 0,0:00:10.60,0:00:11.52,S_ms,,0,0,0,,Dengan arang hitam ni
+Dialogue: 0,0:00:11.56,0:00:12.76,S_ms,,0,0,0,,dan dipan panas ni,
+Dialogue: 0,0:00:12.80,0:00:13.70,S_ms,,0,0,0,,musim sejuk kita
+Dialogue: 0,0:00:13.74,0:00:14.64,S_ms,,0,0,0,,selamat.
+Dialogue: 0,0:00:14.68,0:00:16.04,S_ms,,0,0,0,,Saya yang nampak dulu!
+Dialogue: 0,0:00:16.08,0:00:17.80,S_ms,,0,0,0,,Saya galik dia dari salju sikit demi sikit!
+Dialogue: 0,0:00:17.84,0:00:18.84,S_ms,,0,0,0,,Kenapa mesti jadi milik awak?
+Dialogue: 0,0:00:18.88,0:00:20.20,S_ms,,0,0,0,,Sial betul!
+Dialogue: 0,0:00:20.24,0:00:22.50,S_ms,,0,0,0,,Hormatilah yang tua!
+Dialogue: 0,0:00:22.54,0:00:24.02,S_ms,,0,0,0,,Barang bernilai macam ni
+Dialogue: 0,0:00:24.06,0:00:26.22,S_ms,,0,0,0,,patutnya jadi milik kami yang tua
+Dialogue: 0,0:00:26.26,0:00:27.90,S_ms,,0,0,0,,untuk selamat musim sejuk.
+Dialogue: 0,0:00:27.94,0:00:29.34,S_ms,,0,0,0,,Itulah yang betul.
+Dialogue: 0,0:00:29.38,0:00:30.42,S_ms,,0,0,0,,Dasar tua nyah!
+Dialogue: 0,0:00:30.46,0:00:31.38,S_ms,,0,0,0,,Awak curi HIDUP saya!
+Dialogue: 0,0:00:31.42,0:00:32.32,S_ms,,0,0,0,,Balikkan!
+Dialogue: 0,0:00:32.36,0:00:33.38,S_ms,,0,0,0,,Berani awak pukul saya?
+Dialogue: 0,0:00:35.03,0:00:36.03,S_ms,,0,0,0,,Semua tu harta!
+Dialogue: 0,0:00:36.07,0:00:36.97,S_ms,,0,0,0,,HARTA semuanya!
+Dialogue: 0,0:00:37.01,0:00:38.31,S_ms,,0,0,0,,Kenapa satu orang saja pegang?
+Dialogue: 0,0:00:38.35,0:00:39.25,S_ms,,0,0,0,,Bahagi sama-sama!
+Dialogue: 0,0:00:39.29,0:00:40.19,S_ms,,0,0,0,,Bahagilah!
+Dialogue: 0,0:00:40.23,0:00:43.32,S_ms,,0,0,0,,Lepaskan!
+Dialogue: 0,0:00:43.36,0:00:44.20,S_ms,,0,0,0,,Bagi pada saya!

@@ -1,0 +1,37 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_en,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_en,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_en,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:44.80,H_en,,0,0,0,,You think you can run from ME?
+Dialogue: 1,0:00:00.00,0:00:44.80,C_en,,0,0,0,,Watch ALL episodes FREE ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:01.40,S_en,,0,0,0,,You think you can escape me?
+Dialogue: 0,0:00:02.57,0:00:04.17,S_en,,0,0,0,,My advice: don't even try.
+Dialogue: 0,0:00:04.37,0:00:11.22,S_en,,0,0,0,,Boss, please, spare me!
+Dialogue: 0,0:00:11.26,0:00:13.02,S_en,,0,0,0,,The beating — I was just small-time,
+Dialogue: 0,0:00:13.06,0:00:14.42,S_en,,0,0,0,,Baldy ordered all of it.
+Dialogue: 0,0:00:15.43,0:00:16.83,S_en,,0,0,0,,Last night we even went to the graveyard
+Dialogue: 0,0:00:16.87,0:00:17.77,S_en,,0,0,0,,and stayed the whole night.
+Dialogue: 0,0:00:17.81,0:00:18.83,S_en,,0,0,0,,I did everything you asked!
+Dialogue: 0,0:00:21.06,0:00:21.96,S_en,,0,0,0,,Look,
+Dialogue: 0,0:00:22.32,0:00:23.92,S_en,,0,0,0,,my wounds haven't even healed.
+Dialogue: 0,0:00:23.96,0:00:25.92,S_en,,0,0,0,,I'm begging you, boss — spare me!
+Dialogue: 0,0:00:25.96,0:00:27.72,S_en,,0,0,0,,Get up. I need to ask you something.
+Dialogue: 0,0:00:29.43,0:00:30.63,S_en,,0,0,0,,Let him wait over there.
+Dialogue: 0,0:00:31.42,0:00:32.82,S_en,,0,0,0,,Wait for me up ahead, babe.
+Dialogue: 0,0:00:33.93,0:00:36.13,S_en,,0,0,0,,Boss, I really just followed orders.
+Dialogue: 0,0:00:36.17,0:00:37.07,S_en,,0,0,0,,I—
+Dialogue: 0,0:00:37.25,0:00:39.45,S_en,,0,0,0,,Relax. Just a few questions.
+Dialogue: 0,0:00:40.88,0:00:41.78,S_en,,0,0,0,,Thank you, boss.
+Dialogue: 0,0:00:42.62,0:00:43.62,S_en,,0,0,0,,Baldy's dead, right?
+Dialogue: 0,0:00:43.66,0:00:44.80,S_en,,0,0,0,,Y-you know?!

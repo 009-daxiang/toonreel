@@ -1,0 +1,54 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_id,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_id,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_id,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:44.70,H_id,,0,0,0,,"Berapa banyak putri ayahmu?" "Hanya aku."
+Dialogue: 1,0:00:00.00,0:00:44.70,C_id,,0,0,0,,Tonton semua episode GRATIS ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:00.94,S_id,,0,0,0,,Penculikan apa?
+Dialogue: 0,0:00:01.33,0:00:02.23,S_id,,0,0,0,,Kapten Li,
+Dialogue: 0,0:00:02.27,0:00:03.25,S_id,,0,0,0,,Saya tidak tahu maksud Anda.
+Dialogue: 0,0:00:04.06,0:00:05.06,S_id,,0,0,0,,Berapa putri ayahmu?
+Dialogue: 0,0:00:05.38,0:00:06.28,S_id,,0,0,0,,Hanya saya.
+Dialogue: 0,0:00:06.58,0:00:09.26,S_id,,0,0,0,,Benar begitu.
+Dialogue: 0,0:00:09.50,0:00:10.40,S_id,,0,0,0,,Berarti tidak salah.
+Dialogue: 0,0:00:10.86,0:00:12.22,S_id,,0,0,0,,Kamu tak tahu soal penculikanmu?
+Dialogue: 0,0:00:12.46,0:00:14.02,S_id,,0,0,0,,Saya tidak paham maksud Kapten Li.
+Dialogue: 0,0:00:14.30,0:00:15.20,S_id,,0,0,0,,Lagi pula,
+Dialogue: 0,0:00:15.24,0:00:16.14,S_id,,0,0,0,,apa kaitannya dengan kalian melepas dia?
+Dialogue: 0,0:00:16.18,0:00:17.08,S_id,,0,0,0,,Apa hubungannya?
+Dialogue: 0,0:00:17.12,0:00:18.02,S_id,,0,0,0,,Ada.
+Dialogue: 0,0:00:18.06,0:00:18.96,S_id,,0,0,0,,Hubungannya sangat besar.
+Dialogue: 0,0:00:19.00,0:00:19.90,S_id,,0,0,0,,Apa yang baru Anda bilang?
+Dialogue: 0,0:00:19.94,0:00:20.84,S_id,,0,0,0,,Chen Yundong adalah asistenmu.
+Dialogue: 0,0:00:20.88,0:00:21.90,S_id,,0,0,0,,Pegawai perusahaanmu.
+Dialogue: 0,0:00:22.42,0:00:23.32,S_id,,0,0,0,,Benar.
+Dialogue: 0,0:00:23.36,0:00:24.26,S_id,,0,0,0,,Sejak kapan?
+Dialogue: 0,0:00:24.70,0:00:25.60,S_id,,0,0,0,,Tiga hari.
+Dialogue: 0,0:00:25.64,0:00:26.54,S_id,,0,0,0,,Chen Yundong masuk perusahaan kami
+Dialogue: 0,0:00:26.58,0:00:27.48,S_id,,0,0,0,,baru tiga hari.
+Dialogue: 0,0:00:29.02,0:00:29.92,S_id,,0,0,0,,Tiga hari?
+Dialogue: 0,0:00:29.96,0:00:30.86,S_id,,0,0,0,,Biar saya hitung.
+Dialogue: 0,0:00:31.10,0:00:32.00,S_id,,0,0,0,,Jadi artinya
+Dialogue: 0,0:00:32.04,0:00:32.94,S_id,,0,0,0,,pada hari ketiga setelah penculikanmu
+Dialogue: 0,0:00:32.98,0:00:33.88,S_id,,0,0,0,,dia mulai kerja di perusahaanmu?
+Dialogue: 0,0:00:33.92,0:00:34.82,S_id,,0,0,0,,Benar tidak?
+Dialogue: 0,0:00:34.86,0:00:35.76,S_id,,0,0,0,,Bagaimana dia masuknya?
+Dialogue: 0,0:00:35.80,0:00:36.70,S_id,,0,0,0,,Dia melamar kerja.
+Dialogue: 0,0:00:37.71,0:00:38.61,S_id,,0,0,0,,Kamu keluar dulu.
+Dialogue: 0,0:00:39.03,0:00:39.93,S_id,,0,0,0,,Saya ada hal
+Dialogue: 0,0:00:39.97,0:00:40.95,S_id,,0,0,0,,bicara empat mata dengan Nona Zhang.
+Dialogue: 0,0:00:41.15,0:00:42.05,S_id,,0,0,0,,Tidak boleh.
+Dialogue: 0,0:00:42.09,0:00:42.99,S_id,,0,0,0,,Baik.
+Dialogue: 0,0:00:43.03,0:00:43.93,S_id,,0,0,0,,Tapi Kapten Li,
+Dialogue: 0,0:00:43.97,0:00:44.70,S_id,,0,0,0,,setelah bicara,

@@ -1,0 +1,44 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_id,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_id,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,252,1
+Style: C_id,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:42.70,H_id,,0,0,0,,"Kalau kamu bunuh musang... dia akan ambil nyawamu?" Horor folklor
+Dialogue: 1,0:00:00.00,0:00:42.70,C_id,,0,0,0,,Tonton semua episode GRATIS ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:00.94,S_id,,0,0,0,,Keluarga musang menuntut nyawa ganti nyawa.
+Dialogue: 0,0:00:00.98,0:00:02.12,S_id,,0,0,0,,Jadi kalau kamu melindas musang,
+Dialogue: 0,0:00:02.16,0:00:04.33,S_id,,0,0,0,,dia akan menuntut nyawamu?
+Dialogue: 0,0:00:04.37,0:00:07.94,S_id,,0,0,0,,Itu tergantung sengaja atau tidak.
+Dialogue: 0,0:00:07.98,0:00:08.88,S_id,,0,0,0,,Apa bedanya?
+Dialogue: 0,0:00:08.92,0:00:10.10,S_id,,0,0,0,,Kalau tidak sengaja,
+Dialogue: 0,0:00:10.14,0:00:11.46,S_id,,0,0,0,,bakar sesajen dan minta maaf — cukup.
+Dialogue: 0,0:00:11.50,0:00:12.74,S_id,,0,0,0,,Tapi harus dengan penyesalan tulus.
+Dialogue: 0,0:00:12.78,0:00:13.98,S_id,,0,0,0,,Tapi kalau sengaja,
+Dialogue: 0,0:00:14.02,0:00:16.04,S_id,,0,0,0,,maka nyawa ganti nyawa.
+Dialogue: 0,0:00:16.12,0:00:18.68,S_id,,0,0,0,,Kenapa ada suara asing di kepalaku?
+Dialogue: 0,0:00:18.72,0:00:20.40,S_id,,0,0,0,,Tubuh kita membuka semua pori-pori,
+Dialogue: 0,0:00:20.44,0:00:21.56,S_id,,0,0,0,,Ketika roh mengambil satu titik,
+Dialogue: 0,0:00:21.60,0:00:22.88,S_id,,0,0,0,,dan ingin bicara, beginilah jadinya.
+Dialogue: 0,0:00:22.92,0:00:25.04,S_id,,0,0,0,,Itu disebut telepati. Ada juga indra mata dan telinga.
+Dialogue: 0,0:00:25.08,0:00:26.04,S_id,,0,0,0,,Untuk bicara dengan mereka,
+Dialogue: 0,0:00:26.08,0:00:27.40,S_id,,0,0,0,,cukup berdoa dalam hati.
+Dialogue: 0,0:00:27.44,0:00:28.68,S_id,,0,0,0,,Jangan campur pikiranmu sendiri,
+Dialogue: 0,0:00:28.72,0:00:29.84,S_id,,0,0,0,,kalau tidak, ramalanmu tak akan akurat.
+Dialogue: 0,0:00:29.88,0:00:31.64,S_id,,0,0,0,,Indra mata adalah mata yin-yang.
+Dialogue: 0,0:00:31.68,0:00:33.00,S_id,,0,0,0,,Indra telinga mendengar mereka bicara.
+Dialogue: 0,0:00:33.04,0:00:34.12,S_id,,0,0,0,,Membuatmu bisa melihat dan mendengar mereka.
+Dialogue: 0,0:00:34.16,0:00:36.08,S_id,,0,0,0,,Semua bergantung pada gurumu.
+Dialogue: 0,0:00:36.12,0:00:38.00,S_id,,0,0,0,,Bagaimana aku tahu roh mana yang bicara?
+Dialogue: 0,0:00:38.04,0:00:39.16,S_id,,0,0,0,,Dewa rubah, musang, arwah —
+Dialogue: 0,0:00:39.20,0:00:40.40,S_id,,0,0,0,,rasanya berbeda saat mereka masuk tubuh.
+Dialogue: 0,0:00:40.44,0:00:42.70,S_id,,0,0,0,,Lama-lama kau akan bisa membedakannya.

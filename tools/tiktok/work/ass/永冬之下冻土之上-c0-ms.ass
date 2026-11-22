@@ -1,0 +1,50 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_ms,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_ms,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_ms,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:47.90,H_ms,,0,0,0,,"Umpis. Awak pijak PERIT DARAH saya." Dia datang nak batalkan pertunangan.
+Dialogue: 1,0:00:00.00,0:00:47.90,C_ms,,0,0,0,,Tonton semua episod PERCUMA ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:01.84,S_ms,,0,0,0,,Hari ni, DIA berani batalkan pertunangan dulu.
+Dialogue: 0,0:00:02.00,0:00:02.90,S_ms,,0,0,0,,Umpis.
+Dialogue: 0,0:00:02.94,0:00:03.88,S_ms,,0,0,0,,Awak pijak perit darah saya.
+Dialogue: 0,0:00:03.92,0:00:04.82,S_ms,,0,0,0,,Awak—
+Dialogue: 0,0:00:07.03,0:00:07.93,S_ms,,0,0,0,,Baik.
+Dialogue: 0,0:00:08.54,0:00:09.98,S_ms,,0,0,0,,Hari ni saya datang nak batalkan pertunangan ini.
+Dialogue: 0,0:00:10.41,0:00:12.37,S_ms,,0,0,0,,Keluarga Yun pilih awak sebab awak orang berilmu,
+Dialogue: 0,0:00:12.41,0:00:13.77,S_ms,,0,0,0,,dan terpaksa terima jodoh ini.
+Dialogue: 0,0:00:13.81,0:00:14.71,S_ms,,0,0,0,,Sekarang?
+Dialogue: 0,0:00:14.75,0:00:15.81,S_ms,,0,0,0,,Miskin sampai rebus batu nak makan,
+Dialogue: 0,0:00:15.85,0:00:16.97,S_ms,,0,0,0,,tapi gali kubur sendiri kat sini.
+Dialogue: 0,0:00:17.01,0:00:17.91,S_ms,,0,0,0,,Kalau orang tahu,
+Dialogue: 0,0:00:17.95,0:00:19.09,S_ms,,0,0,0,,maruah keluarga Yun hancur sebab awak.
+Dialogue: 0,0:00:19.13,0:00:20.03,S_ms,,0,0,0,,Memang betul.
+Dialogue: 0,0:00:20.07,0:00:21.01,S_ms,,0,0,0,,Katak bermimpi makan daging angsa.
+Dialogue: 0,0:00:21.05,0:00:22.33,S_ms,,0,0,0,,Orang miskin macam awak
+Dialogue: 0,0:00:22.37,0:00:24.41,S_ms,,0,0,0,,tak layak untuk permata seperti Yun Shu.
+Dialogue: 0,0:00:25.41,0:00:26.72,S_ms,,0,0,0,,Pak cik,
+Dialogue: 0,0:00:26.76,0:00:28.20,S_ms,,0,0,0,,Kenapa marah pada sampah macam ni?
+Dialogue: 0,0:00:28.24,0:00:29.24,S_ms,,0,0,0,,Boleh kotor tangan awak.
+Dialogue: 0,0:00:29.28,0:00:30.28,S_ms,,0,0,0,,Dalam dingin macam ni,
+Dialogue: 0,0:00:30.32,0:00:31.80,S_ms,,0,0,0,,hanya istana saya di bandar
+Dialogue: 0,0:00:31.84,0:00:33.00,S_ms,,0,0,0,,yang boleh beri kehangatan sebenar.
+Dialogue: 0,0:00:33.04,0:00:34.16,S_ms,,0,0,0,,Ruang bawah tanah keluarga Ho
+Dialogue: 0,0:00:34.20,0:00:36.40,S_ms,,0,0,0,,penuh dengan arang untuk sepanjang musim sejuk.
+Dialogue: 0,0:00:36.44,0:00:37.40,S_ms,,0,0,0,,Pindah masuk,
+Dialogue: 0,0:00:37.44,0:00:38.44,S_ms,,0,0,0,,walau langit runtuh,
+Dialogue: 0,0:00:38.48,0:00:40.04,S_ms,,0,0,0,,satu jaripun awak tak akan beku.
+Dialogue: 0,0:00:41.62,0:00:42.70,S_ms,,0,0,0,,Lepas kertas kahwin tu sini.
+Dialogue: 0,0:00:42.74,0:00:43.86,S_ms,,0,0,0,,Lepas tu korang boleh beredar.
+Dialogue: 0,0:00:44.66,0:00:45.78,S_ms,,0,0,0,,Apa yang awak kata?
+Dialogue: 0,0:00:45.82,0:00:46.72,S_ms,,0,0,0,,Saya kata
+Dialogue: 0,0:00:46.76,0:00:47.90,S_ms,,0,0,0,,lepas kertas kahwin tu sini.

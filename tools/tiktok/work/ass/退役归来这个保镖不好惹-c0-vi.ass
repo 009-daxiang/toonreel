@@ -1,0 +1,54 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_vi,Arial Unicode MS,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_vi,Arial Unicode MS,32,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_vi,Arial Unicode MS,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:44.70,H_vi,,0,0,0,,"Cha cậu có mấy đứa con gái?" "Chỉ mình tôi."
+Dialogue: 1,0:00:00.00,0:00:44.70,C_vi,,0,0,0,,Xem toàn bộ MIỄN PHÍ ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:00.94,S_vi,,0,0,0,,Bắt cóc gì cơ?
+Dialogue: 0,0:00:01.33,0:00:02.23,S_vi,,0,0,0,,Đội trưởng Lý,
+Dialogue: 0,0:00:02.27,0:00:03.25,S_vi,,0,0,0,,Tôi không hiểu anh đang nói gì.
+Dialogue: 0,0:00:04.06,0:00:05.06,S_vi,,0,0,0,,Cha cậu có mấy con gái?
+Dialogue: 0,0:00:05.38,0:00:06.28,S_vi,,0,0,0,,Chỉ mình tôi.
+Dialogue: 0,0:00:06.58,0:00:09.26,S_vi,,0,0,0,,Vậy là đúng rồi.
+Dialogue: 0,0:00:09.50,0:00:10.40,S_vi,,0,0,0,,Vậy là không nhầm rồi.
+Dialogue: 0,0:00:10.86,0:00:12.22,S_vi,,0,0,0,,Cậu không biết gì về vụ bắt cóc à?
+Dialogue: 0,0:00:12.46,0:00:14.02,S_vi,,0,0,0,,Tôi không hiểu đội trưởng Lý nói gì.
+Dialogue: 0,0:00:14.30,0:00:15.20,S_vi,,0,0,0,,Hơn nữa,
+Dialogue: 0,0:00:15.24,0:00:16.14,S_vi,,0,0,0,,việc này liên quan gì đến việc thả người?
+Dialogue: 0,0:00:16.18,0:00:17.08,S_vi,,0,0,0,,Liên quan gì chứ?
+Dialogue: 0,0:00:17.12,0:00:18.02,S_vi,,0,0,0,,Có.
+Dialogue: 0,0:00:18.06,0:00:18.96,S_vi,,0,0,0,,Liên quan rất lớn.
+Dialogue: 0,0:00:19.00,0:00:19.90,S_vi,,0,0,0,,Anh vừa nói gì?
+Dialogue: 0,0:00:19.94,0:00:20.84,S_vi,,0,0,0,,Trần Vận Đông là trợ lý của cậu.
+Dialogue: 0,0:00:20.88,0:00:21.90,S_vi,,0,0,0,,Nhân viên công ty cậu.
+Dialogue: 0,0:00:22.42,0:00:23.32,S_vi,,0,0,0,,Đúng.
+Dialogue: 0,0:00:23.36,0:00:24.26,S_vi,,0,0,0,,Từ bao giờ?
+Dialogue: 0,0:00:24.70,0:00:25.60,S_vi,,0,0,0,,Ba ngày.
+Dialogue: 0,0:00:25.64,0:00:26.54,S_vi,,0,0,0,,Trần Vận Đông vào công ty tôi
+Dialogue: 0,0:00:26.58,0:00:27.48,S_vi,,0,0,0,,chỉ mới ba ngày.
+Dialogue: 0,0:00:29.02,0:00:29.92,S_vi,,0,0,0,,Ba ngày à?
+Dialogue: 0,0:00:29.96,0:00:30.86,S_vi,,0,0,0,,Để tôi tính.
+Dialogue: 0,0:00:31.10,0:00:32.00,S_vi,,0,0,0,,Nghĩa là
+Dialogue: 0,0:00:32.04,0:00:32.94,S_vi,,0,0,0,,ngày thứ ba sau khi cậu bị bắt cóc
+Dialogue: 0,0:00:32.98,0:00:33.88,S_vi,,0,0,0,,anh ấy mới vào công ty cậu đúng không?
+Dialogue: 0,0:00:33.92,0:00:34.82,S_vi,,0,0,0,,Phải không?
+Dialogue: 0,0:00:34.86,0:00:35.76,S_vi,,0,0,0,,Anh ấy vào thế nào?
+Dialogue: 0,0:00:35.80,0:00:36.70,S_vi,,0,0,0,,Anh ấy ứng tuyển.
+Dialogue: 0,0:00:37.71,0:00:38.61,S_vi,,0,0,0,,Cô ra ngoài trước đi.
+Dialogue: 0,0:00:39.03,0:00:39.93,S_vi,,0,0,0,,Tôi có vài lời
+Dialogue: 0,0:00:39.97,0:00:40.95,S_vi,,0,0,0,,nói riêng với cô Trương.
+Dialogue: 0,0:00:41.15,0:00:42.05,S_vi,,0,0,0,,Không được.
+Dialogue: 0,0:00:42.09,0:00:42.99,S_vi,,0,0,0,,Được.
+Dialogue: 0,0:00:43.03,0:00:43.93,S_vi,,0,0,0,,Nhưng đội trưởng Lý,
+Dialogue: 0,0:00:43.97,0:00:44.70,S_vi,,0,0,0,,sau khi trò chuyện xong,

@@ -1,0 +1,54 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_en,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_en,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,510,1
+Style: C_en,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:44.70,H_en,,0,0,0,,"How many daughters does your father have?" "Just me."
+Dialogue: 1,0:00:00.00,0:00:44.70,C_en,,0,0,0,,Watch ALL episodes FREE ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:00.94,S_en,,0,0,0,,What kidnapping?
+Dialogue: 0,0:00:01.33,0:00:02.23,S_en,,0,0,0,,Captain Li,
+Dialogue: 0,0:00:02.27,0:00:03.25,S_en,,0,0,0,,I don't know what you're talking about.
+Dialogue: 0,0:00:04.06,0:00:05.06,S_en,,0,0,0,,How many daughters does your father have?
+Dialogue: 0,0:00:05.38,0:00:06.28,S_en,,0,0,0,,Just me.
+Dialogue: 0,0:00:06.58,0:00:09.26,S_en,,0,0,0,,That's right.
+Dialogue: 0,0:00:09.50,0:00:10.40,S_en,,0,0,0,,No mistake about it.
+Dialogue: 0,0:00:10.86,0:00:12.22,S_en,,0,0,0,,You know nothing about your kidnapping?
+Dialogue: 0,0:00:12.46,0:00:14.02,S_en,,0,0,0,,I don't know what Captain Li means.
+Dialogue: 0,0:00:14.30,0:00:15.20,S_en,,0,0,0,,Besides,
+Dialogue: 0,0:00:15.24,0:00:16.14,S_en,,0,0,0,,what does this have to do with you releasing him?
+Dialogue: 0,0:00:16.18,0:00:17.08,S_en,,0,0,0,,What's the connection?
+Dialogue: 0,0:00:17.12,0:00:18.02,S_en,,0,0,0,,Yes.
+Dialogue: 0,0:00:18.06,0:00:18.96,S_en,,0,0,0,,A very big connection.
+Dialogue: 0,0:00:19.00,0:00:19.90,S_en,,0,0,0,,What did you just say?
+Dialogue: 0,0:00:19.94,0:00:20.84,S_en,,0,0,0,,Chen Yundong is your assistant.
+Dialogue: 0,0:00:20.88,0:00:21.90,S_en,,0,0,0,,An employee of your company.
+Dialogue: 0,0:00:22.42,0:00:23.32,S_en,,0,0,0,,Yes.
+Dialogue: 0,0:00:23.36,0:00:24.26,S_en,,0,0,0,,Since when?
+Dialogue: 0,0:00:24.70,0:00:25.60,S_en,,0,0,0,,Three days.
+Dialogue: 0,0:00:25.64,0:00:26.54,S_en,,0,0,0,,Chen Yundong joined our company
+Dialogue: 0,0:00:26.58,0:00:27.48,S_en,,0,0,0,,only three days ago.
+Dialogue: 0,0:00:29.02,0:00:29.92,S_en,,0,0,0,,Three days?
+Dialogue: 0,0:00:29.96,0:00:30.86,S_en,,0,0,0,,Let me count.
+Dialogue: 0,0:00:31.10,0:00:32.00,S_en,,0,0,0,,So that means
+Dialogue: 0,0:00:32.04,0:00:32.94,S_en,,0,0,0,,he joined on the third day
+Dialogue: 0,0:00:32.98,0:00:33.88,S_en,,0,0,0,,he started at your company?
+Dialogue: 0,0:00:33.92,0:00:34.82,S_en,,0,0,0,,Is that right?
+Dialogue: 0,0:00:34.86,0:00:35.76,S_en,,0,0,0,,How did he get in?
+Dialogue: 0,0:00:35.80,0:00:36.70,S_en,,0,0,0,,He applied for the job.
+Dialogue: 0,0:00:37.71,0:00:38.61,S_en,,0,0,0,,You, step outside.
+Dialogue: 0,0:00:39.03,0:00:39.93,S_en,,0,0,0,,I have something
+Dialogue: 0,0:00:39.97,0:00:40.95,S_en,,0,0,0,,to discuss privately with Miss Zhang.
+Dialogue: 0,0:00:41.15,0:00:42.05,S_en,,0,0,0,,No.
+Dialogue: 0,0:00:42.09,0:00:42.99,S_en,,0,0,0,,Fine.
+Dialogue: 0,0:00:43.03,0:00:43.93,S_en,,0,0,0,,But Captain Li,
+Dialogue: 0,0:00:43.97,0:00:44.70,S_en,,0,0,0,,after you talk,

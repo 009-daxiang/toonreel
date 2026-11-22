@@ -1,0 +1,46 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_id,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_id,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,228,1
+Style: C_id,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:42.00,H_id,,0,0,0,,"Melempar GUNUNG itu disebut strategi?!"
+Dialogue: 1,0:00:00.00,0:00:42.00,C_id,,0,0,0,,Tonton semua episode GRATIS ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:01.70,S_id,,0,0,0,,Strategiku berhasil!
+Dialogue: 0,0:00:01.74,0:00:03.50,S_id,,0,0,0,,Benar-benar strategi gila.
+Dialogue: 0,0:00:04.38,0:00:05.28,S_id,,0,0,0,,Kamu pakai kekuatan kasar,
+Dialogue: 0,0:00:05.32,0:00:06.90,S_id,,0,0,0,,angkat gunung tumbangkan orang disebut strategi?
+Dialogue: 0,0:00:06.94,0:00:08.50,S_id,,0,0,0,,Apa hubungannya dengan strategi?!
+Dialogue: 0,0:00:08.54,0:00:10.76,S_id,,0,0,0,,Tarik pasukan!
+Dialogue: 0,0:00:10.80,0:00:11.76,S_id,,0,0,0,,Hadiah terkirim:
+Dialogue: 0,0:00:11.80,0:00:13.44,S_id,,0,0,0,,Kekuatan +1, tuan rumah!
+Dialogue: 0,0:00:13.48,0:00:15.54,S_id,,0,0,0,,Sistem sialan, belum selesai?!
+Dialogue: 0,0:00:15.58,0:00:16.58,S_id,,0,0,0,,Kamu sistem ahli strategi
+Dialogue: 0,0:00:16.62,0:00:17.58,S_id,,0,0,0,,atau sistem otot?
+Dialogue: 0,0:00:17.62,0:00:19.92,S_id,,0,0,0,,Tambah kecerdasan dong!
+Dialogue: 0,0:00:19.96,0:00:21.36,S_id,,0,0,0,,Bagaimana, Tuan Li?
+Dialogue: 0,0:00:21.40,0:00:22.30,S_id,,0,0,0,,Lapor, Yang Mulia:
+Dialogue: 0,0:00:22.34,0:00:23.24,S_id,,0,0,0,,misi berhasil.
+Dialogue: 0,0:00:23.28,0:00:24.64,S_id,,0,0,0,,Strategiku sukses lagi.
+Dialogue: 0,0:00:24.68,0:00:25.58,S_id,,0,0,0,,Bagus.
+Dialogue: 0,0:00:25.62,0:00:26.56,S_id,,0,0,0,,Selamat atas pencapaian besar, Tuan Li.
+Dialogue: 0,0:00:26.60,0:00:27.50,S_id,,0,0,0,,Ambil hadiahmu.
+Dialogue: 0,0:00:27.54,0:00:28.76,S_id,,0,0,0,,Terima kasih, Yang Mulia.
+Dialogue: 0,0:00:28.80,0:00:30.12,S_id,,0,0,0,,Apa yang terjadi?
+Dialogue: 0,0:00:30.16,0:00:31.28,S_id,,0,0,0,,Tuan Li mendaki dengan tangan kosong,
+Dialogue: 0,0:00:31.32,0:00:32.28,S_id,,0,0,0,,memecahkan punggung bukit,
+Dialogue: 0,0:00:32.32,0:00:33.56,S_id,,0,0,0,,mencabut gunung tiga puluh meter,
+Dialogue: 0,0:00:33.60,0:00:36.78,S_id,,0,0,0,,dan menghancurkan musuh beserta armornya.
+Dialogue: 0,0:00:36.82,0:00:38.50,S_id,,0,0,0,,Itu disebut strategi berhasil?!
+Dialogue: 0,0:00:38.54,0:00:39.46,S_id,,0,0,0,,Saudara Li,
+Dialogue: 0,0:00:39.50,0:00:40.66,S_id,,0,0,0,,Benar-benar jenius.
+Dialogue: 0,0:00:40.70,0:00:41.98,S_id,,0,0,0,,Luar biasa!

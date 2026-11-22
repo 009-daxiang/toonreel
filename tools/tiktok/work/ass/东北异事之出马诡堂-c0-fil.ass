@@ -1,0 +1,47 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: H_fil,Helvetica Neue,46,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,40,40,58,1
+Style: S_fil,Helvetica Neue,33,&H00FFFFFF,&H000000FF,&H00000000,&H50000000,-1,0,0,0,100,100,0,0,3,2.5,0,2,30,30,251,1
+Style: C_fil,Helvetica Neue,31,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,30,30,440,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:46.40,H_fil,,0,0,0,,"Walang akong takot. May altar na ako. NEMESIS ako ng masamang multo."
+Dialogue: 1,0:00:00.00,0:00:46.40,C_fil,,0,0,0,,Panuorin LAHAT — LIBRE ▶ YT688.app
+Dialogue: 0,0:00:00.04,0:00:02.81,S_fil,,0,0,0,,Ano'ng ikakatakot ko?
+Dialogue: 0,0:00:02.85,0:00:03.81,S_fil,,0,0,0,,Naitatag ko na ang altar ko.
+Dialogue: 0,0:00:03.85,0:00:05.81,S_fil,,0,0,0,,Ako ang kalaban ng masasamang multo.
+Dialogue: 0,0:00:05.85,0:00:06.88,S_fil,,0,0,0,,Ikaw, sino ka?
+Dialogue: 0,0:00:06.92,0:00:09.00,S_fil,,0,0,0,,Kapal-palang pumasok ka nang ganyan?
+Dialogue: 0,0:00:09.04,0:00:14.14,S_fil,,0,0,0,,'Yan ang ghost immortal na sariwang recruit ng altar.
+Dialogue: 0,0:00:14.18,0:00:15.14,S_fil,,0,0,0,,Pumasa na siya sa assessment.
+Dialogue: 0,0:00:15.18,0:00:16.17,S_fil,,0,0,0,,Batang 'to,
+Dialogue: 0,0:00:16.21,0:00:18.17,S_fil,,0,0,0,,tumingin kang mabuti bago magsalita.
+Dialogue: 0,0:00:18.21,0:00:19.17,S_fil,,0,0,0,,Kaya pala nanghihina ako
+Dialogue: 0,0:00:19.21,0:00:21.59,S_fil,,0,0,0,,ay dahil sa kanya?
+Dialogue: 0,0:00:21.63,0:00:23.59,S_fil,,0,0,0,,Nakatira siya sa katawan mo.
+Dialogue: 0,0:00:23.63,0:00:24.59,S_fil,,0,0,0,,Hindi mo siya namalayan
+Dialogue: 0,0:00:24.63,0:00:26.59,S_fil,,0,0,0,,o ipinadala siya sa likod para mag-practice,
+Dialogue: 0,0:00:26.63,0:00:27.59,S_fil,,0,0,0,,kaya masama pakiramdam mo hanggang ngayon.
+Dialogue: 0,0:00:27.63,0:00:28.59,S_fil,,0,0,0,,Bakit 'di mo sinabi kanina pa?
+Dialogue: 0,0:00:28.63,0:00:29.59,S_fil,,0,0,0,,Kayo ang nag-recruit sa kanya.
+Dialogue: 0,0:00:29.63,0:00:30.59,S_fil,,0,0,0,,Pagkatapos i-vet siya,
+Dialogue: 0,0:00:30.63,0:00:31.59,S_fil,,0,0,0,,padalhin mo na siya sa likod —
+Dialogue: 0,0:00:31.63,0:00:32.59,S_fil,,0,0,0,,Ayan, tapos na, 'di ba?
+Dialogue: 0,0:00:32.63,0:00:33.59,S_fil,,0,0,0,,Kalokohan 'yan.
+Dialogue: 0,0:00:33.63,0:00:35.59,S_fil,,0,0,0,,May rules ang altar.
+Dialogue: 0,0:00:35.63,0:00:36.59,S_fil,,0,0,0,,Kapag may pumasok na spirit,
+Dialogue: 0,0:00:36.63,0:00:37.59,S_fil,,0,0,0,,dapat alam ng medium.
+Dialogue: 0,0:00:37.63,0:00:38.59,S_fil,,0,0,0,,at dapat tanungin nang malinaw.
+Dialogue: 0,0:00:38.63,0:00:39.59,S_fil,,0,0,0,,Kung hindi, kahit pusa o aso
+Dialogue: 0,0:00:39.63,0:00:41.59,S_fil,,0,0,0,,puwede nang mag-practice dito?
+Dialogue: 0,0:00:41.63,0:00:44.42,S_fil,,0,0,0,,Pwedeng malaman ang pangalan mo, ghost immortal?
+Dialogue: 0,0:00:44.46,0:00:45.42,S_fil,,0,0,0,,Saan ka nagmula?
+Dialogue: 0,0:00:45.46,0:00:46.40,S_fil,,0,0,0,,Anong kapangyarihan ang meron ka?
