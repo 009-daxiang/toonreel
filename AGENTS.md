@@ -1,6 +1,8 @@
 # 项目约定
 
-- 当前线上部署为 GitHub Pages，自定义域名由 `CNAME` 指定为 `yt688.app`。保持纯静态 HTML/CSS/JavaScript 可用，无构建步骤，不依赖运行中的后端。
+- **线上部署（2026-11-22 起）**：整站自托管于 RackNerd VPS（`107.173.35.78`，圣何塞，年付到期 2027-11，SSH 仅密钥登录，本机密钥 `~/.ssh/id_ed25519`）。部署方式：`rsync -av -e "ssh -o BatchMode=yes" <文件> root@107.173.35.78:/var/www/yt688/`（注意 openrsync 对目录+多源有兼容问题，目录用 tar over ssh 或逐文件 rsync）。nginx 配置在 `/etc/nginx/sites-available/yt688`：主域名走 Cloudflare 橙云代理（SSL 模式「完全」），视频走 `video.yt688.app`（灰云直连，仅服务 `/uploads/`，根目录为 `/var/www/yt688`）。证书 certbot 自动续期。GitHub 仓库（009-daxiang/toonreel）仅作备份镜像，不再服务流量；同步镜像需 GitHub 令牌（Contents 读写）。
+- 网站视频与剧集新增流程：视频传 `/var/www/yt688/uploads/<剧名文件夹>/`，剧集元数据从片源自带的 `简介.txt` + `cover.jpg` 解析，`data/catalog.json` 的 `videos` 数组用绝对地址 `https://video.yt688.app/uploads/<剧名>/<文件>.mp4`，海报用相对地址；改完 `catalog.json`/`sw.js` 后 rsync 上服务器并同步 GitHub 镜像。
+- 历史背景：2026-11-21 之前站点在 GitHub Pages（自定义域名由 `CNAME` 指定为 `yt688.app`）；`CNAME` 文件保留在仓库根目录，回滚时把 Cloudflare 的 @/www 解析改回 `185.199.108.153` 等四条 GitHub Pages IP 即可。保持纯静态 HTML/CSS/JavaScript 可用，无构建步骤，不依赖运行中的后端。
 - `server.js` 和 `server.py` 是可选后端，GitHub Pages 不会执行它们。新增功能不得默认要求线上存在 `/api/*`。
 - 剧目数据位于 `data/catalog.json`，视频和封面路径由现有数据定义。当前本地检出排除了 MP4；不要将本地缺少视频误判为线上文件缺失，也不要未经要求下载全部视频。
 - 修改缓存中的脚本或样式时更新 `sw.js` 的缓存版本；新增页面依赖时同步维护 `SHELL`。预缓存资源必须存在，不缓存视频或后端 API 响应。

@@ -34,7 +34,7 @@ const AD_CONFIG = {
   preroll: {
     enabled: true,
     skipAfter: 5,                       /* seconds before Skip appears */
-    vastTagUrl: ''                      /* ← paste VAST tag URL here to go live */
+    vastTagUrl: 'https://funny-tooth.com/dLmlFnznd.GbN/v/ZoGuUA/SeQmS9NuDZvUol-klPxTsc-2uN/DykfzbMFTAchtANSzFYD0oOvTGM/yrM-Ql' /* HilltopAds VAST 3.0 — live */
   },
 
   banners: {
@@ -55,6 +55,7 @@ const AD_CONFIG = {
    ============================================================ */
 (function () {
   if (!SMARTLINK) return;
+  if (AD_CONFIG.preroll.vastTagUrl) return; /* VAST 片头已上线 → 弹窗退役 */
   const KEY = 'toonreel:lastad';
   document.addEventListener('click', (e) => {
     const target = e.target.closest(
@@ -72,11 +73,16 @@ const AD_CONFIG = {
    PREROLL
    ============================================================ */
 
+/* 频率控制：全局计数（跨剧累计），每看满 20 集播放一次片头广告 */
+const PREROLL_EVERY = 20;
 function showPreroll(onDone) {
   const cfg = AD_CONFIG.preroll;
+  const plays = parseInt(localStorage.getItem('toonreel:epplays') || '0', 10) + 1;
+  localStorage.setItem('toonreel:epplays', String(plays));
+  const isAdBreak = plays % PREROLL_EVERY === 0;
   if (!cfg.enabled) { onDone(); return; }
-  if (cfg.vastTagUrl) { vastPreroll(onDone); return; }
-  if (AD_CONFIG.provider === 'demo') { demoPreroll(onDone); return; }
+  if (cfg.vastTagUrl && isAdBreak) { vastPreroll(onDone); return; }
+  if (AD_CONFIG.provider === 'demo' && isAdBreak) { demoPreroll(onDone); return; }
   onDone();
 }
 
