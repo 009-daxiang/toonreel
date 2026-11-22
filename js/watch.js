@@ -121,7 +121,7 @@ function loadEp(autoplay) {
   document.getElementById('hudEpNum').textContent = hudText();
   renderEpisodes();
   highlightNavBtns();
-  showPreroll(() => {
+  episodeGate(show.id, currentEp, () => {
     if (version !== loadVersion) return;
     video.poster = posterFor(show);
     video.src = videoUrlFor(show, currentEp);

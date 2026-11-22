@@ -47,43 +47,65 @@ const AD_CONFIG = {
   }
 };
 
-/* ============================================================
-   SMARTLINK TRIGGER (live)
-   Opens the Smartlink in a new tab on the visitor's first
-   "intent" click — watch buttons, download button, episode
-   tiles — capped at once per 24h so binge-watching stays clean.
-   ============================================================ */
-(function () {
-  if (!SMARTLINK) return;
-  if (AD_CONFIG.preroll.vastTagUrl) return; /* VAST 片头已上线 → 弹窗退役 */
-  const KEY = 'toonreel:lastad';
-  document.addEventListener('click', (e) => {
-    const target = e.target.closest(
-      'a[href*="watch.html"], a[href*="download.html"], .ep-item, .getapp-btn, .lp-cta a');
-    if (!target) return;
-    const last = parseInt(localStorage.getItem(KEY) || '0', 10);
-    if (Date.now() - last < SMARTLINK_FREQ) return;
-    localStorage.setItem(KEY, String(Date.now()));
-    const w = window.open(SMARTLINK, '_blank');
-    if (!w || w.closed) location.href = SMARTLINK; /* popup blocked → same-tab fallback */
-  }, true);
-})();
+/* SMARTLINK popup: retired — rewarded VAST unlock is the live ad format */
 
 /* ============================================================
    PREROLL
    ============================================================ */
 
-/* 频率控制：全局计数（跨剧累计），每看满 20 集播放一次片头广告 */
-const PREROLL_EVERY = 15;
-function showPreroll(onDone) {
-  const cfg = AD_CONFIG.preroll;
-  const plays = parseInt(localStorage.getItem('toonreel:epplays') || '0', 10) + 1;
-  localStorage.setItem('toonreel:epplays', String(plays));
-  const isAdBreak = plays % PREROLL_EVERY === 0;
-  if (!cfg.enabled) { onDone(); return; }
-  if (cfg.vastTagUrl && isAdBreak) { vastPreroll(onDone); return; }
-  if (AD_CONFIG.provider === 'demo' && isAdBreak) { demoPreroll(onDone); return; }
-  onDone();
+/* ---------- EPISODE UNLOCK: EP1-5 free; rewarded unlock batches of 10 ---------- */
+const UNLOCK_FREE_EPS = 5;
+const UNLOCK_BATCH = 10;
+const FIRST_UNLOCK_KEY = 'toonreel:first_unlock';
+const unlockKey = (id) => `toonreel:unlocked:${id}`;
+function unlockedThrough(showId) {
+  return parseInt(localStorage.getItem(unlockKey(showId)) || String(UNLOCK_FREE_EPS), 10);
+}
+function firstUnlockUsed() {
+  return localStorage.getItem(FIRST_UNLOCK_KEY) === '1';
+}
+function markFirstUnlock() {
+  localStorage.setItem(FIRST_UNLOCK_KEY, '1');
+}
+function grantUnlock(showId, throughEp) {
+  localStorage.setItem(unlockKey(showId), String(Math.max(unlockedThrough(showId), throughEp)));
+}
+function episodeAccessible(showId, ep) {
+  return ep <= UNLOCK_FREE_EPS || ep <= unlockedThrough(showId);
+}
+/* Gate: free/unlocked -> onPlay(); locked -> unlock card (first unlock ad-free) */
+function episodeGate(showId, ep, onPlay) {
+  if (episodeAccessible(showId, ep)) { onPlay(); return; }
+  const player = document.getElementById('player');
+  if (!player) { grantUnlock(showId, ep + UNLOCK_BATCH - 1); onPlay(); return; }
+  /* 清理上一集遗留的播放器 UI：暂停视频、隐藏点播层，避免遮挡解锁卡片 */
+  try { document.getElementById('video').pause(); } catch {}
+  if (typeof hideTapToPlay === 'function') hideTapToPlay();
+  const from = unlockedThrough(showId) + 1;
+  const to = ep + UNLOCK_BATCH - 1;
+  const firstFree = !firstUnlockUsed();
+  const layer = document.createElement('div');
+  layer.className = 'ad-layer ad-unlock';
+  layer.innerHTML = `
+    <div style="max-width:430px;margin:0 auto;text-align:center;background:#14142a;border:1px solid rgba(139,92,246,.35);border-radius:18px;padding:30px 24px;color:#e8e8f4;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif">
+      <div style="font-size:11px;letter-spacing:2px;color:#8b5cf6;text-transform:uppercase">Free preview used</div>
+      <h3 style="margin:10px 0 8px;font-size:20px">EP ${ep} is locked</h3>
+      <p style="margin:0 0 18px;font-size:14px;line-height:1.6;color:#b9b9cf">EP1&ndash;5 are always free. Unlock the next 10 episodes with a short ad &mdash; no sign-up needed.</p>
+      <button id="adUnlockBtn" style="width:100%;padding:14px 16px;border:none;border-radius:12px;background:linear-gradient(90deg,#8b5cf6,#e50914);color:#fff;font-size:16px;font-weight:700;cursor:pointer">${firstFree ? '&#9654; Unlock now &mdash; free' : '&#9654; Watch a short ad to unlock'}</button>
+      <p style="margin:14px 0 0;font-size:12px;color:#8a8aa3">Unlocks EP ${from}&ndash;${to} &middot; No sign-up &middot; EP1&ndash;5 always free</p>
+    </div>`;
+  player.appendChild(layer);
+  layer.querySelector('#adUnlockBtn').addEventListener('click', () => {
+    const proceed = () => {
+      grantUnlock(showId, to);
+      markFirstUnlock();
+      layer.remove();
+      onPlay();
+    };
+    if (firstFree) { markFirstUnlock(); proceed(); return; }
+    if (!AD_CONFIG.preroll.vastTagUrl) { proceed(); return; }
+    vastPreroll(proceed);
+  });
 }
 
 /* Lightweight VAST client: fetch tag → resolve Wrapper (1 hop) →
