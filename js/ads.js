@@ -74,7 +74,7 @@ const AD_CONFIG = {
    ============================================================ */
 
 /* 频率控制：全局计数（跨剧累计），每看满 20 集播放一次片头广告 */
-const PREROLL_EVERY = 20;
+const PREROLL_EVERY = 15;
 function showPreroll(onDone) {
   const cfg = AD_CONFIG.preroll;
   const plays = parseInt(localStorage.getItem('toonreel:epplays') || '0', 10) + 1;
