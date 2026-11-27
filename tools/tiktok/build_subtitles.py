@@ -59,14 +59,15 @@ def gt(text, tl):
     return gt_once(text, tl)
 
 def translate_lines(lines, tl, key):
-    """Translate zh lines -> target lang, cached, batched by newline."""
+    """Translate zh lines -> target lang, cached, batched by newline.
+    Raises on incomplete translation so callers skip writing half-translated VTTs."""
     if key in _cache and len(_cache[key]) == len(lines):
         return _cache[key]
     out = [None] * len(lines)
     for base in range(0, len(lines), BATCH):
         chunk = lines[base:base + BATCH]
         ck = key + f'#{base}'
-        if ck in _cache and len(_cache[ck]) == len(chunk):
+        if ck in _cache and len(_cache[ck]) == len(chunk) and not any(p == '' for p in _cache[ck]):
             out[base:base + BATCH] = _cache[ck]
             continue
         joined = '\n'.join(chunk)
@@ -84,6 +85,8 @@ def translate_lines(lines, tl, key):
                     parts.append(gt(l, tl).strip())
                 except Exception:
                     parts.append('')
+        if any(p == '' for p in parts):
+            raise RuntimeError(f'translate incomplete {key}#{base}')
         out[base:base + BATCH] = parts
         _cache[ck] = parts
         json.dump(_cache, open(CACHE_PATH, 'w'), ensure_ascii=False)
@@ -143,11 +146,19 @@ def main():
     # local transcript folders keep original Chinese names even after a show
     # is rebranded for the international site (e.g. u06 -> I Have a SYSTEM)
     id_by_title.update({'摊牌了我真的有系统': 'u06'})
+    # zh folder names live on in poster paths (/uploads/<zh>/cover.jpg)
+    for s in cat['shows']:
+        m = re.match(r'/uploads/([^/]+)/', s.get('poster', ''))
+        if m:
+            id_by_title.setdefault(m.group(1), s['id'])
     force = '--force' in sys.argv
     only_lang = None
+    only_shows = None
     for a in sys.argv[1:]:
         if a.startswith('--lang='):
             only_lang = a.split('=')[1]
+        elif a.startswith('--only='):
+            only_shows = set(a.split('=')[1].split(','))
     langs = [only_lang] if only_lang else LANGS
 
     dramas = sorted(os.listdir(TRANS))
@@ -157,6 +168,8 @@ def main():
         if not os.path.isdir(ddir) or drama not in id_by_title:
             continue
         sid = id_by_title[drama]
+        if only_shows and sid not in only_shows:
+            continue
         os.makedirs(os.path.join(OUT, sid), exist_ok=True)
         for f in sorted(os.listdir(ddir)):
             if not re.match(r'ep\d{4}\.json$', f):
@@ -173,7 +186,11 @@ def main():
                 if os.path.exists(out_path) and not force:
                     continue
                 zh_lines = [c['text'] for c in cues]
-                trs = translate_lines(zh_lines, lang, f'{sid}|ep{ep}|{lang}')
+                try:
+                    trs = translate_lines(zh_lines, lang, f'{sid}|ep{ep}|{lang}')
+                except Exception as e:
+                    print(f'{sid} ep{ep} {lang}: FAIL ({e}) — vtt left for rerun', flush=True)
+                    continue
                 body = ['WEBVTT', '']
                 for i, (c, tr) in enumerate(zip(cues, trs), 1):
                     body.append(f'{i}')

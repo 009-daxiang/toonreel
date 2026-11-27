@@ -183,7 +183,11 @@ const ccBtn = document.getElementById('ccBtn');
 const subToast = document.getElementById('subToast');
 let availSubs = [];   /* subtitle languages that exist for the current show */
 let subChoice = 'off';
-try { subChoice = localStorage.getItem('yt_sub_lang') || 'off'; } catch (e) { /* private mode */ }
+let subSaved = false;   /* true once the viewer explicitly picked a CC option */
+try {
+  const saved = localStorage.getItem('yt_sub_lang');
+  if (saved) { subChoice = saved; subSaved = true; }
+} catch (e) { /* private mode */ }
 
 function subUrl(lang) { return `subtitles/${show.id}/ep${currentEp}.${lang}.vtt`; }
 
@@ -198,6 +202,11 @@ async function probeSubs() {
   availSubs = SUB_LANGS.filter(l => found.includes(l));
   if (subChoice !== 'off' && !availSubs.includes(subChoice)) {
     subChoice = availSubs.length ? 'en' : 'off';
+  }
+  if (!subSaved && availSubs.length) {
+    /* first visit: subtitles default ON so dialogue translation is visible */
+    subChoice = availSubs.includes('en') ? 'en' : availSubs[0];
+    applySubtitles();
   }
   updateCcBtn();
 }
