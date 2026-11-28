@@ -1,0 +1,63 @@
+u02 ep1: 46 cues done
+u02 ep2: 28 cues done
+u02 ep3: 36 cues done
+u02 ep4: 42 cues done
+u02 ep5: 32 cues done
+u02 ep6: 20 cues done
+u02 ep7: 27 cues done
+u02 ep8: 34 cues done
+u02 ep9: 46 cues done
+u02 ep10: 34 cues done
+u02 ep11: 20 cues done
+u02 ep12: 36 cues done
+u02 ep13: 35 cues done
+u02 ep14: 32 cues done
+u02 ep15: 17 cues done
+u02 ep16: 37 cues done
+u02 ep17: 28 cues done
+u02 ep18: 32 cues done
+u02 ep19: 38 cues done
+u02 ep20: 27 cues done
+u02 ep21: 33 cues done
+u02 ep22: 22 cues done
+u02 ep23: 31 cues done
+u02 ep24: 35 cues done
+u02 ep25: 32 cues done
+u02 ep26: 33 cues done
+u02 ep27: 29 cues done
+    retry per-line after error: IncompleteRead(1169 bytes read)
+u02 ep28: 37 cues done
+u02 ep29: 38 cues done
+u02 ep30: 33 cues done
+u02 ep31: 39 cues done
+u02 ep32: 28 cues done
+    retry per-line after error: IncompleteRead(1322 bytes read)
+u02 ep33 en: FAIL (translate incomplete u02|ep33|en#6) — vtt left for rerun
+u02 ep33: 25 cues done
+    retry per-line after error: IncompleteRead(1185 bytes read)
+    retry per-line after error: IncompleteRead(1206 bytes read)
+u02 ep34 en: FAIL (translate incomplete u02|ep34|en#18) — vtt left for rerun
+u02 ep34: 34 cues done
+u02 ep35: 29 cues done
+u02 ep36: 36 cues done
+u02 ep37: 33 cues done
+    retry per-line after error: IncompleteRead(947 bytes read)
+u02 ep38: 32 cues done
+u02 ep39: 21 cues done
+u02 ep40: 34 cues done
+u02 ep41: 31 cues done
+u02 ep42: 36 cues done
+u02 ep43: 27 cues done
+u02 ep44: 32 cues done
+u02 ep45: 27 cues done
+u02 ep46: 42 cues done
+u02 ep47: 33 cues done
+    retry per-line after error: IncompleteRead(1054 bytes read)
+u02 ep48 en: FAIL (translate incomplete u02|ep48|en#24) — vtt left for rerun
+u02 ep48: 41 cues done
+    retry per-line after error: <urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>
+u02 ep49 en: FAIL (translate incomplete u02|ep49|en#12) — vtt left for rerun
+u02 ep49: 34 cues done
+    retry per-line after error: IncompleteRead(1146 bytes read)
+u02 ep50 en: FAIL (translate incomplete u02|ep50|en#12) — vtt left for rerun
+u02 ep50: 32 cues done

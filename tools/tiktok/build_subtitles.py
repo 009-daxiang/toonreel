@@ -16,10 +16,10 @@ import urllib.request
 ROOT = '/Users/daxiang/.zcode/workspace/default/toonreel'
 TRANS = f'{ROOT}/tools/tiktok/transcripts'
 OUT = f'{ROOT}/subtitles'
-CACHE_PATH = f'{ROOT}/tools/tiktok/sub_cache.json'
+CACHE_PATH = os.environ.get('SUB_CACHE', f'{ROOT}/tools/tiktok/sub_cache.json')
 LANGS = ['en', 'th', 'vi', 'id', 'ms', 'fil']
-BATCH = 6
-SLEEP = 0.12
+BATCH = int(os.environ.get('SUB_BATCH', '15'))
+SLEEP = float(os.environ.get('SUB_SLEEP', '0.4'))
 MIN_CUE = 0.9
 BAD_PAT = re.compile(r'^(字幕|订阅|点赞|关注|谢谢观看|请不|Thanks for|Subscribe|请订阅|\[音乐\]|\(音乐\))')
 
